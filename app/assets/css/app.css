@@ -1,0 +1,353 @@
+@import "./includes/solarized_light.css";
+
+@import "./includes/base.css";
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #98815f url(../img/bg.jpg) repeat fixed 50% 0;
+  color: #232323;
+}
+body {
+  height: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #98815f url(../img/bg.jpg) repeat fixed 50% 0;
+  color: #232323;
+  font-family: Helvetica, Arial, Verdana, sans-serif;
+  text-shadow: #fff 1px 1px 1px;
+
+  line-height: 1.35;
+}
+
+pre code {
+  padding: 0.9em;
+  border: 1px solid #dedede;
+  border-radius: 6px;
+  display: block;
+  background-color: #f4f4f4;
+}
+.wrapper {
+  position: relative;
+  min-height: 100%;
+  display: -moz-flexbox;
+  flex-direction: tb;
+  display: flexbox;
+  max-width: 980px;
+  margin: 0 auto;
+  background-color: #f3f3f3;
+  border: 1px solid #fff;
+  border-width: 0 1px;
+  box-shadow: 0 7px 14px 5px #54391b;
+}
+* html .wrapper { height: 100%; }
+
+.w {
+  @mixin group;
+  padding: 20px;
+  color: #bbb;
+}
+
+header.w {
+  position: relative;
+  background-color: #54391b;
+  color: #f3f3f3;
+}
+
+header.w h1,
+header.w h2 {
+  font-family: 'LatinModernSans10Regular', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  text-shadow: #000 2px 2px 0;
+}
+
+
+header.w .tagline {
+  position: absolute;
+  right: 20px;
+  top: 40%;
+  text-shadow: none;
+}
+header.w a {
+  text-decoration: none;
+  color: #fff;
+}
+header.w a:hover {
+  color: #382612;
+  text-shadow: #fff 1px 1px 0;
+}
+h1, h2 {
+  margin: 0;
+}
+h3, h4 {
+  margin: .75em 0;
+}
+div.title {
+  font-size: 1.2em;
+  font-style: italic;
+}
+div.w {
+  position: relative;
+  background-color: #f3f3f3;
+  padding-bottom: 100px;
+}
+
+footer.w {
+  background-color: #54391b;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  padding: 10px 0 20px 0;
+  box-shadow: -2px 3px 10px #54391b;
+}
+footer.w nav {
+  background-color: #f3f3f3;
+  padding: 6px 20px 0 0;
+  margin-top: -10px;
+}
+footer.w a {
+  margin-left: 20px;
+}
+
+/* links and buttons */
+a {
+  text-decoration: none;
+  color: #00a3cb;
+}
+a:hover {
+  text-shadow: rgba(0,0,0, 0.4) 0 0 10px;
+}
+
+/*a.post-title {
+  text-transform: lowercase;
+  &:hover {
+    text-transform: capitalize;
+  }
+}
+*/
+.btn,
+button,
+.wrapper button.dsq-button
+ {
+  cursor: pointer;
+  color: #fff;
+  background-color: #00a3cb;
+  border: 1px solid #016881;
+  padding: .25em .5em;
+  background-image: linear-gradient(-90deg, #00a3cb , #016881 );
+  border-radius: 1em;
+  box-shadow: 1px 1px 1px #016881;
+  text-shadow: #000 1px 1px 0;
+}
+
+.btn:focus,
+button:focus,
+.wrapper button.dsq-button:focus,
+.btn:hover,
+button:hover,
+.wrapper button.dsq-button:hover {
+  box-shadow: 1px 1px 1px #016881, inset 0 0 12px #013d4c;
+}
+.btn:active,
+button:active,
+.wrapper button.dsq-button:active {
+  box-shadow: 1px 1px 1px #016881;
+  background-image: linear-gradient(-90deg, #016881 , #00a3cb );
+}
+.wrapper {
+  #dsq-content .dsq-moderator .dsq-comment-header,
+  #dsq-content .dsq-comment-header {
+    background: transparent none;
+    border-width: 1px 0 0 0;
+  }
+
+  button.dsq-button {
+    font-weight: normal;
+    span {
+      background-color: transparent;
+    }
+  }
+  .dsq-tooltip-outer,
+  .dsq-tooltip-small,
+  #dsq-global-toolbar {
+    text-shadow: none;
+    * {
+      text-shadow: none;
+    }
+  }
+
+  .dsq-comment-buttons {
+    padding-right: 2px;
+    button {
+      text-shadow: none;
+      &:focus,
+      &:hover {
+        background: #f3f3f3;
+      }
+      &:active {
+        background-image: linear-gradient(-90deg, #d3d3d3 , #f3f3f3 );
+      }
+    }
+    button,
+    button:focus,
+    button:hover,
+    button:active {
+      box-shadow: none;
+    }
+  }
+}
+
+
+.actions {
+  padding-top: .5em;
+}
+
+/** =articles
+//************************************************************/
+
+section.content,
+section.post,
+section.page {
+  width: 80%;
+  float: left;
+  color: #444;
+  header {
+    margin-bottom: 20px;
+  }
+  footer {
+    margin: 1em 0;
+  }
+}
+
+article,
+.content {
+  text-shadow: #fff 1px 1px;
+}
+article {
+  footer {
+    @mixin group;
+  }
+}
+.highlight {
+  margin-bottom: 1em;
+}
+section.comments {
+  border-top: 1px solid var(--default-border-color);
+  padding-top: .5em;
+}
+aside {
+  width: 16%;
+  top: 37px;
+  float: right;
+  margin-left: 2px;
+  display: inline;
+  ul,
+  li {
+    margin-left: 0;
+    padding-left: 0;
+    list-style-type: none;
+  }
+  ul {
+    margin-top: .5em;
+  }
+  li {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--default-border-color);
+  }
+  h3 {
+    margin-bottom: 3px;
+  }
+}
+
+blockquote {
+  margin-top: 0;
+  padding-top: 1em;
+  padding-left: .5em;
+  color: #777;
+  strong {
+    color: #606060;
+  }
+  &:before {
+    font-family: Georgia, serif;
+    color: #ccc;
+    float: left;
+    font-size: 3.2em;
+    content: "“";
+    margin-left: -.5em;
+  }
+}
+
+.right,
+.next {
+  float: right;
+}
+.left,
+.prev {
+  float: left;
+}
+
+/** =forms
+//**********************************************************/
+.rss form {
+  margin-top: 1em;
+}
+html.placeholder .placeholder label {
+  display: none;
+}
+
+/** =media queries
+//**********************************************************/
+@media only screen and (min-device-width : 320px) and (max-device-width : 1040px) {
+  body {
+    font-size: 1.3em;
+  }
+
+}
+@media only screen and (min-width : 320px) and (max-width : 780px) {
+  section.post,
+  section.page,
+  section.content,
+  article,
+  aside {
+    clear: both;
+    float: none;
+
+    width: 98%;
+  }
+  aside {
+    clear: both;
+    position: static;
+  }
+  footer.w {
+    font-size: 1.3em;
+  }
+  button,
+  input {
+    font-size: 1.3em;
+  }
+  button,
+  .btn {
+    background-image: none;
+    padding: .75em;
+  }
+  .wrapper,
+  footer.w,
+  .btn,
+  button {
+    box-shadow: none;
+  }
+}
+

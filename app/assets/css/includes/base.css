@@ -1,0 +1,96 @@
+:root {
+  --default-border-color: #ccc;
+}
+
+
+@define-mixin group {
+  &:before,
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    overflow: hidden;
+  }
+  &:after {
+    clear: both;
+  }
+  zoom: 1;
+}
+
+abbr {
+  border-bottom: 1px dotted #aaa;
+  text-decoration: none;
+  cursor: help;
+}
+
+@font-face {
+    font-family: 'LatinModernSans10Regular';
+    src: url('/assets/fonts/lmsans10-regular-webfont.eot');
+    src: url('/assets/fonts/lmsans10-regular-webfont.eot?iefix') format('eot'),
+         url('/assets/fonts/lmsans10-regular-webfont.woff') format('woff'),
+         url('/assets/fonts/lmsans10-regular-webfont.ttf') format('truetype'),
+         url('/assets/fonts/lmsans10-regular-webfont.svg#webfontlwQOyj3Z') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LatinModernSans10Oblique';
+    src: url('/assets/fonts/lmsans10-oblique-webfont.eot');
+    src: url('/assets/fonts/lmsans10-oblique-webfont.eot?iefix') format('eot'),
+         url('/assets/fonts/lmsans10-oblique-webfont.woff') format('woff'),
+         url('/assets/fonts/lmsans10-oblique-webfont.ttf') format('truetype'),
+         url('/assets/fonts/lmsans10-oblique-webfont.svg#webfontd3SH5oG9') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LatinModernSans10Bold';
+    src: url('/assets/fonts/lmsans10-bold-webfont.eot');
+    src: url('/assets/fonts/lmsans10-bold-webfont.eot?iefix') format('eot'),
+         url('/assets/fonts/lmsans10-bold-webfont.woff') format('woff'),
+         url('/assets/fonts/lmsans10-bold-webfont.ttf') format('truetype'),
+         url('/assets/fonts/lmsans10-bold-webfont.svg#webfontRB0Lc11t') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LatinModernSans10BoldOblique';
+    src: url('/assets/fonts/lmsans10-boldoblique-webfont.eot');
+    src: url('/assets/fonts/lmsans10-boldoblique-webfont.eot?iefix') format('eot'),
+         url('/assets/fonts/lmsans10-boldoblique-webfont.woff') format('woff'),
+         url('/assets/fonts/lmsans10-boldoblique-webfont.ttf') format('truetype'),
+         url('/assets/fonts/lmsans10-boldoblique-webfont.svg#webfont9WNQ7a3J') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LatinModernSansDemiCond10Regu';
+    src: url('/assets/fonts/lmsansdemicond10-regular-webfont.eot');
+    src: url('/assets/fonts/lmsansdemicond10-regular-webfont.eot?iefix') format('eot'),
+         url('/assets/fonts/lmsansdemicond10-regular-webfont.woff') format('woff'),
+         url('/assets/fonts/lmsansdemicond10-regular-webfont.ttf') format('truetype'),
+         url('/assets/fonts/lmsansdemicond10-regular-webfont.svg#webfontVPMqY46D') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LatinModernSansDemiCond10Obli';
+    src: url('/assets/fonts/lmsansdemicond10-oblique-webfont.eot');
+    src: url('/assets/fonts/lmsansdemicond10-oblique-webfont.eot?iefix') format('eot'),
+         url('/assets/fonts/lmsansdemicond10-oblique-webfont.woff') format('woff'),
+         url('/assets/fonts/lmsansdemicond10-oblique-webfont.ttf') format('truetype'),
+         url('/assets/fonts/lmsansdemicond10-oblique-webfont.svg#webfontNUEERLFt') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

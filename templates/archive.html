@@ -1,0 +1,23 @@
+{% extends "./default.html" %}
+{% block content %}
+<section class="post">
+<ul>
+{% for post in posts -%}
+
+  <li>
+    <article>
+
+      <h3>
+        <a href="/{{ post.path }}/"
+           class="post-title">
+           {{ post.title }}
+        </a>
+      </h3>
+
+    </article>
+  </li>
+
+{%- endfor %}
+</ul>
+</section>
+{% endblock %}

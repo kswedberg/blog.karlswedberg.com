@@ -1,0 +1,18 @@
+{% extends "./default.html" %}
+
+{% block content %}
+<div class="title">
+  {{description}}
+</div>
+{{ contents|safe }}
+<section class="page post">
+
+  <h3>Most Recently&hellip;</h3>
+  <article>
+    {% set post = collections.posts|first %}
+    <h2><a class="post-title" href="/{{ post.url }}/">{{ post.title }}</a></h2>
+    {{ post.body|safe }}
+  </article>
+
+</section>
+{% endblock %}

@@ -1,0 +1,17 @@
+{
+  "name": "metalsmith-atom-feed",
+  "version": "1.0.0",
+  "description": "Metalsmith plugin to generate an atom 1.0 feed",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "metalsmith",
+    "plugin",
+    "atom",
+    "feed"
+  ],
+  "author": "Karl Swedberg <kswedberg@gmail.com>",
+  "license": "MIT (http://kswedberg.mit-license.org/)"
+}
