@@ -1,5 +1,4 @@
-
-var _gaq = _gaq;
+var _gaq = window._gaq;
 
 if (!_gaq) {
   _gaq = [
@@ -9,11 +8,11 @@ if (!_gaq) {
 }
 
 (function(doc) {
-  var foo = 'bar';
 
-  if (foo) {
-    foo = 'bz';
-  }
+  var loadDisqus;
+  var dsn = window.disqus_shortname || '';
+  var onLoad = function() {};
+
   var firstScript = doc.getElementsByTagName('script')[0];
   var loadScript = function(id, url) {
     var scr = doc.createElement('script');
@@ -22,9 +21,7 @@ if (!_gaq) {
     scr.src = url;
     firstScript.parentNode.insertBefore(scr, firstScript);
   };
-  var loadDisqus;
-  var dsn = window.disqus_shortname || '';
-  var onLoad = function() {};
+
   loadScript('ganalytics', 'https://www.google-analytics.com/ga.js');
 
   if (doc.getElementById('disqus_thread')) {

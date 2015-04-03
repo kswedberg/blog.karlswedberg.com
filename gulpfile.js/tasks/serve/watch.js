@@ -18,7 +18,6 @@ gulp.task('serve:watch', /*'Watch for changes to files and build and/or reload',
   gulp.watch([
     'templates/**/*.html',
     path.join(config.get('metalsmith.source'), '**/*.{html,md}'),
-    // 'content/**/*.{html,md}',
     path.join(config.get('paths.src'), '.htaccess'),
     // path.join(config.get('paths.dest'), 'assets/json/**/*.json'),
   ], ['build:rev:restore-manifest', 'build:blog']);

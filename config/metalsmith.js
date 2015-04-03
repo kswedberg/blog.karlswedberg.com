@@ -1,5 +1,4 @@
 var defer = require('config/defer').deferConfig;
-
 var path = require('path');
 var cwd = process.cwd();
 
@@ -10,7 +9,7 @@ var cwd = process.cwd();
 
 module.exports = defer(function(config) {
   var destination = config.paths.dest;
-  var resources = require(path.join(destination, 'assets/json/rev-manifest.json'));
+
   var ms = {
     source: path.join(cwd, 'content'),
     destination: destination,
@@ -19,7 +18,9 @@ module.exports = defer(function(config) {
       description: 'Random quasi-technical stuff I want to remember',
       siteUrl: 'http://blog.karlswedberg.com/',
       license: 'http://creativecommons.org/licenses/by-sa/3.0/',
-      resources: resources,
+
+      // Can't do this here. :( Have to do it inside the gulp build:blog task
+      // resources: require(path.join(destination, 'assets/json/rev-manifest.json'));,
       author: {
         name: 'Karl Swedberg',
         link: 'http://karlswedberg.com/'
@@ -108,15 +109,6 @@ module.exports = defer(function(config) {
       }
     ]
   };
-
-  if (config.env === 'production') {
-    ms.plugins.push({
-      module: 'metalsmith-html-minifier',
-      options: {
-        removeRedundantAttributes: false
-      }
-    });
-  }
 
   ['title', 'url'].forEach(function(key) {
     if (!key) {

@@ -13,6 +13,7 @@
   "validthis": false,
   "predef": [ "-Promise" ],
   "globals": {
-    "define": false
+    "define": false,
+    "_gaq": true
   }
 }

@@ -7,7 +7,7 @@ var pkg = require(path.join(cwd, 'package.json'));
 bs.setEnv();
 
 var config = {
-  devMode: true,
+  devMode: bs.getEnv() !== 'production',
   pkg: pkg,
   bootstrap: bs,
   env: bs.getEnv(),

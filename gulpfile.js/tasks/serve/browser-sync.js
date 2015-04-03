@@ -3,14 +3,18 @@ var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var webpackMiddleware = require('webpack-dev-middleware');
 var webpack = require('webpack');
-var bsConfig = config.util.cloneDeep(config.get('browserSync'), 2);
 var webpackConfig = config.get('webpack');
 var yargs = require('yargs');
+
+// Have to use `config.util.cloneDeep` because the properties aren't writable
+var bsConfig = config.util.cloneDeep(config.get('browserSync'), 2);
 
 webpackConfig.devtool = 'eval';
 webpackConfig.debug = true;
 
 gulp.task('serve:browser-sync', 'Run browser-sync', function(cb) {
+
+  // Allow opening of browser window with --open or -o
   var argv = yargs.option('open', {
     alias: 'o',
     default: bsConfig.open

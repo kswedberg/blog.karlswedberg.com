@@ -30,7 +30,7 @@ body {
 }
 
 pre code {
-  padding: 0.9em;
+  padding: 1em;
   border: 1px solid #dedede;
   border-radius: 6px;
   display: block;

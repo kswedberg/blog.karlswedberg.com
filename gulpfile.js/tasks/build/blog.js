@@ -5,21 +5,31 @@ var path = require('path');
 
 gulp.task('build:blog', helpDesc, function(cb) {
 
-  var browserSync = require('browser-sync');
   var MetalSmith = require('metalsmith');
   var metalsmith = new MetalSmith(process.cwd());
   var branch = require('metalsmith-branch');
-  var opts = config.util.cloneDeep(config.get('metalsmith'));
-  var plugins = opts.plugins;
   var revFile = require(path.join(config.get('paths.dest'), 'assets/json/rev-manifest.json'));
 
-  if (browserSync.active) {
-    opts.metadata.resources = revFile;
-    console.log('browsersyunc dot active!');
-  }
-  console.log(revFile);
-  console.log(opts.metadata.resources);
+  // Have to use `config.util.cloneDeep` because the config properties aren't writable
+  var opts = config.util.cloneDeep(config.get('metalsmith'));
+  var plugins = opts.plugins;
 
+  opts.metadata.resources = revFile;
+
+  // Wish I didn't have to do this here.
+  if (config.env === 'production') {
+    plugins.push({
+      module: 'metalsmith-html-minifier',
+      options: {
+        removeRedundantAttributes: false
+      }
+    });
+  }
+
+  console.log(config.util.getConfigSources());
+  console.log('Building the blog with metalsmith in', config.get('env'), 'mode…');
+
+  // Run through the metalsmith pipeline...
   metalsmith
   .source(opts.source)
   .destination(opts.destination)
