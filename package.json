@@ -4,8 +4,7 @@
   "description": "nothing",
   "main": "build.js",
   "scripts": {
-    "build": "node build",
-    "css": "node config/postcss"
+    "build": "node build"
   },
   "author": "me",
   "license": "MIT",
@@ -35,6 +34,7 @@
     "gulp-postcss": "^4.0.3",
     "gulp-rename": "^1.2.0",
     "gulp-rev": "^3.0.1",
+    "gulp-shell": "^0.4.0",
     "gulp-util": "^3.0.4",
     "gulp-webpack": "^1.3.1",
     "gulpsmith": "^0.5.3",
