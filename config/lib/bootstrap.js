@@ -21,10 +21,16 @@ var Bootstrap = function Bootstrap() {
 module.exports = Bootstrap;
 
 Bootstrap.prototype.getEnv = function getEnv() {
-  var defaultEnv = _.result(_.findWhere(this.environments, {'default': true}), 'name');
+  var defaultEnv;
   var argv = yargs.option('env', {
     alias: 'e',
   }).argv;
+
+  if (argv._.indexOf('serve') !== -1) {
+    defaultEnv = 'development';
+  } else {
+    defaultEnv = _.result(_.findWhere(this.environments, {'default': true}), 'name');
+  }
 
   var env = process.env.NODE_ENV || argv.env || defaultEnv;
   env = this.normalizeEnv(env);
