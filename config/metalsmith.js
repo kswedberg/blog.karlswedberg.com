@@ -9,10 +9,11 @@ var cwd = process.cwd();
 
 module.exports = defer(function(config) {
   var destination = config.paths.dest;
-
+  var templateDirectory = 'templates';
   var ms = {
     source: path.join(cwd, 'content'),
     destination: destination,
+    templateDirectory: templateDirectory,
     metadata: {
       siteTitle: 'Good Blog, Karl',
       description: 'Random quasi-technical stuff I want to remember',
@@ -91,7 +92,7 @@ module.exports = defer(function(config) {
         module: 'metalsmith-templates',
         options: {
             engine: 'swig',
-            directory: 'templates',
+            directory: templateDirectory,
             default: 'post.html'
           }
       },

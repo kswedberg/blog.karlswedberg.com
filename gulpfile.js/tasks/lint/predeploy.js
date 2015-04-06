@@ -4,7 +4,7 @@ var fs = require('fs');
 var config = require('config');
 var cheerio = require('cheerio');
 
-gulp.task('lint:predeploy', function() {
+gulp.task('lint:predeploy', function(cb) {
   var revs = require(path.join(config.get('paths.dest'), 'assets/json/rev-manifest.json'));
   var homepage = fs.readFileSync(path.join(config.get('paths.dest'), 'index.html'), 'utf-8');
   var $ = cheerio.load(homepage);
@@ -19,5 +19,5 @@ gulp.task('lint:predeploy', function() {
   });
 
   console.log(revs);
-
+  cb();
 });

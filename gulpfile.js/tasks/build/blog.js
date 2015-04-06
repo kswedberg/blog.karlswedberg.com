@@ -1,7 +1,8 @@
+var path = require('path');
 var config = require('config');
 var gulp = require('gulp');
+
 var helpDesc = 'Build the metalsmith blog pages/posts, etc';
-var path = require('path');
 
 gulp.task('build:blog', helpDesc, function(cb) {
 
@@ -26,7 +27,6 @@ gulp.task('build:blog', helpDesc, function(cb) {
     });
   }
 
-  console.log(config.util.getConfigSources());
   console.log('Building the blog with metalsmith in', config.get('env'), 'mode…');
 
   // Run through the metalsmith pipeline...
