@@ -9,6 +9,7 @@
   "latedef": true,
   "maxparams": 4,
   "noarg": true,
+  "node": true,
   "undef": true,
   "validthis": false,
   "predef": [ "-Promise" ],
