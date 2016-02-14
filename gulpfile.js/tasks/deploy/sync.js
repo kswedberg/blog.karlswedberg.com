@@ -1,17 +1,27 @@
-var path = require('path');
 
 var gulp = require('gulp');
 var shell = require('gulp-shell');
 
-var file = path.join(process.cwd(), 'gitignore', 'deploy');
-var settings = require(file);
+var cmdParts = [
+  'rsync',
+  '-auz --progress public/',
+  process.env.RSYNC_LOCAL,
+  process.env.RSYNC_REMOTE
+];
 
-gulp.task('deploy:sync', [
+var cmd = cmdParts.join(' ');
+
+gulp.task('deploy:sync', gulp.series(
+  function(cb) {
+    process.env.BUILD_ENV = 'production';
+    cb();
+  },
   'build',
   'lint:predeploy',
-], function() {
-  return gulp.src('package.json', {read: false})
-    .pipe(shell('rsync <%= rsync %>', {
-      templateData: settings
-    }));
-});
+  function() {
+
+    // return gulp;
+    return gulp.src('package.json', {read: false})
+    .pipe(shell(cmd));
+  }
+));

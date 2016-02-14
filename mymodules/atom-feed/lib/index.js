@@ -23,6 +23,7 @@ module.exports = function(opts) {
   contentProp = opts.content.property;
 
   var feedKeys = {
+    id: ['url', 'slug'],
     title: ['title', 'siteTitle'],
     description: ['subtitle', 'description'],
     link: ['link', 'url'],
@@ -33,8 +34,10 @@ module.exports = function(opts) {
   var merge = function merge(src, obj) {
     var props;
     obj = obj || {};
+
     for (var key in feedKeys) {
       props = feedKeys[key];
+
       for (var i = 0, len = props.length; i < len; i++) {
         if (obj[props[i]] !== undefined) {
           src[key] = obj[props[i]];

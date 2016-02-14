@@ -1,4 +1,3 @@
-var defer = require('config/defer').deferConfig;
 var path = require('path');
 var cwd = process.cwd();
 
@@ -7,7 +6,7 @@ var cwd = process.cwd();
  * https://github.com/lorenwest/node-config/wiki/Configuration-Files#javascript-module---js
  */
 
-module.exports = defer(function(config) {
+module.exports = function(config) {
   var destination = config.paths.dest;
   var templateDirectory = 'templates';
   var ms = {
@@ -17,14 +16,14 @@ module.exports = defer(function(config) {
     metadata: {
       siteTitle: 'Good Blog, Karl',
       description: 'Random quasi-technical stuff I want to remember',
-      siteUrl: 'http://blog.karlswedberg.com/',
-      license: 'http://creativecommons.org/licenses/by-sa/3.0/',
+      siteUrl: 'https://blog.karlswedberg.com/',
+      license: 'https://creativecommons.org/licenses/by-sa/3.0/',
 
       // Can't do this here. :( Have to do it inside the gulp build:blog task
       // resources: require(path.join(destination, 'assets/json/rev-manifest.json'));,
       author: {
         name: 'Karl Swedberg',
-        link: 'http://karlswedberg.com/'
+        link: 'https://karlswedberg.com/'
       }
     },
 
@@ -39,11 +38,14 @@ module.exports = defer(function(config) {
         ]
       },
       {
+        module: path.join(cwd, './mymodules/data-tweaks/lib/index')
+      },
+      {
         module: 'metalsmith-collections',
         options: {
           posts: {
             pattern: '_posts/*.md',
-            sortBy: 'date(Ymd)',
+            sortBy: 'timestamp',
             reverse: true
           },
           pages: {
@@ -58,9 +60,7 @@ module.exports = defer(function(config) {
           smartypants: true
         }
       },
-      {
-        module: path.join(cwd, './mymodules/data-tweaks/lib/index')
-      },
+
       {
         module: 'metalsmith-tags',
         options: {
@@ -93,7 +93,8 @@ module.exports = defer(function(config) {
         options: {
             engine: 'swig',
             directory: templateDirectory,
-            default: 'post.html'
+            default: 'post.html',
+            cache: false
           }
       },
 
@@ -104,8 +105,17 @@ module.exports = defer(function(config) {
           collection: 'posts',
           content: {
             type: 'full',
-            property: 'body'
+            property: 'contents'
           }
+        }
+      }
+    ],
+    prodPlugins: [
+      {
+        module: 'metalsmith-html-minifier',
+        options: '*.html',
+        extra: {
+          removeRedundantAttributes: false
         }
       }
     ]
@@ -120,4 +130,4 @@ module.exports = defer(function(config) {
   });
 
   return ms;
-});
+};

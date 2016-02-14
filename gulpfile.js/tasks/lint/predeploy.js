@@ -1,12 +1,13 @@
 var gulp = require('gulp');
 var path = require('path');
 var fs = require('fs');
-var config = require('config');
+var config = require(path.join(process.cwd(), 'gulpfile.js/config'));
+
 var cheerio = require('cheerio');
 
 gulp.task('lint:predeploy', function(cb) {
-  var revs = require(path.join(config.get('paths.dest'), 'assets/json/rev-manifest.json'));
-  var homepage = fs.readFileSync(path.join(config.get('paths.dest'), 'index.html'), 'utf-8');
+  var revs = require(path.join(config.paths.destAssets, 'json/rev-manifest.json'));
+  var homepage = fs.readFileSync(path.join(config.paths.dest, 'index.html'), 'utf-8');
   var $ = cheerio.load(homepage);
 
   $('script[data-id]').each(function() {

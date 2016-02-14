@@ -85,7 +85,7 @@ KS.prototype = {
   var styleProps = {
     csstransitions: 'transitionProperty',
     boxflex: 'boxFlex',
-    csscolumns : 'columnCount'
+    csscolumns: 'columnCount'
   };
 
   ks.htmlClass('js', true).htmlClass(pl, pl in inp);

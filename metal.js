@@ -23,14 +23,7 @@ configFile = path.join(__dirname, commands.dir, commands.config);
 
 config = require(configFile);
 plugins = config.plugins;
-
-if (commands.postcss) {
-  console.log('Running postcss');
-  require('./config/postcss')();
-
-  return;
-}
-
+console.log(JSON.stringify(config, null, 2));
 var build = function() {
   config.metadata.url = config.metadata.siteUrl;
 
@@ -69,4 +62,9 @@ var build = function() {
   });
 };
 
-module.exports = build;
+if (commands.postcss) {
+  console.log('Running postcss');
+  require('./config/postcss')();
+} else {
+  module.exports = build;
+}

@@ -1,16 +1,8 @@
-var path = require('path');
-
 var gulp = require('gulp');
 var shell = require('gulp-shell');
-
-var file = path.join(process.cwd(), 'gitignore', 'deploy');
-var settings = require(file);
+var cmd = 'wget -O - -q -t 1 ' + process.env.PING_URL;
 
 gulp.task('deploy:ping', function() {
   return gulp.src('package.json', {read: false})
-  .pipe(shell([
-    'wget <%= ping %>'
-  ], {
-    templateData: settings
-  }));
+  .pipe(shell(cmd));
 });

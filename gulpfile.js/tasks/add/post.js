@@ -1,17 +1,13 @@
 var fs = require('fs');
 var path = require('path');
-var config = require('config');
-// var chalk = require('chalk');
-var gulp = require('gulp-help')(require('gulp', {
-  aliases: ['h']
-}));
+var config = require(path.join(process.cwd(), 'gulpfile.js/config'));
+var gulp = require('gulp');
 var yargs = require('yargs');
 var _ = require('lodash');
 
 var strings = require('./strings');
 
-var helpDesc = 'Add a date-stamped post file to ' + config.get('metalsmith.source');
-
+// Add a date-stamped post file
 var addPost = function addPost(cb) {
   var tpl = path.join(process.cwd(), config.metalsmith.templateDirectory, 'add-post.tpl');
   var template = fs.readFileSync(tpl);
@@ -20,12 +16,12 @@ var addPost = function addPost(cb) {
   var argv = yargs
   .demand('t')
   .option('t', {
-    alias : 'title',
+    alias: 'title',
     demand: true,
     describe: 'The title of the post',
   })
   .option('c', {
-    alias : 'cats',
+    alias: 'cats',
     describe: 'Space-separated categories associated with the post',
   })
   .argv;
@@ -56,7 +52,7 @@ var addPost = function addPost(cb) {
   fs.writeFile(filePath, contents, done);
 
 };
-gulp.task('add:post', helpDesc, addPost, {
+gulp.task('add:post', addPost, {
   options: {
     title: '-t : The title of the post',
     cats: '-c : Space-separated categories associated with the post'

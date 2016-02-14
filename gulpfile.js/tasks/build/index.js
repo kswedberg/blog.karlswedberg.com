@@ -1,16 +1,16 @@
-var gulp = require('gulp');
-var runSequence = require('run-sequence');
+require('../clean/');
 
-gulp.task('build', 'Build all the things into the dest directory', function(cb) {
-  runSequence(
-    'clean',
-    'build:webpack',
-    'build:postcss',
-    'build:img',
-    'build:misc',
-    'build:rev',
-    'build:blog',
-    'lint',
-    cb
-  );
-});
+require('require-dir')();
+var gulp = require('gulp');
+
+// 'Build all the things into the dest directory
+gulp.task('build', gulp.series(
+  'clean',
+  'build:js',
+  'build:css',
+  'build:img',
+  'build:misc',
+  'build:rev',
+  'build:blog',
+  'lint'
+));

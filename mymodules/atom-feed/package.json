@@ -3,15 +3,22 @@
   "version": "1.0.0",
   "description": "Metalsmith plugin to generate an atom 1.0 feed",
   "main": "lib/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "scripts": {},
+  "author": {
+    "name": "Karl Swedberg",
+    "email": "kswedberg@gmail.com",
+    "url": "https://karlswedberg.com/"
   },
+  "license": "MIT",
   "keywords": [
     "metalsmith",
     "plugin",
     "atom",
     "feed"
   ],
-  "author": "Karl Swedberg <kswedberg@gmail.com>",
-  "license": "MIT (http://kswedberg.mit-license.org/)"
+  "dependencies": {
+    "extend": "^3.0.0",
+    "feed": "^0.3.0"
+  },
+  "license": "MIT"
 }

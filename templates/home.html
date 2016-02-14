@@ -11,8 +11,10 @@
   <article>
     {% set post = collections.posts|first %}
     <h2><a class="post-title" href="/{{ post.url }}/">{{ post.title }}</a></h2>
-    {{ post.body|safe }}
-  </article>
 
+    {{post.contents.toString()}}
+
+  </article>
+  <a class="prev" rel="prev" href="/{{post.next.url}}/" title="{{ post.next.title }}" data-date="{{ post.next.date }}">&larr; Previous</a>
 </section>
 {% endblock %}

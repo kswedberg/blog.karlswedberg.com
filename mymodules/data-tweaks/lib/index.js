@@ -16,6 +16,10 @@ module.exports = function(opts) {
     Object.keys(files).forEach(function(file) {
       var data = files[file];
       var dataUrl = (data.url || data.title || '').toLowerCase();
+      var dataDate = new Date(data.date);
+
+      // Add timestamp for better sortBy
+      data.timestamp = dataDate.getTime();
 
       // URL adding
       if (dataUrl !== data.url) {
