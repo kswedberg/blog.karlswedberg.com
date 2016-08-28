@@ -97,7 +97,9 @@ module.exports = function(config) {
             cache: false
           }
       },
-
+      {
+        module: path.join(cwd, './mymodules/jsonfile/lib/index')
+      },
       {
         module: path.join(cwd, './mymodules/atom-feed/'),
         options: {
