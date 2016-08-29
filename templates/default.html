@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{% if title -%}{{ title }} -{% elseif tag -%}{{ tag }} -{%- endif %} {{ siteTitle }}</title>
+  <title>{% if tag -%}{{ tag }} -{% elseif title -%}{{ title }} -{%- endif %} {{ siteTitle }}</title>
   {% include './includes/header.html' %}
 </head>
 
@@ -31,5 +31,3 @@
   {% include './includes/footer.html' %}
 </body>
 </html>
-
-
