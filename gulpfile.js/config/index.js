@@ -2,13 +2,9 @@ var path     = require('path');
 var fs       = require('fs');
 var rootPath = process.cwd();
 var pkg      = require(path.join(rootPath, 'package.json'));
-var jshint   = JSON.parse(fs.readFileSync(path.join(rootPath, '.jshintrc')));
-var jscs     = JSON.parse(fs.readFileSync(path.join(rootPath, '.jscsrc')));
 
 var config = {
   pkg: pkg,
-  jscs: jscs,
-  jshint: jshint,
   staticTemplates: true,
   paths: {
     root: rootPath,

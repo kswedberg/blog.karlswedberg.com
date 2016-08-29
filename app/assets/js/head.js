@@ -52,6 +52,7 @@ KS.prototype = {
   htmlStyles: function(props) {
     var setClass;
     var div = document.createElement('div');
+
     this.prefixes = ['Webkit', 'Moz', 'O', 'ms', 'Khtml'];
     this.divStyle = div.style;
 

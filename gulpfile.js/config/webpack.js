@@ -12,8 +12,8 @@ module.exports = function(config) {
   var webpackConfig = {
     middlewarePublicPath: '/assets/js/',
     entry: {
-      'head': [path.join(config.paths.srcAssets, 'js/head.js')],
-      'tail': [path.join(config.paths.srcAssets, 'js/tail.js')]
+      head: [path.join(config.paths.srcAssets, 'js/head.js')],
+      tail: [path.join(config.paths.srcAssets, 'js/tail.js')]
     },
     output: {
       filename: '[name].js',
@@ -40,7 +40,6 @@ module.exports = function(config) {
             /app\/assets\//,
             /fmjs/,
           ],
-
           // https://babeljs.io/docs/usage/options/
         },
         {
@@ -67,19 +66,23 @@ module.exports = function(config) {
     webpackConfig.devtool = 'sourcemap';
     webpackConfig.debug = true;
   } else {
+    let dc = 'drop_console';
+    let compress = {
+      warnings: false
+    };
+
+    compress[dc] = true;
+
     webpackConfig.plugins = webpackConfig.plugins.concat(
       new webpack.DefinePlugin({
         'process.env': {
-          'NODE_ENV': JSON.stringify('production')
+          NODE_ENV: JSON.stringify('production')
         }
       }),
       new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          'drop_console': true,
-          warnings: false
-        }
+        compress: compress
       })
     );
   }

@@ -1,40 +1,25 @@
-var gulp = require('gulp');
-var path = require('path');
-var config = require(path.join(process.cwd(), 'gulpfile.js/config'));
-var jshint = require('gulp-jshint');
-var jscs = require('gulp-jscs');
-var merge = require('merge-stream');
-var fs = require('fs');
+var path    = require('path');
+var config  = require(path.join(process.cwd(), 'gulpfile.js/config'));
+var gulp    = require('gulp');
+var eslint      = require('gulp-eslint');
+var chalk       = require('chalk');
+
+var displayResults = function displayResults(results) {
+  if (!results.warningCount && !results.errorCount) {
+    var msg = 'All ' + results.length + ' files Linty Fresh!™';
+
+    return console.log(chalk.green(msg));
+  }
+};
 
 gulp.task('lint:js', function() {
-
-  var jshintConfig = JSON.parse(fs.readFileSync(path.join(config.paths.root, '.jshintrc')));
-
-  // Setting unused here because it's annoying to have on by default
-  jshintConfig.unused = true;
-  var jshintNodeConfig = jshintConfig;
-  jshintNodeConfig.node = true;
-
-  var jscsConfig = JSON.parse(fs.readFileSync(path.join(config.paths.root, '.jscsrc')));
-  var jscsNodeConfig = jscsConfig;
-  jscsNodeConfig.disallowTrailingComma = null;
-
-  var base = gulp.src([
-    path.join(config.paths.src, '**/*.js'),
-    path.join('!', config.paths.src, '**/lib/*.js'),
-    path.join(config.paths.root, '*.js'),
+  return gulp.src([
+    path.join(config.paths.srcAssets, 'js/**/*.js{,x}'),
+    path.join(config.paths.srcAssets, 'jsx/**/*.js{,x}'),
+    '!' + path.join(config.paths.srcAssets, 'js/vendor/**/*.js'),
+    '!' + path.join(config.paths.srcAssets, 'js/views/**/*.js'),
   ])
-    .pipe(jshint(jshintConfig))
-    .pipe(jshint.reporter('jshint-stylish'))
-    .pipe(jscs(jscsConfig));
-
-  var node = gulp.src([
-    path.join(config.paths.root, 'gulpfile.js/**/*.js'),
-    path.join(config.paths.root, 'config/**/*.js'),
-  ])
-    .pipe(jshint(jshintNodeConfig))
-    .pipe(jshint.reporter('jshint-stylish'))
-    .pipe(jscs(jscsNodeConfig));
-
-  return merge(base, node);
+  .pipe(eslint())
+  .pipe(eslint.formatEach())
+  .pipe(eslint.results(displayResults));
 });

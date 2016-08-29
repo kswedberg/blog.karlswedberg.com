@@ -91,11 +91,11 @@ module.exports = function(config) {
       {
         module: 'metalsmith-templates',
         options: {
-            engine: 'swig',
-            directory: templateDirectory,
-            default: 'post.html',
-            cache: false
-          }
+          engine: 'swig',
+          directory: templateDirectory,
+          'default': 'post.html',
+          cache: false
+        }
       },
 
       {
@@ -126,6 +126,7 @@ module.exports = function(config) {
       return;
     }
     var siteKey = 'site' + key.charAt(0).toUpperCase() + key.slice(1);
+
     ms.metadata[key] = ms.metadata[siteKey];
   });
 
