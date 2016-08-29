@@ -15,6 +15,7 @@
     <div class="w group">
       {% block content %}{% endblock %}
       <aside>
+        {% include './includes/search.html' %}
         {% include './includes/recent_posts.html' %}
         {% include './includes/topics.html' %}
         {% include './includes/rss.html' %}
