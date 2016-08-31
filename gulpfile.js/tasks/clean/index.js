@@ -31,3 +31,6 @@ gulp.task('clean:js', function() {
     path.join(config.paths.destAssets, 'js', '**/*')
   ]);
 });
+gulp.task('clean:predeploy', function() {
+  return del([path.join(config.paths.dest, '_pages')]);
+});

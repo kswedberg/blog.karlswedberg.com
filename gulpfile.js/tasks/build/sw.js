@@ -9,7 +9,7 @@ gulp.task('build:sw', function() {
   var options = {
     cacheId: config.pkg.name || 'kswedberg',
     staticFileGlobs: [
-      rootDir + '/assets/**/*.{js,html,css,png,jpg,gif,svg}',
+      rootDir + '/assets/**/*.{js,html,css,png,jpg,gif,svg,ttf,eot,woff}',
       rootDir + '/**/*.html'
     ],
     dontCacheBustUrlsMatching: /\w+\-\w+\.(css|js)$/,

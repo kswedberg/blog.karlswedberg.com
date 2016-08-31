@@ -19,6 +19,7 @@ gulp.task('lint:predeploy', function(cb) {
     }
   });
 
+  console.log('Revisions in pages match the ones in rev-manifest.json:');
   console.log(revs);
   cb();
 });
