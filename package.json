@@ -95,6 +95,7 @@
     "postcss-size": "^1.0.0",
     "postcss-strip-units": "^1.2.0",
     "require-dir": "^0.3.0",
+    "sw-precache": "^4.0.0",
     "swig": "^1.4.2",
     "webpack": "^1.12.1",
     "webpack-dev-middleware": "^1.2.0",

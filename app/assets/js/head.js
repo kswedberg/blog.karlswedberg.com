@@ -1,3 +1,5 @@
+import './sw-register';
+
 var KS = function(arg) {
   if (!(this instanceof KS)) {
     return new KS(arg);
