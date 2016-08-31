@@ -12,7 +12,7 @@ gulp.task('build:sw', function() {
       rootDir + '/assets/**/*.{js,html,css,png,jpg,gif,svg,ttf,eot,woff}',
       rootDir + '/**/*.html'
     ],
-    dontCacheBustUrlsMatching: /\w+\-\w+\.(css|js)$/,
+    dontCacheBustUrlsMatching: /((\w+\-\w+\.(css|js))|\.(svg|ttf|eot|woff))$/,
     handleFetch: process.env.BUILD_ENV === 'production',
     stripPrefix: rootDir,
     verbose: true,
