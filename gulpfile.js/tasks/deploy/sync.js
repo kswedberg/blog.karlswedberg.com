@@ -19,7 +19,6 @@ gulp.task('deploy:sync', gulp.series(
   'build',
   'lint:predeploy',
   function() {
-
     // return gulp;
     return gulp.src('package.json', {read: false})
     .pipe(shell(cmd));

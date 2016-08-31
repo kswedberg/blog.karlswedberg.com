@@ -3,7 +3,7 @@ require('../clean/');
 require('require-dir')();
 var gulp = require('gulp');
 
-// 'Build all the things into the dest directory
+// Build all the things into the dest directory
 gulp.task('build', gulp.series(
   'clean',
   'build:js',
@@ -12,5 +12,6 @@ gulp.task('build', gulp.series(
   'build:misc',
   'build:rev',
   'build:blog',
+  'build:sw',
   'lint'
 ));

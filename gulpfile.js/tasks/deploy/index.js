@@ -2,7 +2,7 @@ require('require-dir')();
 var inquirer = require('bluebird-inquirer');
 var gulp = require('gulp');
 
-gulp.task('deploy', function() {
+gulp.task('deploy', function(done) {
   return inquirer.prompt([
     {
       name: 'tasks',
@@ -22,7 +22,8 @@ gulp.task('deploy', function() {
     }
   ])
   .then(function(answers) {
-    // this does not work. tasks never run:
-    return gulp.series.apply(answers.tasks);
+    var tasks = gulp.series(answers.tasks);
+
+    return tasks.call(gulp, done);
   });
 });
