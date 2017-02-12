@@ -1,5 +1,5 @@
 require('require-dir')();
-var inquirer = require('bluebird-inquirer');
+var inquirer = require('inquirer');
 var gulp = require('gulp');
 
 gulp.task('deploy', function deployWithPrompts(done) {

@@ -38,31 +38,28 @@ module.exports = function(config) {
     require('postcss-pseudoelements')(),
     require('postcss-color-rgba-fallback')(),
     require('autoprefixer')({
-      'browsers': [
+      browsers: [
         'last 2 versions',
         'ie >= 8',
       ]
-    }),
-    require('postcss-reporter')({
-      clearMessages: true
     }),
   ];
 
   var prodPlugins = [
     require('css-mqpacker')(),
     require('cssnano')({
-      'autoprefixer': false,
-      'discardUnused': false,
-      'zindex': false,
-      'reduceIndents': false,
-      'mergeIndents': false,
+      autoprefixer: false,
+      discardUnused: false,
+      zindex: false,
+      reduceIndents: false,
+      mergeIndents: false,
     }),
   ];
 
   var lintPlugins = [
     // require('postcss-bem-linter')('suit'),
     require('postcss-reporter')({
-      clearMessages: true
+      clearReportedMessages: true
     })
   ];
 

@@ -1,5 +1,6 @@
+
 module.exports = {
-  'extends': 'kswedberg',
+  extends: 'kswedberg',
   globals: {
     google: false
   },
