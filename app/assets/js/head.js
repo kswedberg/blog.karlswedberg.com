@@ -85,7 +85,7 @@ KS.prototype.log = function(msg) {
   var pl = 'placeholder';
   var styleProps = {
     csstransitions: 'transitionProperty',
-    boxflex: 'boxFlex',
+    flexbox: 'flexbox',
     csscolumns: 'columnCount'
   };
 
