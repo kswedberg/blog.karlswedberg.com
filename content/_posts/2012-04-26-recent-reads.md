@@ -8,7 +8,7 @@ categories: css js
 Nothing sticks in my head long enough to put it down in writing these days, so I thought that instead of trying to write a sustained, coherent article, I'd quickly jot down a few things I've read recently that have caught my interest.
 
 * [Responsive viewport units](http://generatedcontent.org/post/21279324555/viewportunits) by David Storey talks about the fairly new vh, vw, and vmin units. While currently support is meager—only found in Chrome Canary, IE 9, and some Motorola devices(?)—it's definitely something I'm going to keep an eye on.
-* The [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml) gives some reasonable advice.
+* The [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html) gives some reasonable advice.
 * I really like where Rick Waldron is going with his [Idiomatic.js](https://github.com/rwldrn/idiomatic.js) repo on GitHub. My own style differs from his in some ways (such as using single quotes rather than double quotes), but I'd still like to use his as a foundation for a JavaScript style guide at [Fusionary](http://www.fusionary.com/) where I work. I am way too inconsistent in my own style, especially when it comes to putting space at the open and close of parentheses and brackets.
 * Lea Verou has an interesting piece on `background-attachment: local` and some cool effects you can achieve with it: [Pure CSS scrolling shadows with background-attachment: local](http://lea.verou.me/2012/04/background-attachment-local/). Unfortunately, Firefox doesn't support the `local` value.
 * [3D it!](http://www.edankwan.com/lab/3dit) is a very cool demo.
