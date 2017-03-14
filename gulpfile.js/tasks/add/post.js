@@ -52,6 +52,7 @@ var addPost = function addPost(cb) {
   fs.writeFile(filePath, contents, done);
 
 };
+
 gulp.task('add:post', addPost, {
   options: {
     title: '-t : The title of the post',

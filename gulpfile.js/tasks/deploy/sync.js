@@ -17,8 +17,10 @@ gulp.task('deploy:sync', gulp.series(
     cb();
   },
   'build',
+  'clean:predeploy',
   'lint:predeploy',
-  function() {
+  function rsync() {
+    // return gulp;
     return gulp.src('package.json', {read: false})
     .pipe(shell(cmd));
   }

@@ -5,6 +5,11 @@ var browserSync = require('browser-sync');
 
 gulp.task('serve:watch', function serveWatch() {
 
+  var reloadBrowser = function reloadBrowser(done) {
+    browserSync.reload();
+    done();
+  };
+
   // Watching js src because webpack-dev-middleware is smart
   // and delays requests until the compiling has finished:
   // https://github.com/webpack/webpack-dev-middleware
@@ -13,7 +18,7 @@ gulp.task('serve:watch', function serveWatch() {
     path.join(config.paths.destAssets, '{fonts|img|json}/**/*.*'),
     path.join(config.paths.dest, '**/*.html'),
     path.join(config.paths.dest, '.htaccess'),
-  ], browserSync.reload);
+  ], reloadBrowser);
 
   gulp.watch([
     'templates/**/*.html',

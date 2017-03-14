@@ -1,3 +1,4 @@
+// jscs:disable disallowDanglingUnderscores
 var _gaq = window._gaq;
 
 if (!_gaq) {
@@ -16,6 +17,7 @@ if (!_gaq) {
   var firstScript = doc.getElementsByTagName('script')[0];
   var loadScript = function(id, url) {
     var scr = doc.createElement('script');
+
     scr.async = true;
     scr.id = id;
     scr.src = url;

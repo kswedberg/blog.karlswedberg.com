@@ -18,7 +18,7 @@ var assetsSrc = [
 
 // 'Copy files that are not processed some other way into dest'
 gulp.task('build:misc', function() {
-  var root = gulp.src(assetsSrc)
+  var rootFiles = gulp.src(assetsSrc)
   .pipe(changed(assetsDest))
   .pipe(gulp.dest(assetsDest));
 
@@ -26,5 +26,5 @@ gulp.task('build:misc', function() {
   .pipe(changed(dest))
   .pipe(gulp.dest(dest));
 
-  return merge(root, assets);
+  return merge(rootFiles, assets);
 });
