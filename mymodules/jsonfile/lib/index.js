@@ -21,6 +21,7 @@ module.exports = function(opts) {
     for (var f in files) {
       var file = files[f];
       var cleanedFile = {};
+
       file.contents = file.contents.toString();
 
       if (!file.title) {
