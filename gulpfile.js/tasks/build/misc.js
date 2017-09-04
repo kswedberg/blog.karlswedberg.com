@@ -5,7 +5,6 @@ var changed = require('gulp-changed');
 var merge = require('merge-stream');
 
 var src     = [
-  path.join(config.paths.src, '.htaccess'),
   path.join(config.paths.src, '*.{html,ico}'),
 ];
 var dest = config.paths.dest;

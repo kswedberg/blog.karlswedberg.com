@@ -15,3 +15,16 @@ gulp.task('build', gulp.series(
   'build:sw',
   'lint'
 ));
+
+gulp.task('build:serve', gulp.series(
+  'clean',
+  'clean:serviceworker',
+  'build:js',
+  'build:css',
+  'build:img',
+  'build:misc',
+  'build:rev:restore-manifest',
+  'build:blog',
+  // 'build:sw',
+  'lint'
+));

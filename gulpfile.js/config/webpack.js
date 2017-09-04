@@ -26,7 +26,7 @@ module.exports = function(config) {
     module: {
       loaders: [
         {
-          loader: 'expose?$!expose?jQuery',
+          loader: 'expose-loader?$!expose-loader?jQuery',
           test: require.resolve('jquery'),
         },
         // {
@@ -34,7 +34,7 @@ module.exports = function(config) {
         //   test: require.resolve('webfontloader'),
         // },
         {
-          loader: 'babel',
+          loader: 'babel-loader',
           test: /\.jsx?$/,
           include: [
             /app\/assets\//,
@@ -43,7 +43,7 @@ module.exports = function(config) {
           // https://babeljs.io/docs/usage/options/
         },
         {
-          loader: 'nunjucks',
+          loader: 'nunjucks-loader',
           test: /\.(nj|nunjucks|html|twig)$/,
           query: {
             config: __dirname + '/nunjucks.js'
@@ -62,7 +62,7 @@ module.exports = function(config) {
     ]
   };
 
-  if (config.devMode) {
+  if (process.env.BUILD_ENV === 'development') {
     webpackConfig.devtool = 'sourcemap';
     webpackConfig.debug = true;
   } else {
