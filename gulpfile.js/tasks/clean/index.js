@@ -34,3 +34,9 @@ gulp.task('clean:js', function() {
 gulp.task('clean:predeploy', function() {
   return del([path.join(config.paths.dest, '_pages')]);
 });
+
+gulp.task('clean:serviceworker', function() {
+  return del([
+    path.join(config.paths.dest, 'sw.js')
+  ]);
+});

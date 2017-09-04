@@ -15,7 +15,7 @@ gulp.task('serve', function serve() {
   });
 
   browserSync.init(config.browserSync, gulp.series(
-    'build',
+    'build:serve',
     'serve:watch'
   ));
 });
