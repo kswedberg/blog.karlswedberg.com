@@ -1,9 +1,9 @@
-var MetalSmith = require('metalsmith');
-var path = require('path');
-var commands = require('commander');
-var metalsmith = new MetalSmith(__dirname);
-var branch = require('metalsmith-branch');
-var config, configFile, plugins;
+let MetalSmith = require('metalsmith');
+let path = require('path');
+let commands = require('commander');
+let metalsmith = new MetalSmith(__dirname);
+let branch = require('metalsmith-branch');
+let config, configFile, plugins;
 
 commands
 .option('-c, --config [configFile]', 'The configFile(.js) to use [default]', 'default')
@@ -11,7 +11,7 @@ commands
 .option('-p --postcss', 'Run the postcss processor')
 .option('-v, --verbose', 'Verbose output mode');
 
-commands.on('--help', function() {
+commands.on('--help', () => {
   console.log('That\'s it!');
 });
 commands.parse(process.argv);
@@ -20,11 +20,11 @@ commands.config = commands.config === 'dev' ? 'development' : commands.config;
 commands.config = commands.config === 'live' ? 'production' : commands.config;
 
 configFile = path.join(__dirname, commands.dir, commands.config);
-
+console.log(configFile);
 config = require(configFile);
 plugins = config.plugins;
 console.log(JSON.stringify(config, null, 2));
-var build = function() {
+let build = function() {
   config.metadata.url = config.metadata.siteUrl;
 
   metalsmith
@@ -38,13 +38,13 @@ var build = function() {
 
   if (commands.verbose) {
     console.log('Processing files through %d plugins:', plugins.length);
-    console.log(plugins.map(function(plugin) {
+    console.log(plugins.map((plugin) => {
       return plugin.module;
     }));
   }
 
-  plugins.forEach(function(plugin) {
-    var mod = require(plugin.module);
+  plugins.forEach((plugin) => {
+    let mod = require(plugin.module);
 
     if (plugin.branch) {
       metalsmith.use(branch(plugin.branch).use(mod(plugin.options)));
@@ -53,7 +53,7 @@ var build = function() {
     }
   });
 
-  metalsmith.build(function(err) {
+  metalsmith.build((err) => {
     if (err) {
       return console.log(err);
     }

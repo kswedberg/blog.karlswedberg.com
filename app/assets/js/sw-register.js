@@ -7,7 +7,7 @@ if ('serviceWorker' in navigator &&
 ) {
   navigator.serviceWorker
   .register('/sw.js')
-  .then(function(registration) {
+  .then((registration) => {
     // Check to see if there's an updated version of sw.js with new files to cache:
     // https://slightlyoff.github.io/ServiceWorker/spec/service_worker/index.html#service-worker-registration-update-method
     if (typeof registration.update === 'function') {
@@ -18,7 +18,7 @@ if ('serviceWorker' in navigator &&
     registration.onupdatefound = function() {
       // The updatefound event implies that registration.installing is set; see
       // https://slightlyoff.github.io/ServiceWorker/spec/service_worker/index.html#service-worker-container-updatefound-event
-      var installingWorker = registration.installing;
+      let installingWorker = registration.installing;
 
       installingWorker.onstatechange = function() {
         let state = installingWorker.state;
@@ -46,7 +46,7 @@ if ('serviceWorker' in navigator &&
       };
     };
   })
-  .catch(function(e) {
+  .catch((e) => {
     console.error('Error during service worker registration:', e);
   });
 }

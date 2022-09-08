@@ -1,22 +1,24 @@
 // jscs:disable disallowDanglingUnderscores
-var _gaq = window._gaq;
+// @ts-ignore
+let _gaq = window._gaq;
 
 if (!_gaq) {
   _gaq = [
     ['_setAccount', 'UA-22112450-1'],
-    ['_trackPageview']
+    ['_trackPageview'],
   ];
 }
 
 (function(doc) {
 
-  var loadDisqus;
-  var dsn = window.disqus_shortname || '';
-  var onLoad = function() {};
+  let loadDisqus;
+  // @ts-ignore
+  let dsn = window.disqus_shortname || '';
+  let onLoad = function() {/* no-op */};
 
-  var firstScript = doc.getElementsByTagName('script')[0];
-  var loadScript = function(id, url) {
-    var scr = doc.createElement('script');
+  let firstScript = doc.getElementsByTagName('script')[0];
+  let loadScript = function(id, url) {
+    let scr = doc.createElement('script');
 
     scr.async = true;
     scr.id = id;
@@ -29,13 +31,14 @@ if (!_gaq) {
   if (doc.getElementById('disqus_thread')) {
 
     loadDisqus = function() {
-      setTimeout(function() {
-        loadScript('disqus-script', 'https://' + dsn + '.disqus.com/embed.js');
+      setTimeout(() => {
+        loadScript('disqus-script', `https://${dsn}.disqus.com/embed.js`);
       }, 10);
     };
 
     // In case something else is bound to the window.onload event
     if (typeof window.onload === 'function') {
+      // @ts-ignore
       onLoad = window.onload;
     }
     window.onload = function() {

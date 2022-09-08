@@ -1,6 +1,6 @@
-import './sw-register';
+import './sw-register.js';
 
-var KS = function(arg) {
+let KS = function(arg) {
   if (!(this instanceof KS)) {
     return new KS(arg);
   }
@@ -10,9 +10,9 @@ var KS = function(arg) {
 };
 
 KS.prototype.testStyle = function(name, prop) {
-  var div, divStyle, ret;
-  var ucProp = prop.charAt(0).toUpperCase() + prop.substr(1);
-  var vendorProps = (this.prefixes.join(ucProp + ' ') + ucProp).split(' ');
+  let div, divStyle, ret;
+  let ucProp = prop.charAt(0).toUpperCase() + prop.substr(1);
+  let vendorProps = (this.prefixes.join(`${ucProp} `) + ucProp).split(' ');
 
   if (this.divStyle) {
     divStyle = this.divStyle;
@@ -25,7 +25,7 @@ KS.prototype.testStyle = function(name, prop) {
     ret = name;
   } else {
 
-    for (var i = 0; i < vendorProps.length; i++) {
+    for (let i = 0; i < vendorProps.length; i++) {
 
       if (vendorProps[i] in divStyle) {
         ret = name;
@@ -40,25 +40,25 @@ KS.prototype.testStyle = function(name, prop) {
 };
 
 KS.prototype.htmlClass = function(cls, test) {
-  var docel = document.documentElement;
-  var currentClass = docel.className;
-  var rcurrentClass = new RegExp(cls);
+  let docel = document.documentElement;
+  let currentClass = docel.className;
+  let rcurrentClass = new RegExp(cls);
 
-  if (!rcurrentClass.test(' ' + currentClass + ' ') && test) {
-    docel.className += ' ' + cls;
+  if (!rcurrentClass.test(` ${currentClass} `) && test) {
+    docel.className += ` ${cls}`;
   }
 
   return this;
 };
 
 KS.prototype.htmlStyles = function(props) {
-  var setClass;
-  var div = document.createElement('div');
+  let setClass;
+  let div = document.createElement('div');
 
   this.prefixes = ['Webkit', 'Moz', 'O', 'ms', 'Khtml'];
   this.divStyle = div.style;
 
-  for (var p in props) {
+  for (let p in props) {
     setClass = this.testStyle(p, props[p]);
 
     if (setClass) {
@@ -70,7 +70,8 @@ KS.prototype.htmlStyles = function(props) {
   div = null;
 
   return this;
-},
+};
+
 KS.prototype.log = function(msg) {
   if (window.console && console.log) {
     console.log(msg);
@@ -80,13 +81,13 @@ KS.prototype.log = function(msg) {
 };
 
 (function(doc) {
-  var ks = new KS();
-  var inp = doc.createElement('input');
-  var pl = 'placeholder';
-  var styleProps = {
+  let ks = new KS();
+  let inp = doc.createElement('input');
+  let pl = 'placeholder';
+  let styleProps = {
     csstransitions: 'transitionProperty',
     flexbox: 'flexbox',
-    csscolumns: 'columnCount'
+    csscolumns: 'columnCount',
   };
 
   ks.htmlClass('js', true).htmlClass(pl, pl in inp);

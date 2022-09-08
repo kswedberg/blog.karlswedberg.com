@@ -1,4 +1,4 @@
-var build = require('./metal');
+let build = require('./metal');
 
 build();
 // console.log(build);

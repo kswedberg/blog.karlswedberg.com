@@ -8,15 +8,15 @@ module.exports = function(opts) {
 
   return function(files, metalsmith, done) {
 
-    var rNonAlphaNumeric = /[^a-z0-9]+/g;
-    var rStartEndHyphen = /^\-+|\-$/g;
-    var url = require('url');
-    var metadata = metalsmith.metadata();
+    let rNonAlphaNumeric = /[^a-z0-9]+/g;
+    let rStartEndHyphen = /^\-+|\-$/g;
+    let url = require('url');
+    let metadata = metalsmith.metadata();
 
-    Object.keys(files).forEach(function(file) {
-      var data = files[file];
-      var dataUrl = (data.url || data.title || '').toLowerCase();
-      var dataDate = new Date(data.date);
+    Object.keys(files).forEach((file) => {
+      let data = files[file];
+      let dataUrl = (data.url || data.title || '').toLowerCase();
+      let dataDate = new Date(data.date);
 
       // Add timestamp for better sortBy
       data.timestamp = dataDate.getTime();
@@ -29,7 +29,7 @@ module.exports = function(opts) {
       dataUrl = dataUrl.replace(rStartEndHyphen, '');
       data.url = dataUrl;
 
-      data.link = data.link || url.resolve(metadata.url, data.url.replace(/\/$/, '') + '/');
+      data.link = data.link || url.resolve(metadata.url, `${data.url.replace(/\/$/, '')}/`);
 
       // Category splitting
       data.cats = [];

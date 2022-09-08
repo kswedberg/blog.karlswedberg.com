@@ -1,7 +1,4 @@
 {
-  "presets": ["es2015", "stage-1"],
-  "plugins": [
-    "transform-runtime",
-    "lodash"
-  ]
+  "presets": ["@babel/preset-env"],
+  "plugins": ["lodash"]
 }

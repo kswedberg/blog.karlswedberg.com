@@ -1,3 +1,3 @@
-var addPost = require('./gulpfile.js/tasks/add/post');
+let addPost = require('./gulp/tasks/add/post.js');
 
 addPost();

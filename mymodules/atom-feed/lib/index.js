@@ -1,10 +1,11 @@
+/* eslint-ignore no-param-reassign */
 
 module.exports = function(opts) {
   opts = opts || {};
-  var contentType, contentProp;
-  var Feed = require('feed');
-  var url = require('url');
-  var extend = require('extend');
+  let contentType, contentProp;
+  let Feed = require('feed');
+  let url = require('url');
+  let extend = require('extend');
 
   if (!opts.collection) {
     throw new Error('A collection is required');
@@ -16,29 +17,30 @@ module.exports = function(opts) {
       // type can be 'summary' or 'content' (or 'full', which is aliased to 'content')
       type: 'summary',
       // property is the file's data property to use.
-      property: 'excerpt'
-    }
+      property: 'excerpt',
+    },
   }, opts);
   contentType = opts.content.type === 'full' ? 'content' : opts.content.type;
   contentProp = opts.content.property;
 
-  var feedKeys = {
+  let feedKeys = {
     id: ['url', 'slug'],
     title: ['title', 'siteTitle'],
     description: ['subtitle', 'description'],
     link: ['link', 'url'],
     copyright: ['rights', 'copyright', 'license'],
-    author: ['author']
+    author: ['author'],
   };
 
-  var merge = function merge(src, obj) {
-    var props;
+  let merge = function merge(src, obj) {
+    let props;
+
     obj = obj || {};
 
-    for (var key in feedKeys) {
+    for (let key in feedKeys) {
       props = feedKeys[key];
 
-      for (var i = 0, len = props.length; i < len; i++) {
+      for (let i = 0, len = props.length; i < len; i++) {
         if (obj[props[i]] !== undefined) {
           src[key] = obj[props[i]];
         }
@@ -47,7 +49,7 @@ module.exports = function(opts) {
 
     return src;
   };
-  var convertToAuthor = function convertToAuthor(data) {
+  let convertToAuthor = function convertToAuthor(data) {
     if (!data) {
       return;
     }
@@ -56,7 +58,7 @@ module.exports = function(opts) {
       data = [data];
     }
 
-    data.forEach(function(datum, i) {
+    data.forEach((datum, i) => {
       if (typeof datum === 'string') {
         data[i] = {name: datum};
       }
@@ -65,10 +67,10 @@ module.exports = function(opts) {
     return data;
   };
 
-  var generateFeed = function generateFeed(files, metalsmith, done) {
-    var feed, collection;
-    var metadata = metalsmith.metadata();
-    var feedData = merge({}, metadata);
+  let generateFeed = function generateFeed(files, metalsmith, done) {
+    let feed, collection;
+    let metadata = metalsmith.metadata();
+    let feedData = merge({}, metadata);
 
     feedData.feed = url.resolve(feedData.link, opts.destination);
     feedData = merge(feedData, opts.feedData);
@@ -81,16 +83,16 @@ module.exports = function(opts) {
       collection = collection.slice(0, opts.limit);
     }
 
-    collection.forEach(function(file) {
+    collection.forEach((file) => {
       file.author = file.author || file.authors;
       file.contributor = file.contributor || file.contributors;
 
-      var itemData = {
+      let itemData = {
         title: file.title,
         link: file.link || url.resolve(feedData.link, file.path || file.url),
         date: typeof file.date === 'string' ? new Date(file.date) : file.date,
         author: convertToAuthor(file.author) || convertToAuthor(feedData.author),
-        contributor: convertToAuthor(file.contributor)
+        contributor: convertToAuthor(file.contributor),
       };
 
       itemData[contentType] = file[contentProp];
@@ -100,7 +102,7 @@ module.exports = function(opts) {
 
     feed = feed.render('atom-1.0');
     files[opts.destination] = {
-      contents: new Buffer(feed, 'utf8')
+      contents: new Buffer(feed, 'utf8'),
     };
     done();
   };
