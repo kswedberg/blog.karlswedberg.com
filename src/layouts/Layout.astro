@@ -1,0 +1,24 @@
+---
+import Head from '@/components/Head.astro';
+import PageFooter from '@/components/PageFooter.astro';
+import PageMenu from '@/components/PageMenu.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const {title, description} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <Head title={title} description={description} />
+  </head>
+  <body class='md:max-w-3xl md:mx-auto mx-4 md:my-0 my-4'>
+    <PageMenu />
+    <slot />
+    <PageFooter />
+  </body>
+</html>

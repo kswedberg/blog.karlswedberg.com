@@ -1,0 +1,44 @@
+---
+import {config} from '@/utils/config.mjs';
+
+export interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const {
+  title,
+  description,
+  image = new URL('/img/apple-touch-icon.png', Astro.site),
+} = Astro.props;
+---
+
+<meta charset='utf-8' />
+<title>{title}</title>
+<meta name='viewport' content='width=device-width' />
+<meta name='description' content={description || config.description} />
+<link
+  rel='apple-touch-icon'
+  sizes='65x65'
+  href='/img/apple-touch-icon.png'
+/>
+<link rel='canonical' href={canonicalURL} />
+<link rel='manifest' href='/site.webmanifest' />
+<link rel='icon' type='image/ico' href='/favicon.ico' />
+
+<!-- Facebook Meta Tags -->
+<meta property='og:type' content='website' />
+<meta property='og:site_name' content={config.siteTitle} />
+<meta property='og:url' content={Astro.url} />
+<meta property='og:title' content={title} />
+<meta property='og:description' content={config.description} />
+<meta property='og:image' content={image} />
+
+<!-- Twitter Meta Tags -->
+<meta name='twitter:card' content='summary_large_image' />
+<meta property='twitter:url' content={Astro.url} />
+<meta property='twitter:title' content={title} />
+<meta property='twitter:description' content={config.description} />
+<meta property='twitter:image' content={image} />

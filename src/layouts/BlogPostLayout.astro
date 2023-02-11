@@ -1,0 +1,82 @@
+---
+import { keys } from 'markdown-it/lib/common/html_blocks';
+import PageFooter from '@/components/PageFooter.astro';
+import Head from '@/components/Head.astro';
+import PostMenu from '@/components/PostMenu.astro';
+const {frontmatter} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <Head
+      title={`${frontmatter.title} - Good Blog, Karl`}
+      description={frontmatter.description}
+    />
+  </head>
+  <PostMenu />
+  <body>
+    <main>
+      <article class='md:max-w-3xl md:mx-auto mx-4 md:my-0 my-4'>
+        <h1 class='text-3xl md:text-5xl mb-4 md:leading-tight font-thin'>
+          {frontmatter.title}
+        </h1>
+        props: {Astro.props.file}
+        {frontmatter.image ? (<img
+          src={frontmatter.image}
+          height={400}
+          width={800}
+          alt='Post Image'
+        />) : ''}
+        <div class='text-sm sm:text-lg mt-2'>
+          <time
+            datetime={frontmatter.date}
+            class='text-neutral-500 font-mono'
+          >
+            {
+              new Date(frontmatter.date).toLocaleDateString('en-us', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+              })
+            }
+            <span class='float-right'>
+              {frontmatter.minutesRead} 📚
+            </span>
+          </time>
+        </div>
+
+        <footer
+          class='prose antialiased prose-headings:font-medium prose-h2:text-[2rem] prose-h2:leading-9 prose-headings:text-black prose-p:text-xl prose-p:leading-9 dark:prose-dark md:max-w-3xl md:mx-auto mx-4 md:my-0 my-4 prose-li:text-lg'
+        >
+          <slot />
+          <div class='flex space-x-3'>
+            <p>Filed under</p>
+            {
+              frontmatter.tags?.map((tag: any) => (
+                <a
+                  href={`/topic/${tag}`}
+                  class='text-black font-mono font-bold hover:decoration-emerald-500 hover:underline'
+                >
+                  <p>{tag}</p>
+                </a>
+              ))
+            }
+          </div>
+        </footer>
+      </article>
+      <section id="comments" class="comments">
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname = 'goodblogkarl';
+        // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
+        var disqus_identifier = '/{{ }}/index.html';
+        var disqus_url = '{{ siteUrl}}{{ url }}/';
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </section>
+
+      <PageFooter />
+    </main>
+  </body>
+</html>

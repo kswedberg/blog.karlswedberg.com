@@ -1,0 +1,76 @@
+---
+import {getCollection, getEntryBySlug} from 'astro:content';
+import {config} from '@/utils/config.mjs';
+import BlogCard from '@/components/BlogCard.astro';
+import Layout from '@/layouts/Layout.astro';
+
+export const getStaticPaths = async function() {
+  const allPosts = await getCollection('posts');
+
+  const uniqueTags = [
+    ...new Set(allPosts.map((post) => post.data.tags).flat()),
+  ];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts
+    .filter((post) => post.data.tags?.includes(tag))
+    .map((entry) => {
+
+      const slug = config.getSlug(entry.slug);
+
+
+      return {
+        ...entry,
+        slug: `/${slug}`,
+      };
+    });
+
+    return {
+      params: {tag},
+      props: {posts: filteredPosts},
+    };
+  });
+}
+
+const {tag} = Astro.params;
+const {posts} = Astro.props;
+---
+
+<Layout title={`Good Blog, Karl | #${tag}`} description={`Posts tagged with ${tag}`}>
+  <main>
+    <div class='text-center'>
+      <h1 class='text-2xl font-thin mb-4'>
+        Posts tagged with <span class='font-bold text-emerald-500'>#{tag}</span>
+      </h1>
+      <h2 class='mb-8'>
+        <a href='/posts' class='text-emerald-500 hover:text-emerald-600'>
+          &larr; All posts
+        </a>
+      </h2>
+    </div>
+    <div class='flex flex-col justify-center items-center space-y-6'>
+      {
+        posts.map(
+          (post: {
+            data: {
+              minutesRead: any;
+              title: any;
+              description: any;
+              date: any;
+              slug: string,
+            };
+            slug: any;
+          }) => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.date}
+              readTime={post.data.minutesRead}
+              link={post.slug}
+            />
+          )
+        )
+      }
+    </div>
+  </main>
+</Layout>

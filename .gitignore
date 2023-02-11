@@ -1,3 +1,20 @@
-public/*
-content/_drafts/*
-/.env
+# build output
+dist/
+.output/
+.astro/
+# dependencies
+node_modules/
+
+# logs
+yarn-debug.log*
+yarn-error.log*
+
+
+# environment variables
+.env
+
+# macOS-specific files
+.DS_Store
+
+# vscode
+.vscode/
