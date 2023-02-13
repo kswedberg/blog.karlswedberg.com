@@ -1,5 +1,4 @@
 ---
-import { keys } from 'markdown-it/lib/common/html_blocks';
 import PageFooter from '@/components/PageFooter.astro';
 import Head from '@/components/Head.astro';
 import PageMenu from '@/components/PageMenu.astro';
@@ -8,6 +7,11 @@ import SinglePost from '@/components/SinglePost.astro';
 import '@/assets/css/main.css';
 
 const {post} = Astro.props;
+
+const dsn = 'goodblogkarl';
+// Need /index.html to match disqus_identifier from old Jekyll blog
+const dIdentifier = `${post.permalink}/index.html`;
+const dURL = `${Astro.site}${post.slug}/`;
 ---
 
 <!DOCTYPE html>
@@ -23,13 +27,15 @@ const {post} = Astro.props;
       <PageMenu />
       <main class="grow pt-8 sm:pt-16 lg:pt-20">
         <SinglePost post={post} />
-        <section id="comments" class="comments">
+        <section id="comments" class="comments" data-id={dIdentifier} data-url={dURL}>
           <div id="disqus_thread"></div>
           <script>
-          var disqus_shortname = 'goodblogkarl';
-          // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
-          var disqus_identifier = '/{{ }}/index.html';
-          var disqus_url = '{{ siteUrl}}{{ url }}/';
+          const el = document.getElementById('comments');
+          if (el) {
+            window.disqus_shortname = 'goodblogkarl';
+            window.disqus_identifier = el.dataset.id;
+            window.disqus_url = el.dataset.url
+          }
           </script>
           <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         </section>
