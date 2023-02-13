@@ -4,6 +4,8 @@ import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import image from '@astrojs/image';
 import sitemap from '@astrojs/sitemap';
+import partytown from '@astrojs/partytown';
+
 import {remarkReadingTime} from './src/utils/remark-reading-time.mjs';
 import {getDirname} from './src/utils/esm.mjs';
 import compress from 'astro-compress';
@@ -31,6 +33,7 @@ export default defineConfig({
         removeAttributeQuotes: false,
       },
     }),
+    partytown(),
   ],
   markdown: {
     remarkPlugins: [remarkReadingTime],
