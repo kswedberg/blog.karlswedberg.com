@@ -54,9 +54,16 @@ const load = async function() {
   // eslint-disable-next-line no-return-await
   const normalizedPosts = posts.map(async(post) => await getNormalizedPost(post));
 
-  const results = (await Promise.all(normalizedPosts))
+  const sorted = (await Promise.all(normalizedPosts))
   .sort((a, b) => b.timestamp.valueOf() - a.timestamp.valueOf())
   .filter((post) => !post.draft);
+
+  const results = sorted.map((post, i, posts) => {
+    post.prev = i < posts.length ? posts[i + 1] : {};
+    post.next = i ? posts[i - 1] : {};
+
+    return post;
+  });
 
   return results;
 };
