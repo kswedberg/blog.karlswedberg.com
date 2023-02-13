@@ -1,8 +1,21 @@
 ---
-const foo = 1;
+import {getTags} from '@/utils/posts.mjs';
+
+const tags = await getTags();
 ---
 
 <footer class="text-center mt-14 p-4 text-gray-600 dark:text-gray-400 text-sm border-t border-t-slate-300">
+  <div class="text-left mb-8">
+    <a href="/about" class="link inline-block ">About the blog</a>
+
+    <div class="font-bold">Topics:</div>
+    <div class="grid grid-cols-3 md:grid-cols-4 gap-1">
+      {
+        tags.map((tag) => (<a class="link py-2" href={`/topic/${tag}`}>{tag}</a>))
+      }
+    </div>
+
+  </div>
   <div class="flex justify-center items-center gap-2 align-middle mb-2">
     <a href="https://github.com/kswedberg" target="_blank" rel="noopener noreferrer" title="GitHub" class="link">
       <span class="sr-only">GitHub</span>

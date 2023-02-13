@@ -4,7 +4,7 @@ import PostTags from '@/components/Tags.astro';
 
 const { post } = Astro.props;
 
-const {prev, next} = post;
+const {prev = {}, next = {}} = post;
 ---
 
 <section>
@@ -60,8 +60,8 @@ const {prev, next} = post;
       <span class="text-gray-600 dark:text-gray-400">Filed under</span> <PostTags tags={post.tags} class="mr-5" />
     </div>
     <div class="mt-8 flex items-center gap-4 justify-between">
-      {post.prev.permalink ? (<a class="link" href={post.prev.permalink}>&larr; previous</a>) : (<span> </span>)}
-      {post.next.permalink ? (<a class="link" href={post.next.permalink}>next &rarr;</a>) : (<span> </span>)}
+      {prev.permalink ? (<a class="link" href={prev.permalink}>&larr; previous</a>) : (<span> </span>)}
+      {next.permalink ? (<a class="link" href={next.permalink}>next &rarr;</a>) : (<span> </span>)}
     </div>
   </article>
 </section>

@@ -91,7 +91,9 @@ export const fetchPostsByTag = async(tag) => {
 export const getTags = async() => {
   const posts = await fetchPosts();
 
-  return [
+  const unique = [
     ...new Set(posts.map((post) => post.tags).flat()),
-  ];
+  ].sort((a, b) => a.localeCompare(b, 'en'));
+
+  return unique;
 };

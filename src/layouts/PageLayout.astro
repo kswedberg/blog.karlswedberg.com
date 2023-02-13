@@ -19,7 +19,7 @@ const {title, description, home = false} = Astro.props;
     <Head title={title} description={description} />
   </head>
   <body>
-    <div class="flex flex-col grow mx-4 md:mx-auto w-full md:max-w-3xl">
+    <div class="flex flex-col grow px-4 md:mx-auto md:w-full md:max-w-3xl">
       <PageMenu home={home} />
       <main
         class="grow pt-8 sm:pt-16 lg:pt-20 prose antialiased prose-img:mt-0 prose-p:text-xl dark:prose-dark prose-li:text-lg after:clear-left after:table"
