@@ -3,41 +3,39 @@ interface BlogCardProps {
   title: string;
   description: string;
   date: string;
+  publishDate: string;
   readTime: string;
   link: string;
   tags: string[];
 }
 
-const {title, description, date, readTime, link, tags} = Astro.props;
+const {title, description, date, publishDate, readTime, link, tags} = Astro.props;
 ---
-
 <a
   href={link}
   rel='prefetch'
-  class='border-2 border-neutral-400 rounded-md p-4 w-[330px] md:w-[500px] transition ease-out duration-300 hover:scale-105 hover:bg-zinc-100 font-sans'
+  class="card relative rounded-md p-4 w-[330px] md:w-[500px] transition ease-out duration-300 hover:scale-105 border border-slate-200 dark:border-slate-700 hover:bg-slate-100  dark:hover:bg-slate-800 font-sans"
 >
-  <h1 class='text-xl md:text-2xl font-semibold text-neutral-800'>{title}</h1>
-  <h2 class='text-sm md:text-base text-neutral-500'>{description}</h2>
-  <div class='flex gap-2 mt-2'>
-    {
-      tags?.map((tag: any) => (
-        <p class='text-sm text-black font-mono font-bold underline decoration-emerald-500'>
-          #{tag}
-        </p>
-      ))
-    }
-  </div>
+  <h2 class="text-xl md:text-2xl font-semibold link">{title}</h2>
+  {description && (<h3 class="text-sm md:text-base text-gray-600 dark:text-gray-400">{description}</h3>)}
 
-  <div class='flex space-x-6 mt-3'>
-    <time datetime={date} class='text-sm text-neutral-500'>
-      📅 {
-        new Date(date).toLocaleDateString('en-us', {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-        })
-      }
+  <div class="flex items-center justify-between mt-5">
+    <time datetime={publishDate} class="text-sm text-gray-600 dark:text-gray-400">
+      📅 {date}
     </time>
-    <p class='text-sm text-neutral-500'>⌚ {readTime}</p>
+    <p class="text-sm text-gray-600 dark:text-gray-400">⌚ {readTime} min read</p>
   </div>
 </a>
+
+<style>
+  .card::after {
+    @apply -bottom-4 w-12 h-4 left-1/2 -translate-x-1/2 text-slate-300 dark:text-slate-700;
+    content: '❀ ✿ ❀';
+    position: absolute;
+    display: block;
+  }
+  .card:last-child::after {
+    content: none;
+
+  }
+</style>

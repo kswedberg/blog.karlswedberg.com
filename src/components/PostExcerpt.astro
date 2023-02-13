@@ -1,0 +1,51 @@
+---
+import { Picture } from '@astrojs/image/components';
+import PostTags from '@/components/Tags.astro';
+
+const { post } = Astro.props;
+const excerpt = post.Content;
+
+---
+<article class="rounded-md w-[330px] md:w-[500px] bg-slate-100  dark:bg-slate-800">
+  <a href={post.permalink} class="block p-4">
+    <header>
+      <div class="flex justify-between flex-col sm:flex-row mt-0 mb-2 sm:items-center">
+        <p>
+          <time datetime={post.publishDate}>{post.date}</time>
+          {post.readingTime && <span> · {post.readingTime} min read</span>}
+        </p>
+      </div>
+      <h2
+        class="text-3xl font-semibold leading-tighter tracking-tighter"
+      >
+        {post.title}
+      </h2>
+      {
+        post.image && (
+          <Picture
+            src={post.image}
+            class="max-w-full lg:max-w-6xl mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-slate-700"
+            widths={[400, 900]}
+            sizes="(max-width: 900px) 400px, 900px"
+            alt={post.description || ''}
+            loading="eager"
+            aspectRatio={16 / 9}
+            width={900}
+            height={506}
+            loading="eager"
+            decoding="async"
+            background={undefined}
+          />
+        )
+      }
+    </header>
+    <div
+      class="prose prose-lg dark:prose-invert prose-md prose-headings:tracking-tighter mt-8"
+    >
+      {post.excerpt}
+    </div>
+  </a>
+  <footer class="p-4 flex items-center gap-2">
+    <span class="text-gray-600 dark:text-gray-400">Filed under</span>  <PostTags tags={post.tags} class="mr-5" />
+  </footer>
+</article>

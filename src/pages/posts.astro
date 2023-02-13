@@ -1,0 +1,30 @@
+---
+import ListLayout from '@/layouts/ListLayout.astro';
+import BlogCard from '@/components/BlogCard.astro';
+import {fetchPosts} from "@/utils/posts.mjs";
+
+const posts = await fetchPosts();
+---
+
+<ListLayout
+  title='All Posts'
+  description='Random quasi-technical stuff I want to remember.'
+>
+  <div class='flex flex-col justify-center items-center space-y-6'>
+    <h1 class="px-4 sm:px-6 max-w-3xl text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading">All Posts</h1>
+    {
+      posts.map((post) => (
+        <BlogCard
+          title={post.title}
+          description={post.description}
+          date={post.date}
+          publishDate={post.publishDate}
+          readTime={post.readingTime}
+          link={post.permalink}
+          tags={post.tags}
+          image={post.image}
+        />
+      ))
+    }
+  </div>
+</ListLayout>

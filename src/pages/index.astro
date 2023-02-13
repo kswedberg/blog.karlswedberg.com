@@ -1,60 +1,53 @@
 ---
-import Layout from '@/layouts/Layout.astro';
+import ListLayout from '@/layouts/ListLayout.astro';
 import BlogCard from '@/components/BlogCard.astro';
 import {config} from '@/utils/config.mjs';
 // take the 5 most recent posts
-import {getCollection} from 'astro:content';
+import {fetchPosts} from "@/utils/posts.mjs";
+import PostExcerpt from '@/components/PostExcerpt.astro';
+import SinglePost from '@/components/SinglePost.astro';
 
-const blogEntries = await getCollection('posts');
+const posts = await fetchPosts();
+const last5 = posts.slice(0, 5);
+const mostRecent = last5.shift();
 
-console.log(blogEntries[0]);
-blogEntries.reverse();
-const last5 = blogEntries
-.slice(1, 5)
-.map((entry) => {
-  const slug = config.getSlug(entry.slug);
-
-  return {
-    ...entry,
-    slug,
-  };
-});
-
-const tags = [
-  ...new Set(last5.map((post) => post.data.tags).flat()),
-];
 ---
 
-<Layout
-  title='Good Blog, Karl'
+<ListLayout
+  title=''
+  home={true}
   description='Random quasi-technical stuff I want to remember.'
 >
-  <main>
-    <div class='flex flex-col justify-center items-center space-y-6'>
-      {
-        last5.map((post) => (
-          <BlogCard
-            title={post.data.title}
-            description={post.data.description}
-            date={post.data.date}
-            readTime={post.data.minutesRead}
-            link={post.slug}
-            tags={post.data.tags}
-            image={post.data.image}
-          />
-        ))
-      }
+  <div class='flex flex-col justify-center items-center space-y-6'>
+    <div>
+      <div class="mb-2">Most recently…</div>
+      <PostExcerpt post={mostRecent} />
     </div>
 
-    <div class='flex justify-center items-center mt-14 space-x-3 font-mono'>
-      <a
-        href='/posts'
-        class='border-2 p-2 rounded-md hover:border-neutral-200 hover:text-emerald-500'
-      >
-        <span class='text-lg font-bold decoration-emerald-500'>
-          view all posts →
-        </span>
-      </a>
-    </div>
-  </main>
-</Layout>
+    {
+      last5.map((post) => (
+        <BlogCard
+          title={post.title}
+          description={post.description}
+          date={post.date}
+          publishDate={post.publishDate}
+          readTime={post.readingTime}
+          link={post.permalink}
+          tags={post.tags}
+          image={post.image}
+        />
+      ))
+    }
+  </div>
+
+  <div class="flex justify-center items-center mt-14 space-x-3 font-mono">
+    <a
+      href="/posts"
+      class="link border-2 p-2 rounded-md hover:border-neutral-200 dark:hover:border-slate-800"
+    >
+      <span class="text-lg font-bold decoration-emerald-500">
+        view all posts →
+      </span>
+    </a>
+  </div>
+</ListLayout>

@@ -1,21 +1,20 @@
 ---
-import Layout from '@/layouts/Layout.astro';
+import PageLayout from '@/layouts/PageLayout.astro';
 
-const {
-  image = '/img/good-dog-carl.jpg',
-} = Astro.props;
+import { Image } from '@astrojs/image/components';
+
 ---
 
-<Layout
+<PageLayout
   title='About this site'
   description='Stuff about this site'
 >
-  <main
-    class='prose antialiased prose-headings:font-medium prose-h2:text-[2rem] prose-h2:leading-9 prose-headings:text-black prose-p:text-xl prose-p:leading-9 dark:prose-dark md:max-w-3xl md:mx-auto mx-4 md:my-0 my-4 prose-li:text-lg'
-  >
-    <p>Hello, my name is Karl. I like to write code. Sometimes I record things that I’ve discovered.</p>
-    <p>My memory is bad. This blog helps me when my memory fails.</p>
-    <p>The inspiration for the name of this blog comes from the book, Good Dog, Carl</p>
-    <img src={image} alt='Good Dog, Carl book cover'>
-  </main>
-</Layout>
+  <h1 class="max-w-3xl text-4xl md:text-5xl font-bold leading-tighter tracking-wide">
+    About the blog
+  </h1>
+  <Image src="/img/good-dog-carl.jpg" width={300} height={300} alt="Good Dog, Carl book cover" class="h-auto w-[100px] sm:w-[300px] float-left mr-2" />
+  <p>Hello, my name is Karl. I like to write code. Sometimes I record things that I’ve discovered.</p>
+  <p>My memory is bad. This blog helps me when my memory fails.</p>
+  <p>The inspiration for the name of this blog comes from the book, <i>Good Dog, Carl</i>.</p>
+
+</PageLayout>

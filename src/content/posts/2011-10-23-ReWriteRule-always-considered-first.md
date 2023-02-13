@@ -17,6 +17,6 @@ While I doubt I'll ever need to use that exact ruleset, this paragraph in the "D
 
 > This rewrite ruleset takes advantage of a little-known fact about <i>mod_rewrite</i> — in particular, that <strong>a <i>RewriteRule</i> is always considered first, and, if it matches, the <i>RewriteCond</i> is evaluated after that</strong>. Consequently, we can use `$1` in the <i>RewriteCond</i> , even though the value of that variable is set in the <i>RewriteRule</i> appearing on the following line.
 
-### Note to self
+## Note to self
 
 Commit this to memory: The <i>RewriteRule</i> is always considered first!

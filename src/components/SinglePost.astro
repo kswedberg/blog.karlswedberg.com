@@ -1,0 +1,61 @@
+---
+import { Picture } from '@astrojs/image/components';
+import PostTags from '@/components/Tags.astro';
+
+const { post } = Astro.props;
+---
+
+<section>
+  <article>
+    <header class={post.image ? '' : ''}>
+      <div class="flex justify-between flex-col sm:flex-row max-w-3xl mt-0 mb-2 sm:items-center">
+        <p>
+
+          <time datetime={post.publishDate}>{post.date}</time>
+          {post.readingTime && <span> · {post.readingTime} min read</span>}
+        </p>
+      </div>
+      <h1
+        class="max-w-3xl text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
+      >
+        {post.title}
+      </h1>
+
+      {
+        post.image && (
+          <Picture
+            src={post.image}
+            class="max-w-full mb-6 sm:rounded-md bg-gray-400 dark:bg-slate-700"
+            widths={[400, 900]}
+            sizes="(max-width: 900px) 400px, 900px"
+            alt={post.description || ''}
+            loading="eager"
+            aspectRatio={16 / 9}
+            width={900}
+            height={506}
+            loading="eager"
+            decoding="async"
+            background={undefined}
+          />
+        )
+      }
+    </header>
+    <div
+      class="mt-8 prose prose-lg lg:prose-xl prose-md prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tight prose-headings:font-semibold prose-a:text-sky-800 hover:prose-a:text-sky-700 prose-img:rounded-md prose-img:shadow-lg dark:prose-invert dark:prose-headings:text-white dark:prose-a:text-slate-200 dark:hover:prose-a:text-slate-300"
+    >
+      {
+        post.Content ? (
+          <>
+            {/* @ts-ignore */}
+            <post.Content />
+          </>
+        ) : (
+          <Fragment set:html={post.content} />
+        )
+      }
+    </div>
+    <div class="mt-8 flex items-center gap-2">
+      <span class="text-gray-600 dark:text-gray-400">Filed under</span> <PostTags tags={post.tags} class="mr-5" />
+    </div>
+  </article>
+</section>

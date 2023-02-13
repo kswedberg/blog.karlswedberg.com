@@ -1,27 +1,21 @@
 ---
 import {getCollection} from 'astro:content';
-import {config} from '@/utils/config.mjs';
-import BlogPostLayout from '@/layouts/BlogPostLayout.astro';
+import PostLayout from '@/layouts/PostLayout.astro';
+import {fetchPosts} from "@/utils/posts.mjs";
 
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('posts');
+  const posts = await fetchPosts();
 
-  return blogEntries.map((entry) => {
-    const slug = config.getSlug(entry.slug);
-
-
-    entry.data.slug = config.getSlug(entry.slug);
+  return posts.map((post) => {
+    const {slug} = post;
 
     return {
-      params: {slug}, props: {entry},
+      params: {slug}, props: {post},
     };
   });
 }
-// 2. When it's time to render, you can get the entry directly from the props
-const {entry} = Astro.props;
-const {Content} = await entry.render();
+// 2. When it's time to render, can get the entry directly from the props
+const {post} = Astro.props;
 ---
-<BlogPostLayout frontmatter={entry.data}>
-  <Content />
-</BlogPostLayout>
+<PostLayout post={post} />

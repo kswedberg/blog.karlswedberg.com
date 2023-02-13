@@ -7,7 +7,7 @@ tags: [js, html]
 
 One thing I've noticed about HTML5 features is that a lot of them start with the word "Web."  Also, some of them have slightly overlapping uses. This makes it difficult for me to remember which is which. I have the same problem when I meet a bunch of people who have the same basic body type and face shape. It's hard for me to tell one from the others. What follows is a cheat sheet for myself, an attempt to keep these APIs straight so I don't fumble around in my head the next time I need to pick one up.
 
-### Web Sockets
+## Web Sockets
 
 Two-way open connections for sending/receiving data.
 
@@ -18,7 +18,7 @@ They are more full-featured and robust than Server-Sent Events (SSE) in that SSE
 * [Introduction by Robert Nyman](http://robertnyman.com/2010/10/22/introducing-html5-web-sockets-taking-bidirectional-communication-on-the-web-to-the-next-level-2/)
 * **Support**: [Modern browsers and IE10+; not Android Browser](http://caniuse.com/#feat=websockets)
 
-### Web Workers
+## Web Workers
 
 Allow developers to run computationally intensive processes in background threads so they don't lock up the browser/UI.
 
@@ -29,7 +29,7 @@ This gets around the single-threaded nature of JavaScript.
 * [html5rocks article](http://www.html5rocks.com/en/tutorials/workers/basics/) (provides good use cases)
 * **Support**: [Modern browsers and IE10+; not Android Browser](http://caniuse.com/#feat=webworkers)
 
-### Web Components
+## Web Components
 
 The W3C's [Introduction to Web Components](http://www.w3.org/TR/2013/WD-components-intro-20130606/) lays it all out:
 
@@ -47,7 +47,7 @@ The W3C's [Introduction to Web Components](http://www.w3.org/TR/2013/WD-componen
 * Mozilla's' [Brick](http://mozilla.github.io/brick/), "UI Components for Modern Web Apps," currently aims to provide better browser support than Polymer does. Most components are designed to work in IE9+ and Grade A mobile browsers.
 * The Ember framework has a components module, as well. According to the [Ember Components Guide](http://emberjs.com/guides/components/), "Ember's implementation of components hews as closely to the Web Components specification as possible. Once Custom Elements are widely available in browsers, you should be able to easily migrate your Ember components to the W3C standard and have them be usable by other frameworks."
 
-### Web Storage
+## Web Storage
 
 Allows data to be set and retrieved on the local storage (`window.localStorage`) and session storage (`window.sessionStorage`) objects.
 
@@ -57,18 +57,18 @@ It can be used when capacity requirements are too great for cookies to handle. U
 * **Support**: [Modern browsers and IE8+](http://caniuse.com/#feat=namevalue-storage)
 
 
-### Web Notifications
+## Web Notifications
 
 Notices that a web page can send outside of the browser at the system level so the user will see them even if the browser isn't the currently active app.
 
 Not to be confused with [Web Messaging](http://www.w3.org/TR/webmessaging/) (`onmessage`, `postMessage`, et al).
 
 * [W3C Spec](http://www.w3.org/TR/notifications/)
-* [html5rocks tutuorial](http://www.html5rocks.com/tutorials/notifications/quick/)
+* [html5rocks tutorial](http://www.html5rocks.com/tutorials/notifications/quick/)
 * [MDN article](https://developer.mozilla.org/en-US/docs/WebAPI/Using_Web_Notifications)
 * **Support**: [Current Chrome, Firefox, Safari; no IE as of 11](http://caniuse.com/#feat=notifications)
 
-### WebRTC
+## WebRTC
 
 **R**eal-**T**ime **C**ommunication for the web, without the need for plugins.
 
@@ -77,7 +77,7 @@ It looks really cool, but it's still early days (as of November 3, 2013).
 * [W3C Spec](http://www.w3.org/TR/webrtc/#peer-to-peer-connections)
 * **Support**: [Prefixed Chrome and Firefox; no IE as of 11; virtually no mobile](http://caniuse.com/#feat=notifications)
 
-### WebGL
+## WebGL
 
 Hardware-accelerated canvas graphic API.
 
@@ -86,7 +86,7 @@ Notably, WebGL is the only feature listed here that is not under the auspices of
 * [Khronos Spec](http://www.khronos.org/webgl/)
 * **Support**: [Modern browsers and IE 11+](http://caniuse.com/#feat=webgl), as long as the user has up-to-date video drivers.
 
-### Web SQL
+## Web SQL
 
 A deprecated spec for indexed web storage, so don't use it.
 

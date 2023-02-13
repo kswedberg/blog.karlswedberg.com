@@ -21,7 +21,11 @@ const {title, description, home = false} = Astro.props;
   <body>
     <div class="flex flex-col grow mx-4 md:mx-auto w-full md:max-w-3xl">
       <PageMenu home={home} />
-      <slot />
+      <main
+        class="grow pt-8 sm:pt-16 lg:pt-20 prose antialiased prose-img:mt-0 prose-p:text-xl dark:prose-dark prose-li:text-lg after:clear-left after:table"
+      >
+        <slot />
+      </main>
       <PageFooter />
     </div>
   </body>
