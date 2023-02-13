@@ -1,0 +1,4280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.karlswedberg.com/</id>
+    <title>Good Blog, Karl</title>
+    <updated>2022-09-08T21:27:52Z</updated>
+    <author>
+        <name>Karl Swedberg</name>
+        <uri>https://karlswedberg.com/</uri>
+    </author>
+    <link rel="alternate" href="https://blog.karlswedberg.com/"/>
+    <link rel="self" href="https://blog.karlswedberg.com/atom.xml"/>
+    <subtitle>Random quasi-technical stuff I want to remember</subtitle>
+    <rights>https://creativecommons.org/licenses/by-sa/3.0/</rights>
+    <generator>Feed for Node.js</generator>
+    <entry>
+        <title type="html"><![CDATA[HTML5's Web * Features]]></title>
+        <id>https://blog.karlswedberg.com/html5-web-asterisk-features/</id>
+        <link href="https://blog.karlswedberg.com/html5-web-asterisk-features/">
+        </link>
+        <updated>2013-11-03T14:47:24Z</updated>
+        <content type="html"><![CDATA[<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5&#39;s Web * Features - Good Blog, Karl</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link data-id="app.css" rel="stylesheet" href="/assets/css/app-a6922968c4.css" media="screen, projection">
+<link href="https://feeds2.feedburner.com/goodblogkarl" rel="alternate" title="Good Blog, Karl" type="application/atom+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<!--[if lte IE 8]>
+  <script src="/assets/js/vendor/html5shim.js"> </script>
+<![endif]-->
+<script data-id="head.js" src="/assets/js/head-7c0338a529.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="w">
+      <h2><a href="/">Good Blog, Karl</a></h2>
+      <a href="/about/" class="tagline">woof.</a>
+    </header>
+    <div class="w group">
+      
+<section class="post">
+
+<article>
+  <header>
+    <time datetime="2013-11-03" pubdate>03 Nov 2013</time>
+    <h1>
+      <a href="/html5-web-asterisk-features/"
+         class="post-title"
+         rel="bookmark"
+         title="link to this post">
+         HTML5&#39;s Web * Features
+      </a>
+    </h1>
+  </header>
+
+  <p>One thing I’ve noticed about HTML5 features is that a lot of them start with the word “Web.”  Also, some of them have slightly overlapping uses. This makes it difficult for me to remember which is which. I have the same problem when I meet a bunch of people who have the same basic body type and face shape. It’s hard for me to tell one from the others. What follows is a cheat sheet for myself, an attempt to keep these APIs straight so I don’t fumble around in my head the next time I need to pick one up.</p>
+<h3 id="web-sockets">Web Sockets</h3>
+<p>Two-way open connections for sending/receiving data.</p>
+<p>They are more full-featured and robust than Server-Sent Events (SSE) in that SSE go one way: from server to browser. While Web Sockets are supported by more browsers than SSE are, they can’t be polyfilled and need special server setup. SSE, on the other hand, can be polyfilled and are sent over simple http. If all you need is to send messages (typically as strings) across domains or from frame to frame, you might be better off using <code>onmessage</code>/<code>postMessage</code>.</p>
+<ul>
+<li><a href="http://www.w3.org/TR/websockets/">W3C Spec</a></li>
+<li><a href="http://www.html5rocks.com/tutorials/eventsource/basics/">html5rocks article </a></li>
+<li><a href="http://robertnyman.com/2010/10/22/introducing-html5-web-sockets-taking-bidirectional-communication-on-the-web-to-the-next-level-2/">Introduction by Robert Nyman</a></li>
+<li><strong>Support</strong>: <a href="http://caniuse.com/#feat=websockets">Modern browsers and IE10+; not Android Browser</a></li>
+</ul>
+<h3 id="web-workers">Web Workers</h3>
+<p>Allow developers to run computationally intensive processes in background threads so they don’t lock up the browser/UI.</p>
+<p>This gets around the single-threaded nature of JavaScript.</p>
+<ul>
+<li><a href="http://www.w3.org/TR/workers/">W3C Spec</a></li>
+<li><a href="https://developer.mozilla.org/En/Using_web_workers">MDN article</a></li>
+<li><a href="http://www.html5rocks.com/en/tutorials/workers/basics/">html5rocks article</a> (provides good use cases)</li>
+<li><strong>Support</strong>: <a href="http://caniuse.com/#feat=webworkers">Modern browsers and IE10+; not Android Browser</a></li>
+</ul>
+<h3 id="web-components">Web Components</h3>
+<p>The W3C’s <a href="http://www.w3.org/TR/2013/WD-components-intro-20130606/">Introduction to Web Components</a> lays it all out:</p>
+<blockquote>
+  <p>The component model for the Web ("Web Components") consists of five pieces:</p>
+  <ol>
+    <li><strong>Templates</strong>, which define chunks of markup that are inert but can be activated for use later.</li>
+    <li><strong>Decorators</strong>, which apply templates based on CSS selectors to affect rich visual and behavioral changes to documents.</li>
+    <li><strong>Custom Elements</strong>, which let authors define their own elements, with new tag names and new script interfaces.</li>
+    <li><strong>Shadow DOM</strong>, which encapsulates a DOM subtree for more reliable composition of user interface elements.</li>
+    <li><strong>Imports</strong>, which defines how templates, decorators, and custom elements are packaged and loaded as a resource.</li>
+  </ol>
+</blockquote>
+
+<ul>
+<li>The <a href="http://www.polymer-project.org/">Polymer Project</a>, currently in Pre-Alpha, implements Web Components in its “Elements (UI)” modules. Support is limited to the latest version of self-updating browsers.</li>
+<li>Mozilla’s’ <a href="http://mozilla.github.io/brick/">Brick</a>, “UI Components for Modern Web Apps,” currently aims to provide better browser support than Polymer does. Most components are designed to work in IE9+ and Grade A mobile browsers.</li>
+<li>The Ember framework has a components module, as well. According to the <a href="http://emberjs.com/guides/components/">Ember Components Guide</a>, “Ember’s implementation of components hews as closely to the Web Components specification as possible. Once Custom Elements are widely available in browsers, you should be able to easily migrate your Ember components to the W3C standard and have them be usable by other frameworks.”</li>
+</ul>
+<h3 id="web-storage">Web Storage</h3>
+<p>Allows data to be set and retrieved on the local storage (<code>window.localStorage</code>) and session storage (<code>window.sessionStorage</code>) objects.</p>
+<p>It can be used when capacity requirements are too great for cookies to handle. Unlike cookies, Web (or DOM) Storage allows the storing of objects, not just strings. Also unlike cookies, Web Storage does not have a built-in expiration mechanism (other than <code>sessionStorage</code>), so if you need that you’ll have to roll your own by adding an expiration timestamp property when setting and checking it against the current time when getting.</p>
+<ul>
+<li><a href="http://diveintohtml5.info/storage.html">diveintohtml5</a></li>
+<li><strong>Support</strong>: <a href="http://caniuse.com/#feat=namevalue-storage">Modern browsers and IE8+</a></li>
+</ul>
+<h3 id="web-notifications">Web Notifications</h3>
+<p>Notices that a web page can send outside of the browser at the system level so the user will see them even if the browser isn’t the currently active app.</p>
+<p>Not to be confused with <a href="http://www.w3.org/TR/webmessaging/">Web Messaging</a> (<code>onmessage</code>, <code>postMessage</code>, et al).</p>
+<ul>
+<li><a href="http://www.w3.org/TR/notifications/">W3C Spec</a></li>
+<li><a href="http://www.html5rocks.com/tutorials/notifications/quick/">html5rocks tutuorial</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/WebAPI/Using_Web_Notifications">MDN article</a></li>
+<li><strong>Support</strong>: <a href="http://caniuse.com/#feat=notifications">Current Chrome, Firefox, Safari; no IE as of 11</a></li>
+</ul>
+<h3 id="webrtc">WebRTC</h3>
+<p><strong>R</strong>eal-<strong>T</strong>ime <strong>C</strong>ommunication for the web, without the need for plugins.</p>
+<p>It looks really cool, but it’s still early days (as of November 3, 2013).</p>
+<ul>
+<li><a href="http://www.w3.org/TR/webrtc/#peer-to-peer-connections">W3C Spec</a></li>
+<li><strong>Support</strong>: <a href="http://caniuse.com/#feat=notifications">Prefixed Chrome and Firefox; no IE as of 11; virtually no mobile</a></li>
+</ul>
+<h3 id="webgl">WebGL</h3>
+<p>Hardware-accelerated canvas graphic API.</p>
+<p>Notably, WebGL is the only feature listed here that is not under the auspices of the W3C. It comes instead from the <a href="http://www.khronos.org/webgl/">Khronos Group</a>. So, it’s not technically an HTML5 feature. It’s also beyond my understanding.</p>
+<ul>
+<li><a href="http://www.khronos.org/webgl/">Khronos Spec</a></li>
+<li><strong>Support</strong>: <a href="http://caniuse.com/#feat=webgl">Modern browsers and IE 11+</a>, as long as the user has up-to-date video drivers.</li>
+</ul>
+<h3 id="web-sql">Web SQL</h3>
+<p>A deprecated spec for indexed web storage, so don’t use it.</p>
+<p>Instead, use Web Storage (described above) or IndexedDB. If Safari support is required, you’ll
+need to use a <a href="https://github.com/axemclion/IndexedDBShim">polyfill</a>.</p>
+
+
+
+  <footer>
+    <div class="categories">Filed under
+    <a href="/topic/js/">js</a>
+    <a href="/topic/html/">html</a>
+    
+    </div>
+    <p class="group">
+      
+          
+          <a class="next" rel="previous" href="/yeoman-ulimit-and-unmet-dependency/" title="yeoman, ulimit, and unmet dependency" data-date="July 25 2013 09:25:25">Next &rarr;</a>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </p>
+  </footer>
+</article>
+  <section id="comments" class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_shortname = 'goodblogkarl';
+  // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
+  var disqus_identifier = '/html5-web-asterisk-features/index.html';
+  var disqus_url = 'https://blog.karlswedberg.com/html5-web-asterisk-features/';
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</section>
+
+      <aside>
+          <nav class="recent-posts">
+    <h3>Recently</h3>
+    <ul>
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/html5-s-web-features/">HTML5&#39;s Web * Features</a> -->
+          <a class="post-title" href="/html5-web-asterisk-features/">HTML5&#39;s Web * Features</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a> -->
+          <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a> -->
+          <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/recent-reads/">Recent reads</a> -->
+          <a class="post-title" href="/recent-reads/">Recent reads</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a> -->
+          <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a>
+
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </nav>
+
+          <nav class="topics">
+    <h3>Topics</h3>
+    <ul>
+      <li><a href="/topic/js">js</a></li><li><a href="/topic/bash">bash</a></li><li><a href="/topic/rake">rake</a></li><li><a href="/topic/links">links</a></li><li><a href="/topic/git">git</a></li><li><a href="/topic/css">css</a></li><li><a href="/topic/make">make</a></li><li><a href="/topic/apache">apache</a></li><li><a href="/topic/mobile">mobile</a></li><li><a href="/topic/html">html</a></li><li><a href="/topic/video">video</a></li>
+    </ul>
+  </nav>
+
+        <div class="rss">
+  <h3>Subscribe</h3>
+  <div class="rss"><a href="https://feeds2.feedburner.com/goodblogkarl">RSS</a></div>
+  <form action="https://feedburner.google.com/fb/a/mailverify" method="post">
+    <div class="hide">
+      <input type="hidden" value="goodblogkarl" name="uri" />
+      <input type="hidden" name="loc" value="en_US" />
+    </div>
+    <div class="text placeholder">
+      <label for="email">Email:</label>
+      <input placeholder="Email..." id="email" type="email" name="email" />
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Subscribe</button>
+    </div>
+  </form>
+</div>
+
+      </aside>
+    </div>
+
+    <footer class="w">
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/topic/">Topics</a>
+      </nav>
+    </footer>
+  </div>
+  <script data-id="tail.js" src="/assets/js/tail-bab41ed509.js"></script>
+
+
+</body>
+</html>
+]]></content>
+        <author>
+            <name>Karl Swedberg</name>
+            <uri>https://karlswedberg.com/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[yeoman, ulimit, and unmet dependency]]></title>
+        <id>https://blog.karlswedberg.com/yeoman-ulimit-and-unmet-dependency/</id>
+        <link href="https://blog.karlswedberg.com/yeoman-ulimit-and-unmet-dependency/">
+        </link>
+        <updated>2013-07-25T13:25:25Z</updated>
+        <content type="html"><![CDATA[<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>yeoman, ulimit, and unmet dependency - Good Blog, Karl</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link data-id="app.css" rel="stylesheet" href="/assets/css/app-a6922968c4.css" media="screen, projection">
+<link href="https://feeds2.feedburner.com/goodblogkarl" rel="alternate" title="Good Blog, Karl" type="application/atom+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<!--[if lte IE 8]>
+  <script src="/assets/js/vendor/html5shim.js"> </script>
+<![endif]-->
+<script data-id="head.js" src="/assets/js/head-7c0338a529.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="w">
+      <h2><a href="/">Good Blog, Karl</a></h2>
+      <a href="/about/" class="tagline">woof.</a>
+    </header>
+    <div class="w group">
+      
+<section class="post">
+
+<article>
+  <header>
+    <time datetime="2013-07-25" pubdate>25 Jul 2013</time>
+    <h1>
+      <a href="/yeoman-ulimit-and-unmet-dependency/"
+         class="post-title"
+         rel="bookmark"
+         title="link to this post">
+         yeoman, ulimit, and unmet dependency
+      </a>
+    </h1>
+  </header>
+
+  <p>After installing Yeoman and some generators, I kept seeing a bunch of lines beginning with <code>npm WARN unmet dependency</code>. Something was amiss. A quick Google search brought me to a <a href="https://github.com/yeoman/yeoman/issues/1096">GitHub issue</a> from <a href="https://github.com/linhmtran168">a user</a> who was having the same problem. The fix, which the OP discovered himself (herself?), is to run this line in the Terminal:</p>
+<pre><code class="hljs bash"><span class="hljs-built_in">ulimit</span> -n 10000</code></pre>
+
+<p>Once I did that, I just had to install Yeoman (<code>npm install -g yo</code>) and my preferred generators again, and my troubles were gone.</p>
+
+
+
+  <footer>
+    <div class="categories">Filed under
+    <a href="/topic/js/">js</a>
+    
+    </div>
+    <p class="group">
+      
+      
+          <a class="prev" rel="prev" href="/html5-web-asterisk-features/" title="HTML5&#39;s Web * Features" data-date="November 03 2013 09:47:24">&larr; Previous</a>
+          
+          <a class="next" rel="previous" href="/cleaning-up-dead-git-branches/" title="Cleaning up dead git branches" data-date="October 13 2012 16:23:20">Next &rarr;</a>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </p>
+  </footer>
+</article>
+  <section id="comments" class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_shortname = 'goodblogkarl';
+  // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
+  var disqus_identifier = '/yeoman-ulimit-and-unmet-dependency/index.html';
+  var disqus_url = 'https://blog.karlswedberg.com/yeoman-ulimit-and-unmet-dependency/';
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</section>
+
+      <aside>
+          <nav class="recent-posts">
+    <h3>Recently</h3>
+    <ul>
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/html5-s-web-features/">HTML5&#39;s Web * Features</a> -->
+          <a class="post-title" href="/html5-web-asterisk-features/">HTML5&#39;s Web * Features</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a> -->
+          <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a> -->
+          <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/recent-reads/">Recent reads</a> -->
+          <a class="post-title" href="/recent-reads/">Recent reads</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a> -->
+          <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a>
+
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </nav>
+
+          <nav class="topics">
+    <h3>Topics</h3>
+    <ul>
+      <li><a href="/topic/js">js</a></li><li><a href="/topic/bash">bash</a></li><li><a href="/topic/rake">rake</a></li><li><a href="/topic/links">links</a></li><li><a href="/topic/git">git</a></li><li><a href="/topic/css">css</a></li><li><a href="/topic/make">make</a></li><li><a href="/topic/apache">apache</a></li><li><a href="/topic/mobile">mobile</a></li><li><a href="/topic/html">html</a></li><li><a href="/topic/video">video</a></li>
+    </ul>
+  </nav>
+
+        <div class="rss">
+  <h3>Subscribe</h3>
+  <div class="rss"><a href="https://feeds2.feedburner.com/goodblogkarl">RSS</a></div>
+  <form action="https://feedburner.google.com/fb/a/mailverify" method="post">
+    <div class="hide">
+      <input type="hidden" value="goodblogkarl" name="uri" />
+      <input type="hidden" name="loc" value="en_US" />
+    </div>
+    <div class="text placeholder">
+      <label for="email">Email:</label>
+      <input placeholder="Email..." id="email" type="email" name="email" />
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Subscribe</button>
+    </div>
+  </form>
+</div>
+
+      </aside>
+    </div>
+
+    <footer class="w">
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/topic/">Topics</a>
+      </nav>
+    </footer>
+  </div>
+  <script data-id="tail.js" src="/assets/js/tail-bab41ed509.js"></script>
+
+
+</body>
+</html>
+]]></content>
+        <author>
+            <name>Karl Swedberg</name>
+            <uri>https://karlswedberg.com/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cleaning up dead git branches]]></title>
+        <id>https://blog.karlswedberg.com/cleaning-up-dead-git-branches/</id>
+        <link href="https://blog.karlswedberg.com/cleaning-up-dead-git-branches/">
+        </link>
+        <updated>2012-10-13T20:23:20Z</updated>
+        <content type="html"><![CDATA[<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cleaning up dead git branches - Good Blog, Karl</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link data-id="app.css" rel="stylesheet" href="/assets/css/app-a6922968c4.css" media="screen, projection">
+<link href="https://feeds2.feedburner.com/goodblogkarl" rel="alternate" title="Good Blog, Karl" type="application/atom+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<!--[if lte IE 8]>
+  <script src="/assets/js/vendor/html5shim.js"> </script>
+<![endif]-->
+<script data-id="head.js" src="/assets/js/head-7c0338a529.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="w">
+      <h2><a href="/">Good Blog, Karl</a></h2>
+      <a href="/about/" class="tagline">woof.</a>
+    </header>
+    <div class="w group">
+      
+<section class="post">
+
+<article>
+  <header>
+    <time datetime="2012-10-13" pubdate>13 Oct 2012</time>
+    <h1>
+      <a href="/cleaning-up-dead-git-branches/"
+         class="post-title"
+         rel="bookmark"
+         title="link to this post">
+         Cleaning up dead git branches
+      </a>
+    </h1>
+  </header>
+
+  <p>At <a href="http://fusionary.com">Fusionary</a>, we create a lot of feature branches in git to isolate what we’re
+working on, and then we merge those branches into either the dev or master branch to prepare to deploy the changes. The system works very well, except that some projects seem to spawn a ton of old feature branches that get left out to rot. It’s hard to know sometimes what to do with them, since we’re not always entirely organized about such things.</p>
+<p>The other day my coworker Ed showed me a super neat git trick for finding out which branches we can delete when we want to do a little housekeeping: </p>
+<pre><code class="hljs bash"><span class="hljs-comment"># on the command line:</span>
+git branch --merged</code></pre>
+
+<p>If I had read the manual, I would have known this already; at the very end of the help for <code>git branch</code> these two lines appear:</p>
+<blockquote>
+<ul>
+<li><code>--merged</code> is used to find all branches which can be safely deleted, since those branches are fully contained by <code>HEAD</code>.</li>
+<li><code>--no-merged</code> is used to find branches which are candidates for merging into <code>HEAD</code>, since those branches are not fully contained by <code>HEAD</code>.</li>
+</ul>
+</blockquote>
+<p>Nice.</p>
+
+
+
+  <footer>
+    <div class="categories">Filed under
+    <a href="/topic/git/">git</a>
+    
+    </div>
+    <p class="group">
+      
+      
+      
+          <a class="prev" rel="prev" href="/yeoman-ulimit-and-unmet-dependency/" title="yeoman, ulimit, and unmet dependency" data-date="July 25 2013 09:25:25">&larr; Previous</a>
+          
+          <a class="next" rel="previous" href="/recent-reads/" title="Recent reads" data-date="April 26 2012 19:05:39">Next &rarr;</a>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </p>
+  </footer>
+</article>
+  <section id="comments" class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_shortname = 'goodblogkarl';
+  // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
+  var disqus_identifier = '/cleaning-up-dead-git-branches/index.html';
+  var disqus_url = 'https://blog.karlswedberg.com/cleaning-up-dead-git-branches/';
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</section>
+
+      <aside>
+          <nav class="recent-posts">
+    <h3>Recently</h3>
+    <ul>
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/html5-s-web-features/">HTML5&#39;s Web * Features</a> -->
+          <a class="post-title" href="/html5-web-asterisk-features/">HTML5&#39;s Web * Features</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a> -->
+          <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a> -->
+          <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/recent-reads/">Recent reads</a> -->
+          <a class="post-title" href="/recent-reads/">Recent reads</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a> -->
+          <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a>
+
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </nav>
+
+          <nav class="topics">
+    <h3>Topics</h3>
+    <ul>
+      <li><a href="/topic/js">js</a></li><li><a href="/topic/bash">bash</a></li><li><a href="/topic/rake">rake</a></li><li><a href="/topic/links">links</a></li><li><a href="/topic/git">git</a></li><li><a href="/topic/css">css</a></li><li><a href="/topic/make">make</a></li><li><a href="/topic/apache">apache</a></li><li><a href="/topic/mobile">mobile</a></li><li><a href="/topic/html">html</a></li><li><a href="/topic/video">video</a></li>
+    </ul>
+  </nav>
+
+        <div class="rss">
+  <h3>Subscribe</h3>
+  <div class="rss"><a href="https://feeds2.feedburner.com/goodblogkarl">RSS</a></div>
+  <form action="https://feedburner.google.com/fb/a/mailverify" method="post">
+    <div class="hide">
+      <input type="hidden" value="goodblogkarl" name="uri" />
+      <input type="hidden" name="loc" value="en_US" />
+    </div>
+    <div class="text placeholder">
+      <label for="email">Email:</label>
+      <input placeholder="Email..." id="email" type="email" name="email" />
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Subscribe</button>
+    </div>
+  </form>
+</div>
+
+      </aside>
+    </div>
+
+    <footer class="w">
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/topic/">Topics</a>
+      </nav>
+    </footer>
+  </div>
+  <script data-id="tail.js" src="/assets/js/tail-bab41ed509.js"></script>
+
+
+</body>
+</html>
+]]></content>
+        <author>
+            <name>Karl Swedberg</name>
+            <uri>https://karlswedberg.com/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Recent reads]]></title>
+        <id>https://blog.karlswedberg.com/recent-reads/</id>
+        <link href="https://blog.karlswedberg.com/recent-reads/">
+        </link>
+        <updated>2012-04-26T23:05:39Z</updated>
+        <content type="html"><![CDATA[<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recent reads - Good Blog, Karl</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link data-id="app.css" rel="stylesheet" href="/assets/css/app-a6922968c4.css" media="screen, projection">
+<link href="https://feeds2.feedburner.com/goodblogkarl" rel="alternate" title="Good Blog, Karl" type="application/atom+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<!--[if lte IE 8]>
+  <script src="/assets/js/vendor/html5shim.js"> </script>
+<![endif]-->
+<script data-id="head.js" src="/assets/js/head-7c0338a529.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="w">
+      <h2><a href="/">Good Blog, Karl</a></h2>
+      <a href="/about/" class="tagline">woof.</a>
+    </header>
+    <div class="w group">
+      
+<section class="post">
+
+<article>
+  <header>
+    <time datetime="2012-04-26" pubdate>26 Apr 2012</time>
+    <h1>
+      <a href="/recent-reads/"
+         class="post-title"
+         rel="bookmark"
+         title="link to this post">
+         Recent reads
+      </a>
+    </h1>
+  </header>
+
+  <p>Nothing sticks in my head long enough to put it down in writing these days, so I thought that instead of trying to write a sustained, coherent article, I’d quickly jot down a few things I’ve read recently that have caught my interest.</p>
+<ul>
+<li><a href="http://generatedcontent.org/post/21279324555/viewportunits">Responsive viewport units</a> by David Storey talks about the fairly new vh, vw, and vmin units. While currently support is meager—only found in Chrome Canary, IE 9, and some Motorola devices(?)—it’s definitely something I’m going to keep an eye on.</li>
+<li>The <a href="https://google.github.io/styleguide/jsguide.html">Google JavaScript Style Guide</a> gives some reasonable advice.</li>
+<li>I really like where Rick Waldron is going with his <a href="https://github.com/rwldrn/idiomatic.js">Idiomatic.js</a> repo on GitHub. My own style differs from his in some ways (such as using single quotes rather than double quotes), but I’d still like to use his as a foundation for a JavaScript style guide at <a href="http://www.fusionary.com/">Fusionary</a> where I work. I am way too inconsistent in my own style, especially when it comes to putting space at the open and close of parentheses and brackets.</li>
+<li>Lea Verou has an interesting piece on <code>background-attachment: local</code> and some cool effects you can achieve with it: <a href="http://lea.verou.me/2012/04/background-attachment-local/">Pure CSS scrolling shadows with background-attachment: local</a>. Unfortunately, Firefox doesn’t support the <code>local</code> value.</li>
+<li><a href="http://www.edankwan.com/lab/3dit">3D it!</a> is a very cool demo.</li>
+<li><a href="http://ericbidelman.tumblr.com/post/21649963613/idb-filesystem-js-bringing-the-html5-filesystem-api">idb.filesystem.js - Bringing the HTML5 Filesystem API to More Browsers</a>: Whoa. Is it possible to make offline work well without the headache of AppCache? I need to investigate this more.</li>
+<li>Ben Alman is rocking the house with <a href="https://github.com/cowboy/grunt">Grunt</a>, a “task-based command line build tool for JavaScript projects.” I want to start using this in my own projects.</li>
+</ul>
+<p>There are so many cool things happening on the frontiers of web development thse days that it gets a little overwhelming. I despair of ever being able to keep up.</p>
+
+
+
+  <footer>
+    <div class="categories">Filed under
+    <a href="/topic/css/">css</a>
+    <a href="/topic/js/">js</a>
+    
+    </div>
+    <p class="group">
+      
+      
+      
+      
+          <a class="prev" rel="prev" href="/cleaning-up-dead-git-branches/" title="Cleaning up dead git branches" data-date="October 13 2012 16:23:20">&larr; Previous</a>
+          
+          <a class="next" rel="previous" href="/my-mis-adventures-with-web-video/" title="My (mis)adventures with web video" data-date="January 12 2012 20:55:14">Next &rarr;</a>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </p>
+  </footer>
+</article>
+  <section id="comments" class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_shortname = 'goodblogkarl';
+  // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
+  var disqus_identifier = '/recent-reads/index.html';
+  var disqus_url = 'https://blog.karlswedberg.com/recent-reads/';
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</section>
+
+      <aside>
+          <nav class="recent-posts">
+    <h3>Recently</h3>
+    <ul>
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/html5-s-web-features/">HTML5&#39;s Web * Features</a> -->
+          <a class="post-title" href="/html5-web-asterisk-features/">HTML5&#39;s Web * Features</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a> -->
+          <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a> -->
+          <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/recent-reads/">Recent reads</a> -->
+          <a class="post-title" href="/recent-reads/">Recent reads</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a> -->
+          <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a>
+
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </nav>
+
+          <nav class="topics">
+    <h3>Topics</h3>
+    <ul>
+      <li><a href="/topic/js">js</a></li><li><a href="/topic/bash">bash</a></li><li><a href="/topic/rake">rake</a></li><li><a href="/topic/links">links</a></li><li><a href="/topic/git">git</a></li><li><a href="/topic/css">css</a></li><li><a href="/topic/make">make</a></li><li><a href="/topic/apache">apache</a></li><li><a href="/topic/mobile">mobile</a></li><li><a href="/topic/html">html</a></li><li><a href="/topic/video">video</a></li>
+    </ul>
+  </nav>
+
+        <div class="rss">
+  <h3>Subscribe</h3>
+  <div class="rss"><a href="https://feeds2.feedburner.com/goodblogkarl">RSS</a></div>
+  <form action="https://feedburner.google.com/fb/a/mailverify" method="post">
+    <div class="hide">
+      <input type="hidden" value="goodblogkarl" name="uri" />
+      <input type="hidden" name="loc" value="en_US" />
+    </div>
+    <div class="text placeholder">
+      <label for="email">Email:</label>
+      <input placeholder="Email..." id="email" type="email" name="email" />
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Subscribe</button>
+    </div>
+  </form>
+</div>
+
+      </aside>
+    </div>
+
+    <footer class="w">
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/topic/">Topics</a>
+      </nav>
+    </footer>
+  </div>
+  <script data-id="tail.js" src="/assets/js/tail-bab41ed509.js"></script>
+
+
+</body>
+</html>
+]]></content>
+        <author>
+            <name>Karl Swedberg</name>
+            <uri>https://karlswedberg.com/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[My (mis)adventures with web video]]></title>
+        <id>https://blog.karlswedberg.com/my-mis-adventures-with-web-video/</id>
+        <link href="https://blog.karlswedberg.com/my-mis-adventures-with-web-video/">
+        </link>
+        <updated>2012-01-13T01:55:14Z</updated>
+        <content type="html"><![CDATA[<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My (mis)adventures with web video - Good Blog, Karl</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link data-id="app.css" rel="stylesheet" href="/assets/css/app-a6922968c4.css" media="screen, projection">
+<link href="https://feeds2.feedburner.com/goodblogkarl" rel="alternate" title="Good Blog, Karl" type="application/atom+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<!--[if lte IE 8]>
+  <script src="/assets/js/vendor/html5shim.js"> </script>
+<![endif]-->
+<script data-id="head.js" src="/assets/js/head-7c0338a529.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="w">
+      <h2><a href="/">Good Blog, Karl</a></h2>
+      <a href="/about/" class="tagline">woof.</a>
+    </header>
+    <div class="w group">
+      
+<section class="post">
+
+<article>
+  <header>
+    <time datetime="2012-01-13" pubdate>13 Jan 2012</time>
+    <h1>
+      <a href="/my-mis-adventures-with-web-video/"
+         class="post-title"
+         rel="bookmark"
+         title="link to this post">
+         My (mis)adventures with web video
+      </a>
+    </h1>
+  </header>
+
+  <p>Over the past few weeks I’ve run into a number of problems while adding video to web sites as part of my job at <a href="http://www.fusionary.com/">Fusionary</a>. I’m recording them here so I can repeat as few of my mistakes and avoid as many of my previous issues as possible. I also strongly believe that <em>nobody should have to go through all the pain that I’ve gone through to get video to work consistently on the web</em>. I’ll be adding to this blog post as I run across more problems.</p>
+<h3 id="embedded-youtube-videos-in-a-lightbox">Embedded YouTube Videos in a Lightbox</h3>
+<p>While most of the issues involve video served from the same site as the document, at least one problem appeared with YouTube videos shown in a lightbox. At some point I had to add <code>?wmode=transparent</code> to the iframe’s <code>src</code> because the close button was appearing behind the video. However, in IE9 (maybe 64-bit mode only), <code>wmode=transparent</code> rendered the video as a solid black background. The controls appeared, the audio played, but no video. The workaround I came up with involved checking for an “ie9” class added to the <code>html</code> element with a conditional comment. Then, I’d add the <code>wmode=transparent</code> query param to a link’s <code>href</code> (which was later used to build the YouTube iframe) if that class wasn’t there. Here is what it sort of looked like:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> wmode = <span class="hljs-regexp">/ie9/</span>.test(<span class="hljs-built_in">document</span>.documentElement.className) ? <span class="hljs-string">''</span> : <span class="hljs-string">'wmode=transparent'</span>;
+
+  <span class="hljs-keyword">if</span> ( wmode ) {
+    $(<span class="hljs-string">'a.yt-link'</span>).prop(<span class="hljs-string">'href'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i, val</span>) </span>{
+      val += <span class="hljs-keyword">this</span>.search ? <span class="hljs-string">'&amp;'</span> : <span class="hljs-string">'?'</span>;
+      <span class="hljs-keyword">return</span> val += wmode;
+    });
+  }</code></pre>
+
+<h3 id="html5-video-with-a-flash-fall-through">HTML5 Video with a Flash “fall-through”</h3>
+<p>The embedded YouTube issue was certainly interesting, but it was only a momentary diversion from the real (mis)adventures with web video. For most recent projects, I’ve been using the now-classic <a href="http://camendesign.com/code/video_for_everybody">Video for Everybody</a> markup popularized by Croc Kamen:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">video</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"video-1"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/videos/test.mp4"</span>
+    <span class="hljs-attr">poster</span>=<span class="hljs-string">"/img/video-still.jpg"</span>
+    <span class="hljs-attr">width</span>=<span class="hljs-string">"480"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"320"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"video/mp4"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/videos/test.mp4"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"video/webm"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/videos/test.webm"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">object</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/x-shockwave-flash"</span>
+      <span class="hljs-attr">data</span>=<span class="hljs-string">"/assets/swf/flashmediaelement.swf"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">param</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"movie"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"/assets/swf/flashmediaelement.swf"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">param</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"flashvars"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"controls=true&amp;amp;file=/videos/test.mp4"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/img/no-vid.png"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"No video playback capabilities"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">object</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">video</span>&gt;</span></code></pre>
+
+<p>The one exception is that I’m not including an .ogv file, because Firefox 3.6 is the only browser I somewhat care about that could use it—and couldn’t use .webm—and I don’t mind giving it the Flash fall-through.</p>
+<p>Along with this markup, I’ve been including the <a href="http://mediaelementjs.com/">mediaelement.js</a> script, which provides a consistent, cross-browser UI with HTML5-first video and a Flash “fall-through.” When a browser can’t play native HTML5 video, the mediaelement.js script attempts to play the .mp4 video using Flash. This kind of thing is essential for reducing the amount of code forking I need to do while still letting <abbr title="Internet Explorer 8">IE8</abbr> and below users see videos, too.</p>
+<h3 id="video-files-and-server-configuration-htaccess">Video Files and Server Configuration (.htaccess)</h3>
+<p>I know enough not to run into this problem when I start a project, but I sometimes forget to make sure everything is set up correctly when I jump into a project midstream to add video.</p>
+<p><strong>Problem:</strong> HTML5 video won’t play at all unless they are served correctly.</p>
+<p><strong>Solution 1:</strong> If you’re running an Apache server, set the proper MIME type for video files in the site’s .htaccess file:</p>
+<pre><code class="hljs apache"><span class="hljs-comment"># video</span>
+  <span class="hljs-attribute">AddType</span> video/ogg                      ogv
+  <span class="hljs-attribute">AddType</span> video/mp4                      mp4 m4v
+  <span class="hljs-attribute">AddType</span> video/webm                     webm</code></pre>
+
+<p><strong>Solution 2:</strong> Make sure that the server is not compressing (with gzip/deflate, etc.) those video files.</p>
+<h3 id="html5-video-with-varnish">HTML5 Video with Varnish</h3>
+<p><strong>Problem:</strong> We’ve been using <a href="https://www.varnish-cache.org/">Varnish Cache</a> on a few sites and have been very impressed with the performance boost it has provided. Unfortunately, it doesn’t play well with large video files. As soon as we turned Varnish on, the videos stopped working. Firefox showed NaN/NaN for the timeline, and other browsers just showed 00:00. It was as if the videos’ metadata couldn’t be read.</p>
+<p><strong>Solution:</strong> Once we discovered what was going on, our super-duper server guy set up another port to serve the files without Varnish, and I set up a redirect for .webm and .mp4 files to point to the other port.</p>
+<h3 id="ie8-flash-fall-through-and-f12-developer-tools">IE8, Flash Fall-through, and F12 Developer Tools</h3>
+<p><strong>Problem:</strong> Testing video playback in IE8 was a nightmare for a number of reasons. The worst of it had to do with the seemingly random breakage of video—another case of the black background for video while audio carries on its merry way.</p>
+<p><strong>Solution:</strong> Make sure the F12 Developer Tools are turned off.</p>
+<p><strong>Unsolved Mystery:</strong> I’m still not sure how to test video using Windows 7 and IE9 in IE8-compatibility mode, since that requires having the Developer Tools open. Anyone know of a workaround?</p>
+<h3 id="codec-issues-with-mp4-files">Codec Issues with mp4 files</h3>
+<p><strong>Problem:</strong> The videos weren’t working in all webkit browsers.</p>
+<p><strong>Solution:</strong> Make sure .mp4 files are encoded as H.264, not FFMpeg/MPEG-4.</p>
+<h3 id="mediaelementjs-and-the-flash-plugin-path">mediaelement.js and the Flash plugin path</h3>
+<p>This one was my fault, but not immediately obvious. The mediaelement.js script is awesome, but in this one particular case, it’s too awesome for me. When used as a jQuery plugin, the mediaelement player can be invoked like so:</p>
+<pre><code class="hljs js">$(<span class="hljs-string">'video'</span>).mediaelementplayer();</code></pre>
+
+<p><strong>Problem:</strong> By default, mediaelement.js assumes that the plugin is in the same path as the mediaelement.js file. If scripts are placed in a different folder on the production site (due to concatenating/minifying/caching, etc.), this awesome feature that works in the dev environment will no longer work when the site is live.</p>
+<p><strong>Solution:</strong> Explicitly set the <code>pluginPath</code> option. For example (set it to the actual path on your own site):</p>
+<pre><code class="hljs js">$(<span class="hljs-string">'video'</span>).mediaelementplayer({
+  <span class="hljs-attr">pluginPath</span>: <span class="hljs-string">'/assets/scripts/lib/mediaelement/'</span>
+});</code></pre>
+
+<h3 id="progressively-downloading-mp4-files-through-flash">Progressively downloading mp4 files through Flash</h3>
+<p><strong>Problem:</strong> I was having a vexing problem in that the entire video had to load before it would start playing. It turns out that the video encoders I had been using, at least with the settings I had on them, were putting the “moov atom” at the end of the .mp4 file. This moov atom is the metadata contains the index for the entire file, and Flash needs to read it before it can start progressively loading (buffering) the video. Unfortunately, when the metadata is at the end of the file, Flash needs to download the whole thing before it can get to that information. So, I had to somehow get the moov atom to the beginning of the file.</p>
+<p><strong>Solution 1, QTIndexSwapper:</strong> This is one of those things that I never would have known if I hadn’t hit upon the magic combination of google words (<a href="http://www.google.com/search?ie=UTF-8&amp;q=can+flash+buffer+mp4+files">can flash buffer mp4 files</a>), which brought me to <a href="http://www.blogstitution.com/2010/08/universal-flash-ipod-video-codec-using-imovie-html5/">a blog post that laid it all out</a>. Most of the advice in that post wasn’t relevant to my needs, but this part saved my bacon:</p>
+<blockquote>
+<p>Fortunately, Renaun Erickson over at Adobe has created a simply little AIR utility to fix this atom feed placement&hellip;: a program called “<a href="http://renaun.com/blog/code/qtindexswapper/">QTindexswapper</a>“.</p>
+</blockquote>
+<p><strong>Solution 2, moovrelocator</strong> Once I knew I could search for <a href="http://www.google.com/search?ie=UTF-8&amp;q=mp4+moov+atom">mp4 moov atom</a> I found a PHP class that also claims to “move the moov.” (I say “claims” only because I haven’t tested it; I have no reason to doubt that it does what it says it does.) I may explore this option more later.</p>
+<p><strong>Solution 3, Handbrake:</strong> One of those video encoders that put the moov atom in the wrong place for me was <a href="http://handbrake.fr/">Handbrake</a>. Now I know that it <em>can</em> put it at the start of the file if you check the <em>Web optimized</em> checkbox. However, the meaning of “Web optimized” wasn’t clear to me, and <em>none of the Handbrake presets have it checked by default.</em> Seems obvious looking at it now, but when grasping at straws and having to consider Flash, Internet Explorer, JavaScript, HTML, VMWare, hardware acceleration, and other codec conundrums (FFMpeg, H.264, Frame rate, bitrate, etc.), it’s easy to dismiss a checkbox like this as “something that will probably degrade video quality.”</p>
+<p><img src="/assets/img/handbrake.png" alt="Handbrake settings"></p>
+<p>I saved a custom preset in Handbrake that I now use for converting to mp4, starting with the iPhone 4 preset and unchecking “Large File Size” and checking “Web optimized.”</p>
+<h3 id="ie9-vmware-and-hardware-acceleration">IE9, VMWare, and Hardware Acceleration</h3>
+<p><strong>Problem:</strong> No HTML5 video in IE9 when loaded in a virtual machine.</p>
+<p><strong>Solution:</strong> In VMWare Fusion, go to the Settings panel of the virtual machine running Windows 7. Choose <em>Display</em> and uncheck “Accelerate 3D Graphics”</p>
+<p><img src="/assets/img/no-accelerated-graphics.png" alt="VMWare Display Settings - 3D Disabled"></p>
+<h3 id="conclusion">Conclusion</h3>
+<p>There are many opportunities to break video on the web. Have you come across any other problems? If you have any horror stories, cautionary tales, or success stories you’d like to share, please add a comment.</p>
+
+
+
+  <footer>
+    <div class="categories">Filed under
+    <a href="/topic/html/">html</a>
+    <a href="/topic/video/">video</a>
+    
+    </div>
+    <p class="group">
+      
+      
+      
+      
+      
+          <a class="prev" rel="prev" href="/recent-reads/" title="Recent reads" data-date="April 26 2012 19:05:39">&larr; Previous</a>
+          
+          <a class="next" rel="previous" href="/rewriterule-always-considered-first/" title="ReWriteRule always considered first" data-date="October 23 2011 10:58:55">Next &rarr;</a>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </p>
+  </footer>
+</article>
+  <section id="comments" class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_shortname = 'goodblogkarl';
+  // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
+  var disqus_identifier = '/my-mis-adventures-with-web-video/index.html';
+  var disqus_url = 'https://blog.karlswedberg.com/my-mis-adventures-with-web-video/';
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</section>
+
+      <aside>
+          <nav class="recent-posts">
+    <h3>Recently</h3>
+    <ul>
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/html5-s-web-features/">HTML5&#39;s Web * Features</a> -->
+          <a class="post-title" href="/html5-web-asterisk-features/">HTML5&#39;s Web * Features</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a> -->
+          <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a> -->
+          <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/recent-reads/">Recent reads</a> -->
+          <a class="post-title" href="/recent-reads/">Recent reads</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a> -->
+          <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a>
+
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </nav>
+
+          <nav class="topics">
+    <h3>Topics</h3>
+    <ul>
+      <li><a href="/topic/js">js</a></li><li><a href="/topic/bash">bash</a></li><li><a href="/topic/rake">rake</a></li><li><a href="/topic/links">links</a></li><li><a href="/topic/git">git</a></li><li><a href="/topic/css">css</a></li><li><a href="/topic/make">make</a></li><li><a href="/topic/apache">apache</a></li><li><a href="/topic/mobile">mobile</a></li><li><a href="/topic/html">html</a></li><li><a href="/topic/video">video</a></li>
+    </ul>
+  </nav>
+
+        <div class="rss">
+  <h3>Subscribe</h3>
+  <div class="rss"><a href="https://feeds2.feedburner.com/goodblogkarl">RSS</a></div>
+  <form action="https://feedburner.google.com/fb/a/mailverify" method="post">
+    <div class="hide">
+      <input type="hidden" value="goodblogkarl" name="uri" />
+      <input type="hidden" name="loc" value="en_US" />
+    </div>
+    <div class="text placeholder">
+      <label for="email">Email:</label>
+      <input placeholder="Email..." id="email" type="email" name="email" />
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Subscribe</button>
+    </div>
+  </form>
+</div>
+
+      </aside>
+    </div>
+
+    <footer class="w">
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/topic/">Topics</a>
+      </nav>
+    </footer>
+  </div>
+  <script data-id="tail.js" src="/assets/js/tail-bab41ed509.js"></script>
+
+
+</body>
+</html>
+]]></content>
+        <author>
+            <name>Karl Swedberg</name>
+            <uri>https://karlswedberg.com/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[ReWriteRule always considered first]]></title>
+        <id>https://blog.karlswedberg.com/rewriterule-always-considered-first/</id>
+        <link href="https://blog.karlswedberg.com/rewriterule-always-considered-first/">
+        </link>
+        <updated>2011-10-23T14:58:55Z</updated>
+        <content type="html"><![CDATA[<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ReWriteRule always considered first - Good Blog, Karl</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link data-id="app.css" rel="stylesheet" href="/assets/css/app-a6922968c4.css" media="screen, projection">
+<link href="https://feeds2.feedburner.com/goodblogkarl" rel="alternate" title="Good Blog, Karl" type="application/atom+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<!--[if lte IE 8]>
+  <script src="/assets/js/vendor/html5shim.js"> </script>
+<![endif]-->
+<script data-id="head.js" src="/assets/js/head-7c0338a529.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="w">
+      <h2><a href="/">Good Blog, Karl</a></h2>
+      <a href="/about/" class="tagline">woof.</a>
+    </header>
+    <div class="w group">
+      
+<section class="post">
+
+<article>
+  <header>
+    <time datetime="2011-10-23" pubdate>23 Oct 2011</time>
+    <h1>
+      <a href="/rewriterule-always-considered-first/"
+         class="post-title"
+         rel="bookmark"
+         title="link to this post">
+         ReWriteRule always considered first
+      </a>
+    </h1>
+  </header>
+
+  <p>So much of Apache’s <i>mod_rewrite</i> is a mystery to me that I wonder if I’ll ever be able to write anything but the most basic ruleset without multiple trials and errors. Today, though, I stumbled upon a nice bit of information in <i>Apache Cookbook</i> by Ken Coar and Rich Bowen that I’m sure will come in handy next time I start hacking away in the <i>.htaccess</i> file.</p>
+<p>The authors present this snippet for giving users their own web space on a server:</p>
+<pre><code class="hljs apache"><span class="hljs-attribute"><span class="hljs-nomarkup">ReWriteEngine</span></span> <span class="hljs-literal">On</span>
+<span class="hljs-attribute"><span class="hljs-nomarkup">RewriteCond</span></span> <span class="hljs-string">"/home/$1/public_html"</span>
+<span class="hljs-attribute"><span class="hljs-nomarkup">RewriteRule</span></span> <span class="hljs-string">"/([^/]+)/(.*)"</span> <span class="hljs-string">"home/$1/public_html/$2"</span></code></pre>
+
+<p>While I doubt I’ll ever need to use that exact ruleset, this paragraph in the “Discussion” section — especially the part that I mark in bold — has helped, more than anything else I’ve read, to reduce my bewilderment over <i>mod_rewrite</i>:</p>
+<blockquote>
+<p>This rewrite ruleset takes advantage of a little-known fact about <i>mod_rewrite</i> — in particular, that <strong>a <i>RewriteRule</i> is always considered first, and, if it matches, the <i>RewriteCond</i> is evaluated after that</strong>. Consequently, we can use <code>$1</code> in the <i>RewriteCond</i> , even though the value of that variable is set in the <i>RewriteRule</i> appearing on the following line.</p>
+</blockquote>
+<h3 id="note-to-self">Note to self</h3>
+<p>Commit this to memory: The <i>RewriteRule</i> is always considered first!</p>
+
+
+
+  <footer>
+    <div class="categories">Filed under
+    <a href="/topic/apache/">apache</a>
+    
+    </div>
+    <p class="group">
+      
+      
+      
+      
+      
+      
+          <a class="prev" rel="prev" href="/my-mis-adventures-with-web-video/" title="My (mis)adventures with web video" data-date="January 12 2012 20:55:14">&larr; Previous</a>
+          
+          <a class="next" rel="previous" href="/mobile-safari-debug-console/" title="Mobile Safari debug console" data-date="August 02 2011 09:30:09">Next &rarr;</a>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </p>
+  </footer>
+</article>
+  <section id="comments" class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_shortname = 'goodblogkarl';
+  // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
+  var disqus_identifier = '/rewriterule-always-considered-first/index.html';
+  var disqus_url = 'https://blog.karlswedberg.com/rewriterule-always-considered-first/';
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</section>
+
+      <aside>
+          <nav class="recent-posts">
+    <h3>Recently</h3>
+    <ul>
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/html5-s-web-features/">HTML5&#39;s Web * Features</a> -->
+          <a class="post-title" href="/html5-web-asterisk-features/">HTML5&#39;s Web * Features</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a> -->
+          <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a> -->
+          <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/recent-reads/">Recent reads</a> -->
+          <a class="post-title" href="/recent-reads/">Recent reads</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a> -->
+          <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a>
+
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </nav>
+
+          <nav class="topics">
+    <h3>Topics</h3>
+    <ul>
+      <li><a href="/topic/js">js</a></li><li><a href="/topic/bash">bash</a></li><li><a href="/topic/rake">rake</a></li><li><a href="/topic/links">links</a></li><li><a href="/topic/git">git</a></li><li><a href="/topic/css">css</a></li><li><a href="/topic/make">make</a></li><li><a href="/topic/apache">apache</a></li><li><a href="/topic/mobile">mobile</a></li><li><a href="/topic/html">html</a></li><li><a href="/topic/video">video</a></li>
+    </ul>
+  </nav>
+
+        <div class="rss">
+  <h3>Subscribe</h3>
+  <div class="rss"><a href="https://feeds2.feedburner.com/goodblogkarl">RSS</a></div>
+  <form action="https://feedburner.google.com/fb/a/mailverify" method="post">
+    <div class="hide">
+      <input type="hidden" value="goodblogkarl" name="uri" />
+      <input type="hidden" name="loc" value="en_US" />
+    </div>
+    <div class="text placeholder">
+      <label for="email">Email:</label>
+      <input placeholder="Email..." id="email" type="email" name="email" />
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Subscribe</button>
+    </div>
+  </form>
+</div>
+
+      </aside>
+    </div>
+
+    <footer class="w">
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/topic/">Topics</a>
+      </nav>
+    </footer>
+  </div>
+  <script data-id="tail.js" src="/assets/js/tail-bab41ed509.js"></script>
+
+
+</body>
+</html>
+]]></content>
+        <author>
+            <name>Karl Swedberg</name>
+            <uri>https://karlswedberg.com/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Mobile Safari debug console]]></title>
+        <id>https://blog.karlswedberg.com/mobile-safari-debug-console/</id>
+        <link href="https://blog.karlswedberg.com/mobile-safari-debug-console/">
+        </link>
+        <updated>2011-08-02T13:30:09Z</updated>
+        <content type="html"><![CDATA[<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile Safari debug console - Good Blog, Karl</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link data-id="app.css" rel="stylesheet" href="/assets/css/app-a6922968c4.css" media="screen, projection">
+<link href="https://feeds2.feedburner.com/goodblogkarl" rel="alternate" title="Good Blog, Karl" type="application/atom+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<!--[if lte IE 8]>
+  <script src="/assets/js/vendor/html5shim.js"> </script>
+<![endif]-->
+<script data-id="head.js" src="/assets/js/head-7c0338a529.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="w">
+      <h2><a href="/">Good Blog, Karl</a></h2>
+      <a href="/about/" class="tagline">woof.</a>
+    </header>
+    <div class="w group">
+      
+<section class="post">
+
+<article>
+  <header>
+    <time datetime="2011-08-02" pubdate>02 Aug 2011</time>
+    <h1>
+      <a href="/mobile-safari-debug-console/"
+         class="post-title"
+         rel="bookmark"
+         title="link to this post">
+         Mobile Safari debug console
+      </a>
+    </h1>
+  </header>
+
+  <p>Late to the party, once again. Just discovered Debug Console in iPhone while looking through the Safari Developer Library and stumbling upon <a href="https://developer.apple.com/library/safari/#codinghowtos/Mobile/Tools/_index.html#//apple_ref/doc/uid/DTS40008250">Safari on iPhone Tools</a>:</p>
+<blockquote>
+<p>Safari on iPhone OS provides a debug console which reports messages, coding errors, warnings, and tips. In the iPhone Simulator or on iPhone or iPod touch, launch the Settings application. Navigate to “Safari”, then to “Developer” and toggle the “Debug Console” switch to “ON”.</p>
+</blockquote>
+<p>This is going to help. A lot.</p>
+
+
+
+  <footer>
+    <div class="categories">Filed under
+    <a href="/topic/mobile/">mobile</a>
+    
+    </div>
+    <p class="group">
+      
+      
+      
+      
+      
+      
+      
+          <a class="prev" rel="prev" href="/rewriterule-always-considered-first/" title="ReWriteRule always considered first" data-date="October 23 2011 10:58:55">&larr; Previous</a>
+          
+          <a class="next" rel="previous" href="/forcing-ms-office-files-to-download/" title="Forcing MS Office files to download" data-date="July 07 2011 22:51:46">Next &rarr;</a>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </p>
+  </footer>
+</article>
+  <section id="comments" class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_shortname = 'goodblogkarl';
+  // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
+  var disqus_identifier = '/mobile-safari-debug-console/index.html';
+  var disqus_url = 'https://blog.karlswedberg.com/mobile-safari-debug-console/';
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</section>
+
+      <aside>
+          <nav class="recent-posts">
+    <h3>Recently</h3>
+    <ul>
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/html5-s-web-features/">HTML5&#39;s Web * Features</a> -->
+          <a class="post-title" href="/html5-web-asterisk-features/">HTML5&#39;s Web * Features</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a> -->
+          <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a> -->
+          <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/recent-reads/">Recent reads</a> -->
+          <a class="post-title" href="/recent-reads/">Recent reads</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a> -->
+          <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a>
+
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </nav>
+
+          <nav class="topics">
+    <h3>Topics</h3>
+    <ul>
+      <li><a href="/topic/js">js</a></li><li><a href="/topic/bash">bash</a></li><li><a href="/topic/rake">rake</a></li><li><a href="/topic/links">links</a></li><li><a href="/topic/git">git</a></li><li><a href="/topic/css">css</a></li><li><a href="/topic/make">make</a></li><li><a href="/topic/apache">apache</a></li><li><a href="/topic/mobile">mobile</a></li><li><a href="/topic/html">html</a></li><li><a href="/topic/video">video</a></li>
+    </ul>
+  </nav>
+
+        <div class="rss">
+  <h3>Subscribe</h3>
+  <div class="rss"><a href="https://feeds2.feedburner.com/goodblogkarl">RSS</a></div>
+  <form action="https://feedburner.google.com/fb/a/mailverify" method="post">
+    <div class="hide">
+      <input type="hidden" value="goodblogkarl" name="uri" />
+      <input type="hidden" name="loc" value="en_US" />
+    </div>
+    <div class="text placeholder">
+      <label for="email">Email:</label>
+      <input placeholder="Email..." id="email" type="email" name="email" />
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Subscribe</button>
+    </div>
+  </form>
+</div>
+
+      </aside>
+    </div>
+
+    <footer class="w">
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/topic/">Topics</a>
+      </nav>
+    </footer>
+  </div>
+  <script data-id="tail.js" src="/assets/js/tail-bab41ed509.js"></script>
+
+
+</body>
+</html>
+]]></content>
+        <author>
+            <name>Karl Swedberg</name>
+            <uri>https://karlswedberg.com/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Forcing MS Office files to download]]></title>
+        <id>https://blog.karlswedberg.com/forcing-ms-office-files-to-download/</id>
+        <link href="https://blog.karlswedberg.com/forcing-ms-office-files-to-download/">
+        </link>
+        <updated>2011-07-08T02:51:46Z</updated>
+        <content type="html"><![CDATA[<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forcing MS Office files to download - Good Blog, Karl</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link data-id="app.css" rel="stylesheet" href="/assets/css/app-a6922968c4.css" media="screen, projection">
+<link href="https://feeds2.feedburner.com/goodblogkarl" rel="alternate" title="Good Blog, Karl" type="application/atom+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<!--[if lte IE 8]>
+  <script src="/assets/js/vendor/html5shim.js"> </script>
+<![endif]-->
+<script data-id="head.js" src="/assets/js/head-7c0338a529.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="w">
+      <h2><a href="/">Good Blog, Karl</a></h2>
+      <a href="/about/" class="tagline">woof.</a>
+    </header>
+    <div class="w group">
+      
+<section class="post">
+
+<article>
+  <header>
+    <time datetime="2011-07-08" pubdate>08 Jul 2011</time>
+    <h1>
+      <a href="/forcing-ms-office-files-to-download/"
+         class="post-title"
+         rel="bookmark"
+         title="link to this post">
+         Forcing MS Office files to download
+      </a>
+    </h1>
+  </header>
+
+  <p>Every time clients start putting up links to Microsoft Office files on their sites, I’m sent scrambling around my hard drive with a <code>find ~/Sites -name &quot;.htaccess&quot; -exec grep &quot;ms-word&quot; &#39;{}&#39; \; -print</code> command or searching the googles for <code>htaccess force download ms-word</code>. Fortunately, it doesn’t take too long to find what I’m looking for:</p>
+<pre><code>&lt;pre&gt;&lt;code class=&quot;hljs apache&quot;&gt;&lt;span class=&quot;hljs-attribute&quot;&gt;AddType&lt;/span&gt; application/vnd.ms-word.document.macroEnabled.12 .docm
+&lt;span class=&quot;hljs-attribute&quot;&gt;AddType&lt;/span&gt; application/vnd.openxmlformats-officedocument.wordprocessingml.document docx
+&lt;span class=&quot;hljs-attribute&quot;&gt;AddType&lt;/span&gt; application/vnd.openxmlformats-officedocument.wordprocessingml.template dotx
+&lt;span class=&quot;hljs-attribute&quot;&gt;AddType&lt;/span&gt; application/vnd.ms-powerpoint.template.macroEnabled.12 potm
+&lt;span class=&quot;hljs-attribute&quot;&gt;AddType&lt;/span&gt; application/vnd.openxmlformats-officedocument.presentationml.template potx
+&lt;span class=&quot;hljs-attribute&quot;&gt;AddType&lt;/span&gt; application/vnd.ms-powerpoint.addin.macroEnabled.12 ppam
+&lt;span class=&quot;hljs-attribute&quot;&gt;AddType&lt;/span&gt; application/vnd.ms-powerpoint.slideshow.macroEnabled.12 ppsm
+&lt;span class=&quot;hljs-attribute&quot;&gt;AddType&lt;/span&gt; application/vnd.openxmlformats-officedocument.presentationml.slideshow ppsx
+&lt;span class=&quot;hljs-attribute&quot;&gt;AddType&lt;/span&gt; application/vnd.ms-powerpoint.presentation.macroEnabled.12 pptm
+&lt;span class=&quot;hljs-attribute&quot;&gt;AddType&lt;/span&gt; application/vnd.openxmlformats-officedocument.presentationml.presentation pptx
+&lt;span class=&quot;hljs-attribute&quot;&gt;AddType&lt;/span&gt; application/vnd.ms-excel.addin.macroEnabled.12 xlam
+&lt;span class=&quot;hljs-attribute&quot;&gt;AddType&lt;/span&gt; application/vnd.ms-excel.sheet.binary.macroEnabled.12 xlsb
+&lt;span class=&quot;hljs-attribute&quot;&gt;AddType&lt;/span&gt; application/vnd.ms-excel.sheet.macroEnabled.12 xlsm
+&lt;span class=&quot;hljs-attribute&quot;&gt;AddType&lt;/span&gt; application/vnd.openxmlformats-officedocument.spreadsheetml.sheet xlsx
+&lt;span class=&quot;hljs-attribute&quot;&gt;AddType&lt;/span&gt; application/vnd.ms-excel.template.macroEnabled.12 xltm
+&lt;span class=&quot;hljs-attribute&quot;&gt;AddType&lt;/span&gt; application/vnd.openxmlformats-officedocument.spreadsheetml.template xltx&lt;/code&gt;&lt;/pre&gt;</code></pre><p>I suppose I could set them all to <code>application/octet-stream</code> or some such if I truly wanted to force the download, but I’m pretty sure that doing it the long way will allow the user to choose whether to open the file in the appropriate Office Application or save it. In any case, the clients seem to love it. Microsoft Word to your mother!</p>
+
+
+
+  <footer>
+    <div class="categories">Filed under
+    <a href="/topic/apache/">apache</a>
+    
+    </div>
+    <p class="group">
+      
+      
+      
+      
+      
+      
+      
+      
+          <a class="prev" rel="prev" href="/mobile-safari-debug-console/" title="Mobile Safari debug console" data-date="August 02 2011 09:30:09">&larr; Previous</a>
+          
+          <a class="next" rel="previous" href="/jsmake/" title="JSMake" data-date="June 21 2011 07:29:41">Next &rarr;</a>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </p>
+  </footer>
+</article>
+  <section id="comments" class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_shortname = 'goodblogkarl';
+  // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
+  var disqus_identifier = '/forcing-ms-office-files-to-download/index.html';
+  var disqus_url = 'https://blog.karlswedberg.com/forcing-ms-office-files-to-download/';
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</section>
+
+      <aside>
+          <nav class="recent-posts">
+    <h3>Recently</h3>
+    <ul>
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/html5-s-web-features/">HTML5&#39;s Web * Features</a> -->
+          <a class="post-title" href="/html5-web-asterisk-features/">HTML5&#39;s Web * Features</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a> -->
+          <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a> -->
+          <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/recent-reads/">Recent reads</a> -->
+          <a class="post-title" href="/recent-reads/">Recent reads</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a> -->
+          <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a>
+
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </nav>
+
+          <nav class="topics">
+    <h3>Topics</h3>
+    <ul>
+      <li><a href="/topic/js">js</a></li><li><a href="/topic/bash">bash</a></li><li><a href="/topic/rake">rake</a></li><li><a href="/topic/links">links</a></li><li><a href="/topic/git">git</a></li><li><a href="/topic/css">css</a></li><li><a href="/topic/make">make</a></li><li><a href="/topic/apache">apache</a></li><li><a href="/topic/mobile">mobile</a></li><li><a href="/topic/html">html</a></li><li><a href="/topic/video">video</a></li>
+    </ul>
+  </nav>
+
+        <div class="rss">
+  <h3>Subscribe</h3>
+  <div class="rss"><a href="https://feeds2.feedburner.com/goodblogkarl">RSS</a></div>
+  <form action="https://feedburner.google.com/fb/a/mailverify" method="post">
+    <div class="hide">
+      <input type="hidden" value="goodblogkarl" name="uri" />
+      <input type="hidden" name="loc" value="en_US" />
+    </div>
+    <div class="text placeholder">
+      <label for="email">Email:</label>
+      <input placeholder="Email..." id="email" type="email" name="email" />
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Subscribe</button>
+    </div>
+  </form>
+</div>
+
+      </aside>
+    </div>
+
+    <footer class="w">
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/topic/">Topics</a>
+      </nav>
+    </footer>
+  </div>
+  <script data-id="tail.js" src="/assets/js/tail-bab41ed509.js"></script>
+
+
+</body>
+</html>
+]]></content>
+        <author>
+            <name>Karl Swedberg</name>
+            <uri>https://karlswedberg.com/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[JSMake]]></title>
+        <id>https://blog.karlswedberg.com/jsmake/</id>
+        <link href="https://blog.karlswedberg.com/jsmake/">
+        </link>
+        <updated>2011-06-21T11:29:41Z</updated>
+        <content type="html"><![CDATA[<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSMake - Good Blog, Karl</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link data-id="app.css" rel="stylesheet" href="/assets/css/app-a6922968c4.css" media="screen, projection">
+<link href="https://feeds2.feedburner.com/goodblogkarl" rel="alternate" title="Good Blog, Karl" type="application/atom+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<!--[if lte IE 8]>
+  <script src="/assets/js/vendor/html5shim.js"> </script>
+<![endif]-->
+<script data-id="head.js" src="/assets/js/head-7c0338a529.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="w">
+      <h2><a href="/">Good Blog, Karl</a></h2>
+      <a href="/about/" class="tagline">woof.</a>
+    </header>
+    <div class="w group">
+      
+<section class="post">
+
+<article>
+  <header>
+    <time datetime="2011-06-21" pubdate>21 Jun 2011</time>
+    <h1>
+      <a href="/jsmake/"
+         class="post-title"
+         rel="bookmark"
+         title="link to this post">
+         JSMake
+      </a>
+    </h1>
+  </header>
+
+  <p>I’ve been hacking around with Make, Rake, and Ant build files, learning just enough to remain dangerous. So far, I feel the most comfortable with Rake, the Ruby version of Make. I like how it provides access to Bash commands but also has its own API. Recently another tool caught my interest:</p>
+<blockquote>
+<p><a href="http://gimmi.github.com/jsmake/">JSMake</a> is a simple Javascript build program with capabilities similar to make</p>
+</blockquote>
+<p>The allure of a tool that would let me write my build scripts in JavaScript is strong. But it does make me wonder: What advantage, other than my familiarity with JavaScript, does JSMake have over other such tools? And is it worth my time to learn another <abbr title="Domain Specific Language">DSL</abbr> when others work just fine?</p>
+<p>On a broader level, these questions touch on the issue that I, and I’m sure many other web developers, have regarding the balance between chasing after the newest, shiniest things and deepening my understanding of more established technologies.</p>
+
+
+
+  <footer>
+    <div class="categories">Filed under
+    <a href="/topic/make/">make</a>
+    <a href="/topic/rake/">rake</a>
+    <a href="/topic/js/">js</a>
+    
+    </div>
+    <p class="group">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+          <a class="prev" rel="prev" href="/forcing-ms-office-files-to-download/" title="Forcing MS Office files to download" data-date="July 07 2011 22:51:46">&larr; Previous</a>
+          
+          <a class="next" rel="previous" href="/pushing-an-existing-local-repo-to-new-github-repo/" title="pushing an existing local repo to new github repo" data-date="April 14 2011 18:00:36">Next &rarr;</a>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </p>
+  </footer>
+</article>
+  <section id="comments" class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_shortname = 'goodblogkarl';
+  // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
+  var disqus_identifier = '/jsmake/index.html';
+  var disqus_url = 'https://blog.karlswedberg.com/jsmake/';
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</section>
+
+      <aside>
+          <nav class="recent-posts">
+    <h3>Recently</h3>
+    <ul>
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/html5-s-web-features/">HTML5&#39;s Web * Features</a> -->
+          <a class="post-title" href="/html5-web-asterisk-features/">HTML5&#39;s Web * Features</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a> -->
+          <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a> -->
+          <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/recent-reads/">Recent reads</a> -->
+          <a class="post-title" href="/recent-reads/">Recent reads</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a> -->
+          <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a>
+
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </nav>
+
+          <nav class="topics">
+    <h3>Topics</h3>
+    <ul>
+      <li><a href="/topic/js">js</a></li><li><a href="/topic/bash">bash</a></li><li><a href="/topic/rake">rake</a></li><li><a href="/topic/links">links</a></li><li><a href="/topic/git">git</a></li><li><a href="/topic/css">css</a></li><li><a href="/topic/make">make</a></li><li><a href="/topic/apache">apache</a></li><li><a href="/topic/mobile">mobile</a></li><li><a href="/topic/html">html</a></li><li><a href="/topic/video">video</a></li>
+    </ul>
+  </nav>
+
+        <div class="rss">
+  <h3>Subscribe</h3>
+  <div class="rss"><a href="https://feeds2.feedburner.com/goodblogkarl">RSS</a></div>
+  <form action="https://feedburner.google.com/fb/a/mailverify" method="post">
+    <div class="hide">
+      <input type="hidden" value="goodblogkarl" name="uri" />
+      <input type="hidden" name="loc" value="en_US" />
+    </div>
+    <div class="text placeholder">
+      <label for="email">Email:</label>
+      <input placeholder="Email..." id="email" type="email" name="email" />
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Subscribe</button>
+    </div>
+  </form>
+</div>
+
+      </aside>
+    </div>
+
+    <footer class="w">
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/topic/">Topics</a>
+      </nav>
+    </footer>
+  </div>
+  <script data-id="tail.js" src="/assets/js/tail-bab41ed509.js"></script>
+
+
+</body>
+</html>
+]]></content>
+        <author>
+            <name>Karl Swedberg</name>
+            <uri>https://karlswedberg.com/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[pushing an existing local repo to new github repo]]></title>
+        <id>https://blog.karlswedberg.com/pushing-an-existing-local-repo-to-new-github-repo/</id>
+        <link href="https://blog.karlswedberg.com/pushing-an-existing-local-repo-to-new-github-repo/">
+        </link>
+        <updated>2011-04-14T22:00:36Z</updated>
+        <content type="html"><![CDATA[<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>pushing an existing local repo to new github repo - Good Blog, Karl</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link data-id="app.css" rel="stylesheet" href="/assets/css/app-a6922968c4.css" media="screen, projection">
+<link href="https://feeds2.feedburner.com/goodblogkarl" rel="alternate" title="Good Blog, Karl" type="application/atom+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<!--[if lte IE 8]>
+  <script src="/assets/js/vendor/html5shim.js"> </script>
+<![endif]-->
+<script data-id="head.js" src="/assets/js/head-7c0338a529.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="w">
+      <h2><a href="/">Good Blog, Karl</a></h2>
+      <a href="/about/" class="tagline">woof.</a>
+    </header>
+    <div class="w group">
+      
+<section class="post">
+
+<article>
+  <header>
+    <time datetime="2011-04-14" pubdate>14 Apr 2011</time>
+    <h1>
+      <a href="/pushing-an-existing-local-repo-to-new-github-repo/"
+         class="post-title"
+         rel="bookmark"
+         title="link to this post">
+         pushing an existing local repo to new github repo
+      </a>
+    </h1>
+  </header>
+
+  <p>I usually start my projects with a local git repo and then at some later date decide to put it up on <a href="http://github.com/">github.com</a>. That’s usually a no-brainer if I’m the one who creates the remote repo; GitHub provides clear instructions on the very next page. But if the project is for work and someone else has already created an empty remote repo, I don’t get to see those instructions. So, here’s what I need to do:</p>
+  <pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ~/Sites/<span class="hljs-built_in">local</span>-repo-dir
+
+   git remote add origin git@github.com:fusionary/remote-repo-name.git
+
+   git push -u origin master</code></pre>
+
+
+
+
+
+  <footer>
+    <div class="categories">Filed under
+    <a href="/topic/git/">git</a>
+    
+    </div>
+    <p class="group">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+          <a class="prev" rel="prev" href="/jsmake/" title="JSMake" data-date="June 21 2011 07:29:41">&larr; Previous</a>
+          
+          <a class="next" rel="previous" href="/another-media-query-detection-script/" title="Another media query detection script" data-date="March 19 2011 10:53:03">Next &rarr;</a>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </p>
+  </footer>
+</article>
+  <section id="comments" class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_shortname = 'goodblogkarl';
+  // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
+  var disqus_identifier = '/pushing-an-existing-local-repo-to-new-github-repo/index.html';
+  var disqus_url = 'https://blog.karlswedberg.com/pushing-an-existing-local-repo-to-new-github-repo/';
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</section>
+
+      <aside>
+          <nav class="recent-posts">
+    <h3>Recently</h3>
+    <ul>
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/html5-s-web-features/">HTML5&#39;s Web * Features</a> -->
+          <a class="post-title" href="/html5-web-asterisk-features/">HTML5&#39;s Web * Features</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a> -->
+          <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a> -->
+          <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/recent-reads/">Recent reads</a> -->
+          <a class="post-title" href="/recent-reads/">Recent reads</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a> -->
+          <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a>
+
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </nav>
+
+          <nav class="topics">
+    <h3>Topics</h3>
+    <ul>
+      <li><a href="/topic/js">js</a></li><li><a href="/topic/bash">bash</a></li><li><a href="/topic/rake">rake</a></li><li><a href="/topic/links">links</a></li><li><a href="/topic/git">git</a></li><li><a href="/topic/css">css</a></li><li><a href="/topic/make">make</a></li><li><a href="/topic/apache">apache</a></li><li><a href="/topic/mobile">mobile</a></li><li><a href="/topic/html">html</a></li><li><a href="/topic/video">video</a></li>
+    </ul>
+  </nav>
+
+        <div class="rss">
+  <h3>Subscribe</h3>
+  <div class="rss"><a href="https://feeds2.feedburner.com/goodblogkarl">RSS</a></div>
+  <form action="https://feedburner.google.com/fb/a/mailverify" method="post">
+    <div class="hide">
+      <input type="hidden" value="goodblogkarl" name="uri" />
+      <input type="hidden" name="loc" value="en_US" />
+    </div>
+    <div class="text placeholder">
+      <label for="email">Email:</label>
+      <input placeholder="Email..." id="email" type="email" name="email" />
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Subscribe</button>
+    </div>
+  </form>
+</div>
+
+      </aside>
+    </div>
+
+    <footer class="w">
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/topic/">Topics</a>
+      </nav>
+    </footer>
+  </div>
+  <script data-id="tail.js" src="/assets/js/tail-bab41ed509.js"></script>
+
+
+</body>
+</html>
+]]></content>
+        <author>
+            <name>Karl Swedberg</name>
+            <uri>https://karlswedberg.com/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Another media query detection script]]></title>
+        <id>https://blog.karlswedberg.com/another-media-query-detection-script/</id>
+        <link href="https://blog.karlswedberg.com/another-media-query-detection-script/">
+        </link>
+        <updated>2011-03-19T14:53:03Z</updated>
+        <content type="html"><![CDATA[<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Another media query detection script - Good Blog, Karl</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link data-id="app.css" rel="stylesheet" href="/assets/css/app-a6922968c4.css" media="screen, projection">
+<link href="https://feeds2.feedburner.com/goodblogkarl" rel="alternate" title="Good Blog, Karl" type="application/atom+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<!--[if lte IE 8]>
+  <script src="/assets/js/vendor/html5shim.js"> </script>
+<![endif]-->
+<script data-id="head.js" src="/assets/js/head-7c0338a529.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="w">
+      <h2><a href="/">Good Blog, Karl</a></h2>
+      <a href="/about/" class="tagline">woof.</a>
+    </header>
+    <div class="w group">
+      
+<section class="post">
+
+<article>
+  <header>
+    <time datetime="2011-03-19" pubdate>19 Mar 2011</time>
+    <h1>
+      <a href="/another-media-query-detection-script/"
+         class="post-title"
+         rel="bookmark"
+         title="link to this post">
+         Another media query detection script
+      </a>
+    </h1>
+  </header>
+
+  <p>After I <a href="http://blog.karlswedberg.com/2011-03-16-Media-query-detection.markdown">linked</a> to a Media Query detection script written by Nicholas Zakas, Paul Irish pinged me to let me know about <a href="https://gist.github.com/786768">a gist he adapted from Scott Jehl</a>. This one looks even cooler. It takes advantage of the new <a href="http://dev.w3.org/csswg/cssom-view/#dom-window-matchmedia">matchMedia</a> function when it’s available, and defines its own when the native one isn’t there:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">if</span> ( !(<span class="hljs-built_in">window</span>.matchMedia) ){
+
+  <span class="hljs-built_in">window</span>.matchMedia = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">doc,undefined</span>)</span>{
+
+  <span class="hljs-comment">// ... lots of stuff ...</span>
+
+  })(<span class="hljs-built_in">document</span>);
+
+}</code></pre>
+
+<p>Here’s the cool thing: That matchMedia function is immediately invoked. Now, why should that happen? Isn’t the point of this thing to invoke it when I, as its consumer, want to call it from somewhere? Yep. But, it’s not ready for me just yet. inside that function <em>it’s returning another function</em>, which can then be called whenever I do <code>matchMedia(mymediaquery)</code>:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">if</span> ( !(<span class="hljs-built_in">window</span>.matchMedia) ){
+
+  <span class="hljs-built_in">window</span>.matchMedia = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">doc,undefined</span>)</span>{
+    <span class="hljs-comment">// ... prep work ...</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">q</span>)</span>{
+      <span class="hljs-comment">// ... other stuff ...</span>
+    };
+
+  })(<span class="hljs-built_in">document</span>);
+
+}</code></pre>
+
+<p>There is also some result caching going on in there, so if you repeat the function call with the same argument, it won’t do the work of figuring out support each time; instead, after the first time it’ll just use the result it stored in the cache.</p>
+<p>Very fun and cool stuff!</p>
+
+
+
+  <footer>
+    <div class="categories">Filed under
+    <a href="/topic/js/">js</a>
+    <a href="/topic/links/">links</a>
+    
+    </div>
+    <p class="group">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+          <a class="prev" rel="prev" href="/pushing-an-existing-local-repo-to-new-github-repo/" title="pushing an existing local repo to new github repo" data-date="April 14 2011 18:00:36">&larr; Previous</a>
+          
+          <a class="next" rel="previous" href="/media-query-detection/" title="Media query detection" data-date="March 16 2011 16:55:52">Next &rarr;</a>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+    </p>
+  </footer>
+</article>
+  <section id="comments" class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_shortname = 'goodblogkarl';
+  // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
+  var disqus_identifier = '/another-media-query-detection-script/index.html';
+  var disqus_url = 'https://blog.karlswedberg.com/another-media-query-detection-script/';
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</section>
+
+      <aside>
+          <nav class="recent-posts">
+    <h3>Recently</h3>
+    <ul>
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/html5-s-web-features/">HTML5&#39;s Web * Features</a> -->
+          <a class="post-title" href="/html5-web-asterisk-features/">HTML5&#39;s Web * Features</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a> -->
+          <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a> -->
+          <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/recent-reads/">Recent reads</a> -->
+          <a class="post-title" href="/recent-reads/">Recent reads</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a> -->
+          <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a>
+
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </nav>
+
+          <nav class="topics">
+    <h3>Topics</h3>
+    <ul>
+      <li><a href="/topic/js">js</a></li><li><a href="/topic/bash">bash</a></li><li><a href="/topic/rake">rake</a></li><li><a href="/topic/links">links</a></li><li><a href="/topic/git">git</a></li><li><a href="/topic/css">css</a></li><li><a href="/topic/make">make</a></li><li><a href="/topic/apache">apache</a></li><li><a href="/topic/mobile">mobile</a></li><li><a href="/topic/html">html</a></li><li><a href="/topic/video">video</a></li>
+    </ul>
+  </nav>
+
+        <div class="rss">
+  <h3>Subscribe</h3>
+  <div class="rss"><a href="https://feeds2.feedburner.com/goodblogkarl">RSS</a></div>
+  <form action="https://feedburner.google.com/fb/a/mailverify" method="post">
+    <div class="hide">
+      <input type="hidden" value="goodblogkarl" name="uri" />
+      <input type="hidden" name="loc" value="en_US" />
+    </div>
+    <div class="text placeholder">
+      <label for="email">Email:</label>
+      <input placeholder="Email..." id="email" type="email" name="email" />
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Subscribe</button>
+    </div>
+  </form>
+</div>
+
+      </aside>
+    </div>
+
+    <footer class="w">
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/topic/">Topics</a>
+      </nav>
+    </footer>
+  </div>
+  <script data-id="tail.js" src="/assets/js/tail-bab41ed509.js"></script>
+
+
+</body>
+</html>
+]]></content>
+        <author>
+            <name>Karl Swedberg</name>
+            <uri>https://karlswedberg.com/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Media query detection]]></title>
+        <id>https://blog.karlswedberg.com/media-query-detection/</id>
+        <link href="https://blog.karlswedberg.com/media-query-detection/">
+        </link>
+        <updated>2011-03-16T20:55:52Z</updated>
+        <content type="html"><![CDATA[<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Media query detection - Good Blog, Karl</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link data-id="app.css" rel="stylesheet" href="/assets/css/app-a6922968c4.css" media="screen, projection">
+<link href="https://feeds2.feedburner.com/goodblogkarl" rel="alternate" title="Good Blog, Karl" type="application/atom+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<!--[if lte IE 8]>
+  <script src="/assets/js/vendor/html5shim.js"> </script>
+<![endif]-->
+<script data-id="head.js" src="/assets/js/head-7c0338a529.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="w">
+      <h2><a href="/">Good Blog, Karl</a></h2>
+      <a href="/about/" class="tagline">woof.</a>
+    </header>
+    <div class="w group">
+      
+<section class="post">
+
+<article>
+  <header>
+    <time datetime="2011-03-16" pubdate>16 Mar 2011</time>
+    <h1>
+      <a href="/media-query-detection/"
+         class="post-title"
+         rel="bookmark"
+         title="link to this post">
+         Media query detection
+      </a>
+    </h1>
+  </header>
+
+  <p><a href="https://gist.github.com/08602e7d2ee448be834c">This gist</a> from Nicholas C. Zakas looks really handy:</p>
+<blockquote>
+<p>This function determines if the browser is currently in a particular media media mode. Use the same media query as you would in CSS or on a <code>&lt;link&gt;</code> element.</p>
+</blockquote>
+<p>I can see myself using it quite a bit. His usage examples look like this:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">if</span> (isMedia(<span class="hljs-string">"screen and (max-width:800px)"</span>){
+    <span class="hljs-comment">//do something for the screen</span>
+}
+
+<span class="hljs-keyword">if</span> (isMedia(<span class="hljs-string">"all and (orientation:portrait)"</span>)){
+    <span class="hljs-comment">//react to portrait mode</span>
+}</code></pre>
+
+<p>I’m thinking it might be even more useful for me to detect <code>!isMedia(&#39;something)</code> and fallback to js stuff in those cases. Not sure yet. Still need to ponder.</p>
+
+
+
+  <footer>
+    <div class="categories">Filed under
+    <a href="/topic/links/">links</a>
+    <a href="/topic/js/">js</a>
+    <a href="/topic/css/">css</a>
+    
+    </div>
+    <p class="group">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+          <a class="prev" rel="prev" href="/another-media-query-detection-script/" title="Another media query detection script" data-date="March 19 2011 10:53:03">&larr; Previous</a>
+          
+          <a class="next" rel="previous" href="/creating-a-new-remote-git-repo/" title="Creating a new remote git repo" data-date="March 14 2011 21:24:52">Next &rarr;</a>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+    </p>
+  </footer>
+</article>
+  <section id="comments" class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_shortname = 'goodblogkarl';
+  // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
+  var disqus_identifier = '/media-query-detection/index.html';
+  var disqus_url = 'https://blog.karlswedberg.com/media-query-detection/';
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</section>
+
+      <aside>
+          <nav class="recent-posts">
+    <h3>Recently</h3>
+    <ul>
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/html5-s-web-features/">HTML5&#39;s Web * Features</a> -->
+          <a class="post-title" href="/html5-web-asterisk-features/">HTML5&#39;s Web * Features</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a> -->
+          <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a> -->
+          <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/recent-reads/">Recent reads</a> -->
+          <a class="post-title" href="/recent-reads/">Recent reads</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a> -->
+          <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a>
+
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </nav>
+
+          <nav class="topics">
+    <h3>Topics</h3>
+    <ul>
+      <li><a href="/topic/js">js</a></li><li><a href="/topic/bash">bash</a></li><li><a href="/topic/rake">rake</a></li><li><a href="/topic/links">links</a></li><li><a href="/topic/git">git</a></li><li><a href="/topic/css">css</a></li><li><a href="/topic/make">make</a></li><li><a href="/topic/apache">apache</a></li><li><a href="/topic/mobile">mobile</a></li><li><a href="/topic/html">html</a></li><li><a href="/topic/video">video</a></li>
+    </ul>
+  </nav>
+
+        <div class="rss">
+  <h3>Subscribe</h3>
+  <div class="rss"><a href="https://feeds2.feedburner.com/goodblogkarl">RSS</a></div>
+  <form action="https://feedburner.google.com/fb/a/mailverify" method="post">
+    <div class="hide">
+      <input type="hidden" value="goodblogkarl" name="uri" />
+      <input type="hidden" name="loc" value="en_US" />
+    </div>
+    <div class="text placeholder">
+      <label for="email">Email:</label>
+      <input placeholder="Email..." id="email" type="email" name="email" />
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Subscribe</button>
+    </div>
+  </form>
+</div>
+
+      </aside>
+    </div>
+
+    <footer class="w">
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/topic/">Topics</a>
+      </nav>
+    </footer>
+  </div>
+  <script data-id="tail.js" src="/assets/js/tail-bab41ed509.js"></script>
+
+
+</body>
+</html>
+]]></content>
+        <author>
+            <name>Karl Swedberg</name>
+            <uri>https://karlswedberg.com/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Creating a new remote git repo]]></title>
+        <id>https://blog.karlswedberg.com/creating-a-new-remote-git-repo/</id>
+        <link href="https://blog.karlswedberg.com/creating-a-new-remote-git-repo/">
+        </link>
+        <updated>2011-03-15T01:24:52Z</updated>
+        <content type="html"><![CDATA[<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Creating a new remote git repo - Good Blog, Karl</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link data-id="app.css" rel="stylesheet" href="/assets/css/app-a6922968c4.css" media="screen, projection">
+<link href="https://feeds2.feedburner.com/goodblogkarl" rel="alternate" title="Good Blog, Karl" type="application/atom+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<!--[if lte IE 8]>
+  <script src="/assets/js/vendor/html5shim.js"> </script>
+<![endif]-->
+<script data-id="head.js" src="/assets/js/head-7c0338a529.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="w">
+      <h2><a href="/">Good Blog, Karl</a></h2>
+      <a href="/about/" class="tagline">woof.</a>
+    </header>
+    <div class="w group">
+      
+<section class="post">
+
+<article>
+  <header>
+    <time datetime="2011-03-15" pubdate>15 Mar 2011</time>
+    <h1>
+      <a href="/creating-a-new-remote-git-repo/"
+         class="post-title"
+         rel="bookmark"
+         title="link to this post">
+         Creating a new remote git repo
+      </a>
+    </h1>
+  </header>
+
+  <p>It took me a while to track down how to set up a new git repo on my remote server hosted by DreamHost. I imagine that most, if not all, of this stuff probably applies to any shared hosting service. Here’s what I have to do — in case I forget:</p>
+<h3 id="one-time-only">One time only</h3>
+<p>Before I do anything else, I need to make sure that git is installed on the dreamhost server. If it isn’t, I need to install it. I can easily find instructions elsewhere, so no need to reproduce them here.</p>
+<p>Also, I should have a common location where I can store all my git repos on the server. I’m putting them in <code>/home/username/git/</code>, where user name is my actual user name.</p>
+<h3 id="each-new-git-project">Each new git project</h3>
+<p>For the following instructions, assume that you’ve already set up a local git repo. Also, replace <code>username</code>, <code>mydomain</code>, and <code>PROJECTNAME</code> with the appropriate values.</p>
+<h4>1. ON LOCAL: SSH into mydomain.com</h4>
+
+<pre><code class="hljs bash">ssh username@mydomain.com</code></pre>
+
+<h4>2. ON REMOTE: create new bare remote git directory</h4>
+
+<pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /home/username/git/
+mkdir PROJECTNAME.git
+<span class="hljs-built_in">cd</span> PROJECTNAME.git
+git  init --bare</code></pre>
+
+<h4>3. BACK ON LOCAL: cd into local git repo. do an initial commit</h4>
+
+<pre><code class="hljs bash">git push --all ssh://username@mydomain.com/home/username/git/PROJECTNAME.git
+
+git remote add origin ssh://username@mydomain.com/home/username/git/PROJECTNAME.git
+git config branch.master.remote origin
+git config branch.master.merge refs/heads/master
+git fetch
+git merge master</code></pre>
+
+<p>Combined with the <a href="/Rakefile/"><code>rake deploy</code> command</a>, this little git setup makes updating and versioning my blog pretty painless.</p>
+<h4 id="hold-the-phone">Hold the phone!</h4>
+<p>After writing this post, I came across a <a href="http://toroid.org/ams/git-website-howto">really nice explanation</a> that goes into more detail and even shows how to set up a post-receive hook on the remote server. In fact, using a post-receive hook appears more convenient than what I’m doing. I may have to revisit my deployment situation.</p>
+
+
+
+  <footer>
+    <div class="categories">Filed under
+    <a href="/topic/git/">git</a>
+    
+    </div>
+    <p class="group">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+          <a class="prev" rel="prev" href="/media-query-detection/" title="Media query detection" data-date="March 16 2011 16:55:52">&larr; Previous</a>
+          
+          <a class="next" rel="previous" href="/javascript-garden/" title="JavaScript Garden" data-date="March 12 2011 09:24:52">Next &rarr;</a>
+          
+        
+      
+      
+      
+      
+      
+      
+    </p>
+  </footer>
+</article>
+  <section id="comments" class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_shortname = 'goodblogkarl';
+  // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
+  var disqus_identifier = '/creating-a-new-remote-git-repo/index.html';
+  var disqus_url = 'https://blog.karlswedberg.com/creating-a-new-remote-git-repo/';
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</section>
+
+      <aside>
+          <nav class="recent-posts">
+    <h3>Recently</h3>
+    <ul>
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/html5-s-web-features/">HTML5&#39;s Web * Features</a> -->
+          <a class="post-title" href="/html5-web-asterisk-features/">HTML5&#39;s Web * Features</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a> -->
+          <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a> -->
+          <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/recent-reads/">Recent reads</a> -->
+          <a class="post-title" href="/recent-reads/">Recent reads</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a> -->
+          <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a>
+
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </nav>
+
+          <nav class="topics">
+    <h3>Topics</h3>
+    <ul>
+      <li><a href="/topic/js">js</a></li><li><a href="/topic/bash">bash</a></li><li><a href="/topic/rake">rake</a></li><li><a href="/topic/links">links</a></li><li><a href="/topic/git">git</a></li><li><a href="/topic/css">css</a></li><li><a href="/topic/make">make</a></li><li><a href="/topic/apache">apache</a></li><li><a href="/topic/mobile">mobile</a></li><li><a href="/topic/html">html</a></li><li><a href="/topic/video">video</a></li>
+    </ul>
+  </nav>
+
+        <div class="rss">
+  <h3>Subscribe</h3>
+  <div class="rss"><a href="https://feeds2.feedburner.com/goodblogkarl">RSS</a></div>
+  <form action="https://feedburner.google.com/fb/a/mailverify" method="post">
+    <div class="hide">
+      <input type="hidden" value="goodblogkarl" name="uri" />
+      <input type="hidden" name="loc" value="en_US" />
+    </div>
+    <div class="text placeholder">
+      <label for="email">Email:</label>
+      <input placeholder="Email..." id="email" type="email" name="email" />
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Subscribe</button>
+    </div>
+  </form>
+</div>
+
+      </aside>
+    </div>
+
+    <footer class="w">
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/topic/">Topics</a>
+      </nav>
+    </footer>
+  </div>
+  <script data-id="tail.js" src="/assets/js/tail-bab41ed509.js"></script>
+
+
+</body>
+</html>
+]]></content>
+        <author>
+            <name>Karl Swedberg</name>
+            <uri>https://karlswedberg.com/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[JavaScript Garden]]></title>
+        <id>https://blog.karlswedberg.com/javascript-garden/</id>
+        <link href="https://blog.karlswedberg.com/javascript-garden/">
+        </link>
+        <updated>2011-03-12T14:24:52Z</updated>
+        <content type="html"><![CDATA[<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Garden - Good Blog, Karl</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link data-id="app.css" rel="stylesheet" href="/assets/css/app-a6922968c4.css" media="screen, projection">
+<link href="https://feeds2.feedburner.com/goodblogkarl" rel="alternate" title="Good Blog, Karl" type="application/atom+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<!--[if lte IE 8]>
+  <script src="/assets/js/vendor/html5shim.js"> </script>
+<![endif]-->
+<script data-id="head.js" src="/assets/js/head-7c0338a529.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="w">
+      <h2><a href="/">Good Blog, Karl</a></h2>
+      <a href="/about/" class="tagline">woof.</a>
+    </header>
+    <div class="w group">
+      
+<section class="post">
+
+<article>
+  <header>
+    <time datetime="2011-03-12" pubdate>12 Mar 2011</time>
+    <h1>
+      <a href="/javascript-garden/"
+         class="post-title"
+         rel="bookmark"
+         title="link to this post">
+         JavaScript Garden
+      </a>
+    </h1>
+  </header>
+
+  <blockquote>
+<p><a href="http://bonsaiden.github.com/JavaScript-Garden/">JavaScript Garden</a> is a growing collection of documentation about the most quirky parts of the JavaScript programming language.</p>
+</blockquote>
+
+
+
+  <footer>
+    <div class="categories">Filed under
+    <a href="/topic/js/">js</a>
+    <a href="/topic/links/">links</a>
+    
+    </div>
+    <p class="group">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+          <a class="prev" rel="prev" href="/creating-a-new-remote-git-repo/" title="Creating a new remote git repo" data-date="March 14 2011 21:24:52">&larr; Previous</a>
+          
+          <a class="next" rel="previous" href="/rakefile/" title="Rakefile" data-date="March 06 2011 17:13:38">Next &rarr;</a>
+          
+        
+      
+      
+      
+      
+      
+    </p>
+  </footer>
+</article>
+  <section id="comments" class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_shortname = 'goodblogkarl';
+  // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
+  var disqus_identifier = '/javascript-garden/index.html';
+  var disqus_url = 'https://blog.karlswedberg.com/javascript-garden/';
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</section>
+
+      <aside>
+          <nav class="recent-posts">
+    <h3>Recently</h3>
+    <ul>
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/html5-s-web-features/">HTML5&#39;s Web * Features</a> -->
+          <a class="post-title" href="/html5-web-asterisk-features/">HTML5&#39;s Web * Features</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a> -->
+          <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a> -->
+          <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/recent-reads/">Recent reads</a> -->
+          <a class="post-title" href="/recent-reads/">Recent reads</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a> -->
+          <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a>
+
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </nav>
+
+          <nav class="topics">
+    <h3>Topics</h3>
+    <ul>
+      <li><a href="/topic/js">js</a></li><li><a href="/topic/bash">bash</a></li><li><a href="/topic/rake">rake</a></li><li><a href="/topic/links">links</a></li><li><a href="/topic/git">git</a></li><li><a href="/topic/css">css</a></li><li><a href="/topic/make">make</a></li><li><a href="/topic/apache">apache</a></li><li><a href="/topic/mobile">mobile</a></li><li><a href="/topic/html">html</a></li><li><a href="/topic/video">video</a></li>
+    </ul>
+  </nav>
+
+        <div class="rss">
+  <h3>Subscribe</h3>
+  <div class="rss"><a href="https://feeds2.feedburner.com/goodblogkarl">RSS</a></div>
+  <form action="https://feedburner.google.com/fb/a/mailverify" method="post">
+    <div class="hide">
+      <input type="hidden" value="goodblogkarl" name="uri" />
+      <input type="hidden" name="loc" value="en_US" />
+    </div>
+    <div class="text placeholder">
+      <label for="email">Email:</label>
+      <input placeholder="Email..." id="email" type="email" name="email" />
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Subscribe</button>
+    </div>
+  </form>
+</div>
+
+      </aside>
+    </div>
+
+    <footer class="w">
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/topic/">Topics</a>
+      </nav>
+    </footer>
+  </div>
+  <script data-id="tail.js" src="/assets/js/tail-bab41ed509.js"></script>
+
+
+</body>
+</html>
+]]></content>
+        <author>
+            <name>Karl Swedberg</name>
+            <uri>https://karlswedberg.com/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Rakefile]]></title>
+        <id>https://blog.karlswedberg.com/rakefile/</id>
+        <link href="https://blog.karlswedberg.com/rakefile/">
+        </link>
+        <updated>2011-03-06T22:13:38Z</updated>
+        <content type="html"><![CDATA[<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rakefile - Good Blog, Karl</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link data-id="app.css" rel="stylesheet" href="/assets/css/app-a6922968c4.css" media="screen, projection">
+<link href="https://feeds2.feedburner.com/goodblogkarl" rel="alternate" title="Good Blog, Karl" type="application/atom+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<!--[if lte IE 8]>
+  <script src="/assets/js/vendor/html5shim.js"> </script>
+<![endif]-->
+<script data-id="head.js" src="/assets/js/head-7c0338a529.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="w">
+      <h2><a href="/">Good Blog, Karl</a></h2>
+      <a href="/about/" class="tagline">woof.</a>
+    </header>
+    <div class="w group">
+      
+<section class="post">
+
+<article>
+  <header>
+    <time datetime="2011-03-06" pubdate>06 Mar 2011</time>
+    <h1>
+      <a href="/rakefile/"
+         class="post-title"
+         rel="bookmark"
+         title="link to this post">
+         Rakefile
+      </a>
+    </h1>
+  </header>
+
+  <p>My goal for this site is to make it as easy for me to use as possible. That’s why I’m using <a href="https://github.com/mojombo/jekyll">Jekyll</a> (which I’ll blog about another time). I also want to automate as much of the blogging, version control, and deployment as possible. Up until today I was using a simple <code>rsync</code> alias to get the new files on the “live” hosted server. But I thought it would be more fun and more convenient to have a little more automation, so I scoured GitHub for some good examples and found <a href="https://github.com/appden/appden.github.com/blob/master/Rakefile">one written by Scott Kyle</a>, which I took and modified.</p>
+<p>My favorite part is the <code>rake deploy</code> command. If I have uncommitted changes in the site repo, it’ll abort the Rake operation and open GitX so I can commit my recent work. If everything is committed, it’ll build the files, run <code>git push</code>, and then do the <code>rsync</code> update.</p>
+<pre><code class="hljs ruby"><span class="hljs-comment"># Adapted from Scott Kyle's Rakefile</span>
+<span class="hljs-comment"># http://github.com/appden/appden.github.com/blob/master/Rakefile</span>
+
+task <span class="hljs-symbol">:default</span> =&gt; <span class="hljs-symbol">:server</span>
+
+desc <span class="hljs-string">'Build site with Jekyll'</span>
+task <span class="hljs-symbol">:build</span> <span class="hljs-keyword">do</span>
+  jekyll <span class="hljs-string">'--no-server --no-auto'</span>
+<span class="hljs-keyword">end</span>
+
+desc <span class="hljs-string">'Build and start server with --auto'</span>
+task <span class="hljs-symbol">:server</span> <span class="hljs-keyword">do</span>
+  jekyll <span class="hljs-string">'--server --auto'</span>
+<span class="hljs-keyword">end</span>
+
+desc <span class="hljs-string">'git commit or push'</span>
+task <span class="hljs-symbol">:gitx</span> <span class="hljs-keyword">do</span>
+  xed = <span class="hljs-literal">false</span>
+  IO.popen(<span class="hljs-string">'git status'</span>) <span class="hljs-keyword">do</span> <span class="hljs-params">|io|</span>
+    io.each_line <span class="hljs-keyword">do</span> <span class="hljs-params">|line|</span>
+      <span class="hljs-keyword">if</span> ( line =~ <span class="hljs-regexp">/^#\s*modified:/</span> &amp;&amp; !xed ) <span class="hljs-keyword">then</span>
+        sh <span class="hljs-string">'gitx'</span>
+        xed = <span class="hljs-literal">true</span>
+        raise <span class="hljs-string">"\n!!! Do a git commit first !!!\n\n"</span>
+      <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">if</span> ( !xed ) <span class="hljs-keyword">then</span>
+    sh <span class="hljs-string">'git push'</span>
+    puts <span class="hljs-string">"Committed files were pushed"</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+desc <span class="hljs-string">'Build and deploy'</span>
+task <span class="hljs-symbol">:deploy</span> =&gt; [<span class="hljs-symbol">:build</span>, <span class="hljs-symbol">:gitx</span>] <span class="hljs-keyword">do</span>
+  sh <span class="hljs-string">'rsync -auz --progress _site/ uname@server:/path/to/file/'</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">jekyll</span><span class="hljs-params">(opts = <span class="hljs-string">''</span>)</span></span>
+  sh <span class="hljs-string">'rm -rf _site'</span>
+  sh <span class="hljs-string">'jekyll '</span> + opts
+<span class="hljs-keyword">end</span></code></pre>
+
+
+
+
+  <footer>
+    <div class="categories">Filed under
+    <a href="/topic/rake/">rake</a>
+    
+    </div>
+    <p class="group">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+          <a class="prev" rel="prev" href="/javascript-garden/" title="JavaScript Garden" data-date="March 12 2011 09:24:52">&larr; Previous</a>
+          
+          <a class="next" rel="previous" href="/bash-it/" title="bash-it" data-date="February 27 2011 17:59:21">Next &rarr;</a>
+          
+        
+      
+      
+      
+      
+    </p>
+  </footer>
+</article>
+  <section id="comments" class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_shortname = 'goodblogkarl';
+  // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
+  var disqus_identifier = '/rakefile/index.html';
+  var disqus_url = 'https://blog.karlswedberg.com/rakefile/';
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</section>
+
+      <aside>
+          <nav class="recent-posts">
+    <h3>Recently</h3>
+    <ul>
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/html5-s-web-features/">HTML5&#39;s Web * Features</a> -->
+          <a class="post-title" href="/html5-web-asterisk-features/">HTML5&#39;s Web * Features</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a> -->
+          <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a> -->
+          <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/recent-reads/">Recent reads</a> -->
+          <a class="post-title" href="/recent-reads/">Recent reads</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a> -->
+          <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a>
+
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </nav>
+
+          <nav class="topics">
+    <h3>Topics</h3>
+    <ul>
+      <li><a href="/topic/js">js</a></li><li><a href="/topic/bash">bash</a></li><li><a href="/topic/rake">rake</a></li><li><a href="/topic/links">links</a></li><li><a href="/topic/git">git</a></li><li><a href="/topic/css">css</a></li><li><a href="/topic/make">make</a></li><li><a href="/topic/apache">apache</a></li><li><a href="/topic/mobile">mobile</a></li><li><a href="/topic/html">html</a></li><li><a href="/topic/video">video</a></li>
+    </ul>
+  </nav>
+
+        <div class="rss">
+  <h3>Subscribe</h3>
+  <div class="rss"><a href="https://feeds2.feedburner.com/goodblogkarl">RSS</a></div>
+  <form action="https://feedburner.google.com/fb/a/mailverify" method="post">
+    <div class="hide">
+      <input type="hidden" value="goodblogkarl" name="uri" />
+      <input type="hidden" name="loc" value="en_US" />
+    </div>
+    <div class="text placeholder">
+      <label for="email">Email:</label>
+      <input placeholder="Email..." id="email" type="email" name="email" />
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Subscribe</button>
+    </div>
+  </form>
+</div>
+
+      </aside>
+    </div>
+
+    <footer class="w">
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/topic/">Topics</a>
+      </nav>
+    </footer>
+  </div>
+  <script data-id="tail.js" src="/assets/js/tail-bab41ed509.js"></script>
+
+
+</body>
+</html>
+]]></content>
+        <author>
+            <name>Karl Swedberg</name>
+            <uri>https://karlswedberg.com/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[bash-it]]></title>
+        <id>https://blog.karlswedberg.com/bash-it/</id>
+        <link href="https://blog.karlswedberg.com/bash-it/">
+        </link>
+        <updated>2011-02-27T22:59:21Z</updated>
+        <content type="html"><![CDATA[<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>bash-it - Good Blog, Karl</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link data-id="app.css" rel="stylesheet" href="/assets/css/app-a6922968c4.css" media="screen, projection">
+<link href="https://feeds2.feedburner.com/goodblogkarl" rel="alternate" title="Good Blog, Karl" type="application/atom+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<!--[if lte IE 8]>
+  <script src="/assets/js/vendor/html5shim.js"> </script>
+<![endif]-->
+<script data-id="head.js" src="/assets/js/head-7c0338a529.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="w">
+      <h2><a href="/">Good Blog, Karl</a></h2>
+      <a href="/about/" class="tagline">woof.</a>
+    </header>
+    <div class="w group">
+      
+<section class="post">
+
+<article>
+  <header>
+    <time datetime="2011-02-27" pubdate>27 Feb 2011</time>
+    <h1>
+      <a href="/bash-it/"
+         class="post-title"
+         rel="bookmark"
+         title="link to this post">
+         bash-it
+      </a>
+    </h1>
+  </header>
+
+  <p>Lately I’ve been dabbling with bash scripting, mostly setting up aliases and very simple functions to make my life on the command line a little easier and more efficient. A couple weeks ago I stumbled upon a bash-scripting gold mine called “bash-it.” It’s a <a href="https://github.com/revans/bash-it">GitHub Repo</a> with lots of custom aliases, completions for Git, Rake, SSH, Homebrew, and others, command prompt themes, custom functions, and a bunch of other goodies. I already <a href="https://github.com/kswedberg/bash-it">forked it</a> and sent a pull request for my own command prompt theme.</p>
+<p>If my 20-year-old self could see my 43-year-old self, he would be amazed by how incredibly geeky I’ve become.</p>
+
+
+
+  <footer>
+    <div class="categories">Filed under
+    <a href="/topic/bash/">bash</a>
+    
+    </div>
+    <p class="group">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+          <a class="prev" rel="prev" href="/rakefile/" title="Rakefile" data-date="March 06 2011 17:13:38">&larr; Previous</a>
+          
+          <a class="next" rel="previous" href="/rsync-shortcut/" title="rsync shortcut" data-date="February 26 2011 23:53:40">Next &rarr;</a>
+          
+        
+      
+      
+      
+    </p>
+  </footer>
+</article>
+  <section id="comments" class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_shortname = 'goodblogkarl';
+  // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
+  var disqus_identifier = '/bash-it/index.html';
+  var disqus_url = 'https://blog.karlswedberg.com/bash-it/';
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</section>
+
+      <aside>
+          <nav class="recent-posts">
+    <h3>Recently</h3>
+    <ul>
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/html5-s-web-features/">HTML5&#39;s Web * Features</a> -->
+          <a class="post-title" href="/html5-web-asterisk-features/">HTML5&#39;s Web * Features</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a> -->
+          <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a> -->
+          <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/recent-reads/">Recent reads</a> -->
+          <a class="post-title" href="/recent-reads/">Recent reads</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a> -->
+          <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a>
+
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </nav>
+
+          <nav class="topics">
+    <h3>Topics</h3>
+    <ul>
+      <li><a href="/topic/js">js</a></li><li><a href="/topic/bash">bash</a></li><li><a href="/topic/rake">rake</a></li><li><a href="/topic/links">links</a></li><li><a href="/topic/git">git</a></li><li><a href="/topic/css">css</a></li><li><a href="/topic/make">make</a></li><li><a href="/topic/apache">apache</a></li><li><a href="/topic/mobile">mobile</a></li><li><a href="/topic/html">html</a></li><li><a href="/topic/video">video</a></li>
+    </ul>
+  </nav>
+
+        <div class="rss">
+  <h3>Subscribe</h3>
+  <div class="rss"><a href="https://feeds2.feedburner.com/goodblogkarl">RSS</a></div>
+  <form action="https://feedburner.google.com/fb/a/mailverify" method="post">
+    <div class="hide">
+      <input type="hidden" value="goodblogkarl" name="uri" />
+      <input type="hidden" name="loc" value="en_US" />
+    </div>
+    <div class="text placeholder">
+      <label for="email">Email:</label>
+      <input placeholder="Email..." id="email" type="email" name="email" />
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Subscribe</button>
+    </div>
+  </form>
+</div>
+
+      </aside>
+    </div>
+
+    <footer class="w">
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/topic/">Topics</a>
+      </nav>
+    </footer>
+  </div>
+  <script data-id="tail.js" src="/assets/js/tail-bab41ed509.js"></script>
+
+
+</body>
+</html>
+]]></content>
+        <author>
+            <name>Karl Swedberg</name>
+            <uri>https://karlswedberg.com/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[rsync shortcut]]></title>
+        <id>https://blog.karlswedberg.com/rsync-shortcut/</id>
+        <link href="https://blog.karlswedberg.com/rsync-shortcut/">
+        </link>
+        <updated>2011-02-27T04:53:40Z</updated>
+        <content type="html"><![CDATA[<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>rsync shortcut - Good Blog, Karl</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link data-id="app.css" rel="stylesheet" href="/assets/css/app-a6922968c4.css" media="screen, projection">
+<link href="https://feeds2.feedburner.com/goodblogkarl" rel="alternate" title="Good Blog, Karl" type="application/atom+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<!--[if lte IE 8]>
+  <script src="/assets/js/vendor/html5shim.js"> </script>
+<![endif]-->
+<script data-id="head.js" src="/assets/js/head-7c0338a529.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="w">
+      <h2><a href="/">Good Blog, Karl</a></h2>
+      <a href="/about/" class="tagline">woof.</a>
+    </header>
+    <div class="w group">
+      
+<section class="post">
+
+<article>
+  <header>
+    <time datetime="2011-02-27" pubdate>27 Feb 2011</time>
+    <h1>
+      <a href="/rsync-shortcut/"
+         class="post-title"
+         rel="bookmark"
+         title="link to this post">
+         rsync shortcut
+      </a>
+    </h1>
+  </header>
+
+  <p>The OS X Finder is the undisputed loser in the file management category. What’s particularly crazy is that OS X has rsync built into the OS. I can never remember the flags to use for the various rsync options, so I wrote a little bash function:</p>
+<pre><code class="hljs bash"><span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">cps</span></span>() {
+
+  dirname=<span class="hljs-variable">$1</span>
+
+  trailingslash=`expr <span class="hljs-variable">$dirname</span> : <span class="hljs-string">'\(.*\)/$'</span>`
+  <span class="hljs-keyword">if</span> [[ <span class="hljs-variable">${trailingslash}</span> == <span class="hljs-string">''</span> ]]; <span class="hljs-keyword">then</span>
+    dirname=<span class="hljs-string">"<span class="hljs-variable">${dirname}</span>/"</span>
+  <span class="hljs-keyword">fi</span>
+
+  OPTIONS=<span class="hljs-string">"All New Update"</span>
+
+  select OPTION <span class="hljs-keyword">in</span> <span class="hljs-variable">$OPTIONS</span>
+  <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$OPTION</span> = <span class="hljs-string">"All"</span> ]]
+    <span class="hljs-keyword">then</span>
+      COPYTYPE=<span class="hljs-string">"-av"</span>
+      <span class="hljs-built_in">break</span>
+    <span class="hljs-keyword">fi</span>
+
+    <span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$OPTION</span> = <span class="hljs-string">"New"</span> ]]
+    <span class="hljs-keyword">then</span>
+      COPYTYPE=<span class="hljs-string">"-av --ignore-existing"</span>
+      <span class="hljs-built_in">break</span>
+    <span class="hljs-keyword">fi</span>
+
+    <span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$OPTION</span> = <span class="hljs-string">"Update"</span> ]]
+    <span class="hljs-keyword">then</span>
+      COPYTYPE=<span class="hljs-string">"-auv"</span>
+      <span class="hljs-built_in">break</span>
+    <span class="hljs-keyword">fi</span>
+
+  <span class="hljs-keyword">done</span>
+
+
+  <span class="hljs-comment"># echo "You chose ${COPYTYPE}"</span>
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">"copying <span class="hljs-variable">${dirname}</span> to <span class="hljs-variable">${2}</span> ..."</span>
+  rsync <span class="hljs-variable">${COPYTYPE}</span> <span class="hljs-variable">${dirname}</span> <span class="hljs-variable">${2}</span>
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">"done!"</span>
+}</code></pre>
+
+
+  <footer>
+    <div class="categories">Filed under
+    <a href="/topic/bash/">bash</a>
+    
+    </div>
+    <p class="group">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+          <a class="prev" rel="prev" href="/bash-it/" title="bash-it" data-date="February 27 2011 17:59:21">&larr; Previous</a>
+          
+          <a class="next" rel="previous" href="/quick-object-merge/" title="quick object merge" data-date="February 25 2011 00:38:37">Next &rarr;</a>
+          
+        
+      
+      
+    </p>
+  </footer>
+</article>
+  <section id="comments" class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_shortname = 'goodblogkarl';
+  // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
+  var disqus_identifier = '/rsync-shortcut/index.html';
+  var disqus_url = 'https://blog.karlswedberg.com/rsync-shortcut/';
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</section>
+
+      <aside>
+          <nav class="recent-posts">
+    <h3>Recently</h3>
+    <ul>
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/html5-s-web-features/">HTML5&#39;s Web * Features</a> -->
+          <a class="post-title" href="/html5-web-asterisk-features/">HTML5&#39;s Web * Features</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a> -->
+          <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a> -->
+          <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/recent-reads/">Recent reads</a> -->
+          <a class="post-title" href="/recent-reads/">Recent reads</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a> -->
+          <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a>
+
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </nav>
+
+          <nav class="topics">
+    <h3>Topics</h3>
+    <ul>
+      <li><a href="/topic/js">js</a></li><li><a href="/topic/bash">bash</a></li><li><a href="/topic/rake">rake</a></li><li><a href="/topic/links">links</a></li><li><a href="/topic/git">git</a></li><li><a href="/topic/css">css</a></li><li><a href="/topic/make">make</a></li><li><a href="/topic/apache">apache</a></li><li><a href="/topic/mobile">mobile</a></li><li><a href="/topic/html">html</a></li><li><a href="/topic/video">video</a></li>
+    </ul>
+  </nav>
+
+        <div class="rss">
+  <h3>Subscribe</h3>
+  <div class="rss"><a href="https://feeds2.feedburner.com/goodblogkarl">RSS</a></div>
+  <form action="https://feedburner.google.com/fb/a/mailverify" method="post">
+    <div class="hide">
+      <input type="hidden" value="goodblogkarl" name="uri" />
+      <input type="hidden" name="loc" value="en_US" />
+    </div>
+    <div class="text placeholder">
+      <label for="email">Email:</label>
+      <input placeholder="Email..." id="email" type="email" name="email" />
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Subscribe</button>
+    </div>
+  </form>
+</div>
+
+      </aside>
+    </div>
+
+    <footer class="w">
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/topic/">Topics</a>
+      </nav>
+    </footer>
+  </div>
+  <script data-id="tail.js" src="/assets/js/tail-bab41ed509.js"></script>
+
+
+</body>
+</html>
+]]></content>
+        <author>
+            <name>Karl Swedberg</name>
+            <uri>https://karlswedberg.com/</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[quick object merge]]></title>
+        <id>https://blog.karlswedberg.com/quick-object-merge/</id>
+        <link href="https://blog.karlswedberg.com/quick-object-merge/">
+        </link>
+        <updated>2011-02-25T05:38:37Z</updated>
+        <content type="html"><![CDATA[<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>quick object merge - Good Blog, Karl</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link data-id="app.css" rel="stylesheet" href="/assets/css/app-a6922968c4.css" media="screen, projection">
+<link href="https://feeds2.feedburner.com/goodblogkarl" rel="alternate" title="Good Blog, Karl" type="application/atom+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<!--[if lte IE 8]>
+  <script src="/assets/js/vendor/html5shim.js"> </script>
+<![endif]-->
+<script data-id="head.js" src="/assets/js/head-7c0338a529.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="w">
+      <h2><a href="/">Good Blog, Karl</a></h2>
+      <a href="/about/" class="tagline">woof.</a>
+    </header>
+    <div class="w group">
+      
+<section class="post">
+
+<article>
+  <header>
+    <time datetime="2011-02-25" pubdate>25 Feb 2011</time>
+    <h1>
+      <a href="/quick-object-merge/"
+         class="post-title"
+         rel="bookmark"
+         title="link to this post">
+         quick object merge
+      </a>
+    </h1>
+  </header>
+
+  <p>Sometimes I load a small init.js file in the <code>&lt;head&gt;</code> and load all the other scripts before the closing <code>&lt;body&gt;</code> tag, and it’s nice to have a few utility functions. This is one of those functions I use every now and then:</p>
+<pre><code class="hljs"><span class="hljs-keyword">var</span> FM = FM || {};
+
+(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+
+  <span class="hljs-comment">// utility function to merge objects.</span>
+  FM.extend = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> args = <span class="hljs-built_in">Array</span>.prototype.slice.call( <span class="hljs-built_in">arguments</span> ),
+        al = args.length,
+        firstArg = al === <span class="hljs-number">1</span> ? FM : args.shift();
+
+    <span class="hljs-keyword">while</span> (--al &gt; <span class="hljs-number">-1</span>) {
+      <span class="hljs-keyword">var</span> arg = args[al];
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> arg  == <span class="hljs-string">'object'</span>) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> prop <span class="hljs-keyword">in</span> arg) {
+          firstArg[ prop ] = arg[ prop ];
+        }
+      }
+    }
+
+    <span class="hljs-keyword">return</span> firstArg;
+  };
+
+})();</code></pre>
+
+
+  <footer>
+    <div class="categories">Filed under
+    <a href="/topic/js/">js</a>
+    
+    </div>
+    <p class="group">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+          <a class="prev" rel="prev" href="/rsync-shortcut/" title="rsync shortcut" data-date="February 26 2011 23:53:40">&larr; Previous</a>
+          
+          
+        
+      
+    </p>
+  </footer>
+</article>
+  <section id="comments" class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_shortname = 'goodblogkarl';
+  // Need opening slash and /index.html to match disqus_identifier from old Jekyll blog
+  var disqus_identifier = '/quick-object-merge/index.html';
+  var disqus_url = 'https://blog.karlswedberg.com/quick-object-merge/';
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</section>
+
+      <aside>
+          <nav class="recent-posts">
+    <h3>Recently</h3>
+    <ul>
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/html5-s-web-features/">HTML5&#39;s Web * Features</a> -->
+          <a class="post-title" href="/html5-web-asterisk-features/">HTML5&#39;s Web * Features</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a> -->
+          <a class="post-title" href="/yeoman-ulimit-and-unmet-dependency/">yeoman, ulimit, and unmet dependency</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a> -->
+          <a class="post-title" href="/cleaning-up-dead-git-branches/">Cleaning up dead git branches</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/recent-reads/">Recent reads</a> -->
+          <a class="post-title" href="/recent-reads/">Recent reads</a>
+
+        </li>
+        
+      
+        
+        <li>
+          <!-- <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a> -->
+          <a class="post-title" href="/my-mis-adventures-with-web-video/">My (mis)adventures with web video</a>
+
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </nav>
+
+          <nav class="topics">
+    <h3>Topics</h3>
+    <ul>
+      <li><a href="/topic/js">js</a></li><li><a href="/topic/bash">bash</a></li><li><a href="/topic/rake">rake</a></li><li><a href="/topic/links">links</a></li><li><a href="/topic/git">git</a></li><li><a href="/topic/css">css</a></li><li><a href="/topic/make">make</a></li><li><a href="/topic/apache">apache</a></li><li><a href="/topic/mobile">mobile</a></li><li><a href="/topic/html">html</a></li><li><a href="/topic/video">video</a></li>
+    </ul>
+  </nav>
+
+        <div class="rss">
+  <h3>Subscribe</h3>
+  <div class="rss"><a href="https://feeds2.feedburner.com/goodblogkarl">RSS</a></div>
+  <form action="https://feedburner.google.com/fb/a/mailverify" method="post">
+    <div class="hide">
+      <input type="hidden" value="goodblogkarl" name="uri" />
+      <input type="hidden" name="loc" value="en_US" />
+    </div>
+    <div class="text placeholder">
+      <label for="email">Email:</label>
+      <input placeholder="Email..." id="email" type="email" name="email" />
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Subscribe</button>
+    </div>
+  </form>
+</div>
+
+      </aside>
+    </div>
+
+    <footer class="w">
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/topic/">Topics</a>
+      </nav>
+    </footer>
+  </div>
+  <script data-id="tail.js" src="/assets/js/tail-bab41ed509.js"></script>
+
+
+</body>
+</html>
+]]></content>
+        <author>
+            <name>Karl Swedberg</name>
+            <uri>https://karlswedberg.com/</uri>
+        </author>
+    </entry>
+</feed>
