@@ -1,7 +1,7 @@
 ---
 date: March 19 2011 10:53:03
 title: Another media query detection script
-tags: [js, links]
+tags: [js, links, css]
 ---
 
 After I [linked][1] to a Media Query detection script written by Nicholas Zakas, Paul Irish pinged me to let me know about [a gist he adapted from Scott Jehl][2]. This one looks even cooler. It takes advantage of the new [matchMedia][3] function when it's available, and defines its own when the native one isn't there:
@@ -39,6 +39,6 @@ There is also some result caching going on in there, so if you repeat the functi
 
 Very fun and cool stuff!
 
-[1]: http://blog.karlswedberg.com/2011-03-16-Media-query-detection.markdown
+[1]: https://blog.karlswedberg.com/media-query-detection/
 [2]: https://gist.github.com/786768
 [3]: http://dev.w3.org/csswg/cssom-view/#dom-window-matchmedia

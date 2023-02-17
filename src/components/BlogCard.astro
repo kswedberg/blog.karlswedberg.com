@@ -14,7 +14,7 @@ const {title, description, date, publishDate, readTime, link, tags} = Astro.prop
 <a
   href={link}
   rel='prefetch'
-  class="card relative rounded-md p-4 w-[330px] md:w-[500px] transition ease-out duration-300 hover:scale-105 border border-slate-200 dark:border-slate-700 hover:bg-slate-100  dark:hover:bg-slate-800"
+  class="card relative rounded-md p-4 w-[330px] sm:w-[500px] transition ease-out duration-300 hover:scale-105 border border-slate-200 dark:border-slate-700 hover:bg-slate-100  dark:hover:bg-slate-800"
 >
   <h2 class="link text-xl md:text-2xl font-semibold">{title}</h2>
   {description && (<h3 class="text-sm md:text-base text-gray-600 dark:text-gray-400">{description}</h3>)}
