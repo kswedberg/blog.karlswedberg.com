@@ -1,0 +1,10 @@
+@layer base {
+  @media (prefers-color-scheme: dark) {
+    html {
+      @apply bg-slate-900 text-white;
+    }
+  }
+  html.dark {
+    @apply bg-slate-900 text-white;
+  }
+}

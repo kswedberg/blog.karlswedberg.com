@@ -1,0 +1,61 @@
+---
+import {getCollection, getEntryBySlug} from 'astro:content';
+import BlogCard from '@/components/BlogCard.astro';
+import ListLayout from '@/layouts/ListLayout.astro';
+import {fetchPosts, getTags} from '@/utils/posts.mjs';
+
+
+export const getStaticPaths = async function() {
+  const allPosts = await fetchPosts();
+  const tags = await getTags();
+
+  return tags.map((tag) => {
+    const posts = allPosts.filter((post) => post.tags.includes(tag));
+
+    return {
+      params: {tag},
+      props: {posts},
+    };
+  });
+}
+
+const {tag} = Astro.params;
+const {posts} = Astro.props;
+---
+
+<ListLayout title={`${tag}`} description={`${tag} archive`}>
+  <div class="text-center">
+    <h1 class="text-2xl font-thin mb-4">
+      <span class="font-bold">{tag}</span>
+      archive
+    </h1>
+    <h2 class="mb-8">
+      <a href="/posts/" class="link">
+        &larr; All posts
+      </a>
+    </h2>
+  </div>
+  <div class="flex flex-col justify-center items-center gap-12">
+    {
+      posts.map(
+        (post: {
+          readingTime: any;
+          title: string;
+          description: any;
+          publishDate: any;
+          date: any;
+          permalink: string;
+        }) => (
+          <BlogCard
+            title={post.title}
+            description={post.description}
+            date={post.date}
+            publishDate={post.publishDate}
+            readTime={post.readingTime}
+            link={post.permalink}
+          />
+        )
+      )
+    }
+  </div>
+</ListLayout>

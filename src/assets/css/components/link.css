@@ -1,0 +1,5 @@
+@layer components {
+  .link {
+    @apply text-sky-800 dark:text-slate-200 hover:text-sky-700 dark:hover:text-slate-300;
+  }
+}

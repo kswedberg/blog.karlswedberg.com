@@ -1,0 +1,47 @@
+---
+import PageFooter from '@/components/PageFooter.astro';
+import Head from '@/components/Head.astro';
+import PageMenu from '@/components/PageMenu.astro';
+import SinglePost from '@/components/SinglePost.astro';
+
+import '@/assets/css/main.css';
+
+const {post} = Astro.props;
+
+const dsn = 'goodblogkarl';
+// Need /index.html to match disqus_identifier from old Jekyll blog
+const dIdentifier = `${post.permalink}/index.html`;
+const dURL = `${Astro.site}${post.slug}/`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <Head
+      title={post.title}
+      description={post.description}
+    />
+  </head>
+  <body>
+    <div class="flex flex-col grow px-4 md:mx-auto md:max-w-3xl">
+      <PageMenu />
+      <main class="grow pt-8 sm:pt-16 lg:pt-20">
+        <SinglePost post={post} />
+        <section id="comments" class="comments" data-id={dIdentifier} data-url={dURL}>
+          <div id="disqus_thread"></div>
+          <script>
+          const el = document.getElementById('comments');
+          if (el) {
+            window.disqus_shortname = 'goodblogkarl';
+            window.disqus_identifier = el.dataset.id;
+            window.disqus_url = el.dataset.url
+          }
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </section>
+      </main>
+      <PageFooter />
+    </div>
+    <!-- <script type="text/partytown" src="https://goodblogkarl.disqus.com/embed.js"></script> -->
+  </body>
+</html>
