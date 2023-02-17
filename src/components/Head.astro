@@ -29,17 +29,22 @@ const docTitle = title ? `${title} - ${config.siteTitle}` : config.siteTitle;
 <link rel="manifest" href="/site.webmanifest" />
 <link rel="shortcut icon" href="/favicon.ico" />
 
+<!-- Feeds -->
+<link rel="alternate" type="application/rss+xml" href="https://blog.karlswedberg.com/rss.xml" title="Good Blog, Karl - RSS Feed" />
+<link rel="alternate" type="application/feed+json" href="https://blog.karlswedberg.com/feed.json" title="Good Blog, Karl - JSON Feed" />
+<link rel="alternate" type="application/atom+xml" href="https://blog.karlswedberg.com/atom.xml" title="Good Blog, Karl - ATOM Feed" />
+
 <!-- Facebook Meta Tags -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content={config.siteTitle} />
-<meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
+<meta property="og:url" content={Astro.site} />
+<meta property="og:title" content={docTitle} />
 <meta property="og:description" content={config.description} />
 <meta property="og:image" content={image} />
 
 <!-- Twitter Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
+<meta property="twitter:url" content={Astro.site} />
+<meta property="twitter:title" content={docTitle} />
 <meta property="twitter:description" content={config.description} />
 <meta property="twitter:image" content={image} />
