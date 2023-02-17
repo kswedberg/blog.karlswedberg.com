@@ -8,7 +8,7 @@ const tags = await getTags();
   <div class="text-left mb-8">
     <a href="/about/" class="link inline-block ">About the blog</a>
 
-    <div class="font-bold">Topics:</div>
+    <div class="font-bold mt-4">Topics:</div>
     <div class="grid grid-cols-3 md:grid-cols-4 gap-1">
       {
         tags.map((tag) => (<a class="link py-2" href={`/topic/${tag}/`}>{tag}</a>))

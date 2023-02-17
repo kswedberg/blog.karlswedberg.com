@@ -10,7 +10,7 @@ const posts = await fetchPosts();
   title='All Posts'
   description='Random quasi-technical stuff I want to remember.'
 >
-  <div class='flex flex-col justify-center items-center space-y-6'>
+  <div class='flex flex-col justify-center items-center gap-12'>
     <h1 class="px-4 sm:px-6 max-w-3xl text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading">All Posts</h1>
     {
       posts.map((post) => (
