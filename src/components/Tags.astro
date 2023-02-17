@@ -8,7 +8,7 @@ const { tags, class: className = 'text-sm' } = Astro.props;
       {tags.map((tag) => (
         <li class="bg-gray-200 rounded-sm dark:bg-slate-700 inline-block mr-2 lowercase font-medium border border-gray-200 dark:border-slate-700 hover:border-gray-400 hover:dark:border-slate-500">
           <a
-            href={`/topic/${tag}`}
+            href={`/topic/${tag}/`}
             class="inline-block py-0.5 px-2 text-muted dark:text-slate-300 hover:text-primary dark:hover:text-gray-200"
           >
             {tag}

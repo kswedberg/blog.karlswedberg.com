@@ -42,7 +42,7 @@ const getNormalizedPost = async(post) => {
     date: formatDate(date),
     publishDate: date.toString(),
     tags,
-    permalink: `/${slug}`,
+    permalink: `/${slug}/`,
     excerpt,
     readingTime,
     ...rest,

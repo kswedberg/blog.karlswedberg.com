@@ -1,6 +1,5 @@
 ---
 import {getCollection, getEntryBySlug} from 'astro:content';
-import {config} from '@/utils/config.mjs';
 import BlogCard from '@/components/BlogCard.astro';
 import ListLayout from '@/layouts/ListLayout.astro';
 import {fetchPosts, getTags} from '@/utils/posts.mjs';
@@ -31,7 +30,7 @@ const {posts} = Astro.props;
       archive
     </h1>
     <h2 class="mb-8">
-      <a href="/posts" class="link">
+      <a href="/posts/" class="link">
         &larr; All posts
       </a>
     </h2>

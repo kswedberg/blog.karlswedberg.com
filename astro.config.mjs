@@ -18,6 +18,7 @@ const srcDir = path.resolve(rootDir, './src');
 export default defineConfig({
   site: 'https://blog.karlswedberg.com/',
   output: 'static',
+  trailingSlash: 'always',
   integrations: [
     tailwind({
       config: {applyBaseStyles: false},
