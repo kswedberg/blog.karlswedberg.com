@@ -30,11 +30,11 @@ const docTitle = title ? `${title} - ${config.siteTitle}` : config.siteTitle;
 <link rel="shortcut icon" href="/favicon.ico" />
 
 <!-- Feeds -->
-<link rel="alternate" type="application/rss+xml" href="https://blog.karlswedberg.com/rss.xml" title="Good Blog, Karl - RSS Feed" />
-<link rel="alternate" type="application/feed+json" href="https://blog.karlswedberg.com/feed.json" title="Good Blog, Karl - JSON Feed" />
-<link rel="alternate" type="application/atom+xml" href="https://blog.karlswedberg.com/atom.xml" title="Good Blog, Karl - ATOM Feed" />
+<link rel="alternate" type="application/rss+xml" href="https://blog.karlswedberg.com/rss.xml" title="Good Blog, Karl - RSS feed" />
+<link rel="alternate" type="application/feed+json" href="https://blog.karlswedberg.com/feed.json" title="Good Blog, Karl - JSON feed" />
+<link rel="alternate" type="application/atom+xml" href="https://blog.karlswedberg.com/atom.xml" title="Good Blog, Karl - ATOM feed" />
 
-<!-- Facebook Meta Tags -->
+<!-- Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content={config.siteTitle} />
 <meta property="og:url" content={Astro.site} />
@@ -42,7 +42,7 @@ const docTitle = title ? `${title} - ${config.siteTitle}` : config.siteTitle;
 <meta property="og:description" content={config.description} />
 <meta property="og:image" content={image} />
 
-<!-- Twitter Meta Tags -->
+<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.site} />
 <meta property="twitter:title" content={docTitle} />

@@ -4,6 +4,8 @@ import {getCollection} from 'astro:content';
 import {config} from '@/utils/config.mjs';
 import {Feed} from 'feed';
 
+// https://github.com/jpmonette/feed
+
 const parser = new MarkdownIt({html: true});
 const srcSlash = /(src|href)="\//g;
 const srcReplace = '$1="https://blog.karlswedberg.com/';
@@ -37,19 +39,18 @@ export const getFeed = async(ctx) => {
     description: config.description,
     id: site,
     link: site,
-    language: 'en', // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
-    // image: 'http://example.com/image.png',
-    favicon: 'https://karlswedberg.com/favicon.ico',
-    copyright: 'https://creativecommons.org/licenses/by-sa/3.0/',
-    updated: new Date(2013, 6, 14),
+    language: 'en-US',
+    image: 'https://blog.karlswedberg.com/img/good-dog-512x512.png',
+    favicon: 'https://blog.karlswedberg.com/img/good-dog-65x65.png',
+    copyright: '© Karl Swedberg. License: Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0) (https://creativecommons.org/licenses/by-sa/3.0/)',
     generator: 'Feed for node.js',
     feedLinks: {
       json: `${site}feed.json`,
+      rss: `${site}rss2.xml`,
       atom: `${site}atom.xml`,
     },
     author: {
       name: 'Karl Swedberg',
-      email: 'kswedberg@gmail.com',
       link: 'https://karlswedberg.com/',
     },
   });
