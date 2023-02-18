@@ -8,7 +8,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "blog": "node ./scripts/blog.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.16.0",
@@ -30,7 +30,10 @@
     "eslint-config-kswedberg": "^5.3.1",
     "eslint-plugin-astro": "^0.23.0",
     "feed": "^4.2.2",
+    "fs-extra": "^11.1.0",
     "html-entities": "^2.3.3",
+    "inquirer": "^9.1.4",
+    "inquirer-datepicker-prompt": "^0.4.3",
     "markdown-it": "^13.0.1",
     "sanitize-html": "^2.9.0",
     "sharp": "^0.31.3"
