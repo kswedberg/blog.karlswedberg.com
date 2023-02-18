@@ -1,5 +1,9 @@
 ---
 import {config} from '@/utils/config.mjs';
+import appleIcon from '@/assets/img/good-dog-65x65.png';
+import mdImg from '@/assets/img/good-dog-192x192.png';
+
+const appleSrc = appleIcon.src;
 
 export interface Props {
   title: string;
@@ -11,7 +15,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const {
   title,
   description,
-  image = new URL('/img/apple-touch-icon.png', Astro.site),
+  image = new URL(mdImg.src, Astro.site),
 } = Astro.props;
 
 const docTitle = title ? `${title} - ${config.siteTitle}` : config.siteTitle;
@@ -23,12 +27,12 @@ const docTitle = title ? `${title} - ${config.siteTitle}` : config.siteTitle;
 <link
   rel="apple-touch-icon"
   sizes="65x65"
-  href="/img/apple-touch-icon.png"
+  href={appleSrc}
 />
 <link rel="canonical" href={canonicalURL} />
 <link rel="manifest" href="/site.webmanifest" />
 <link rel="shortcut icon" href="/favicon.ico" />
-
+<meta name="theme-color" content="#075985" />
 <!-- Feeds -->
 <link rel="alternate" type="application/rss+xml" href="https://blog.karlswedberg.com/rss.xml" title="Good Blog, Karl - RSS feed" />
 <link rel="alternate" type="application/feed+json" href="https://blog.karlswedberg.com/feed.json" title="Good Blog, Karl - JSON feed" />

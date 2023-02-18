@@ -1,4 +1,8 @@
 import {config} from '@/utils/config.mjs';
+import sm from '@/assets/img/good-dog-65x65.png';
+import md from '@/assets/img/good-dog-192x192.png';
+import lg from '@/assets/img/good-dog-512x512.png';
+import maskable from '@/assets/img/good-dog-maskable.png';
 
 export const get = (ctx) => {
   const manifest = {
@@ -9,16 +13,31 @@ export const get = (ctx) => {
     theme_color: '#075985',
     background_color: '#ffffff',
     // display: 'standalone',
+    display: 'browser',
     icons: [
       {
-        src: '/img/android-chrome-192x192.png',
-        sizes: '192x192',
+        src: sm.src,
+        sizes: '65x65',
         type: 'image/png',
+        purpose: 'any',
       },
       {
-        src: '/img/android-chrome-512x512.png',
+        src: md.src,
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: lg.src,
         sizes: '512x512',
         type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: maskable.src,
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'maskable',
       },
     ],
   };

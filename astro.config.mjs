@@ -17,6 +17,9 @@ export default defineConfig({
   site: 'https://blog.karlswedberg.com/',
   output: 'static',
   trailingSlash: 'always',
+  build: {
+    assets: '_assets',
+  },
   integrations: [
     tailwind({
       config: {applyBaseStyles: false},

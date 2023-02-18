@@ -3,6 +3,8 @@ import MarkdownIt from 'markdown-it';
 import {getCollection} from 'astro:content';
 import {config} from '@/utils/config.mjs';
 import {Feed} from 'feed';
+import sm from '@/assets/img/good-dog-65x65.png';
+import lg from '@/assets/img/good-dog-512x512.png';
 
 // https://github.com/jpmonette/feed
 
@@ -13,6 +15,8 @@ const srcReplace = '$1="https://blog.karlswedberg.com/';
 export const getFeed = async(ctx) => {
   const site = ctx.site.href;
   const blogEntries = await getCollection('posts');
+
+
   const posts = blogEntries
   .reverse()
   .map((post, i) => {
@@ -33,6 +37,8 @@ export const getFeed = async(ctx) => {
     };
   });
 
+  const image = new URL(lg.src, site);
+  const favicon = new URL(sm.src, site);
 
   const feed = new Feed({
     title: config.siteTitle,
@@ -40,8 +46,8 @@ export const getFeed = async(ctx) => {
     id: site,
     link: site,
     language: 'en-US',
-    image: 'https://blog.karlswedberg.com/img/good-dog-512x512.png',
-    favicon: 'https://blog.karlswedberg.com/img/good-dog-65x65.png',
+    image: image.href,
+    favicon: favicon.href,
     copyright: '© Karl Swedberg. License: Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0) (https://creativecommons.org/licenses/by-sa/3.0/)',
     generator: 'Feed for node.js',
     feedLinks: {
