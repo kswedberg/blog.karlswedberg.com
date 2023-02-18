@@ -1,10 +1,8 @@
 import path from 'path';
 import {defineConfig} from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import mdx from '@astrojs/mdx';
 import image from '@astrojs/image';
 import sitemap from '@astrojs/sitemap';
-import partytown from '@astrojs/partytown';
 
 import {remarkReadingTime} from './src/utils/remark-reading-time.mjs';
 import {getDirname} from './src/utils/esm.mjs';
@@ -23,7 +21,6 @@ export default defineConfig({
     tailwind({
       config: {applyBaseStyles: false},
     }),
-    mdx(),
     sitemap(),
     image({
       serviceEntryPoint: '@astrojs/image/sharp',
@@ -34,7 +31,6 @@ export default defineConfig({
         removeAttributeQuotes: false,
       },
     }),
-    partytown(),
   ],
   markdown: {
     remarkPlugins: [remarkReadingTime],

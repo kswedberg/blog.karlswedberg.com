@@ -2,8 +2,10 @@
 dist/
 .output/
 .astro/
+
 # dependencies
 node_modules/
+Caddyfile
 
 # logs
 yarn-debug.log*
