@@ -1,0 +1,10 @@
+.post-metadata {
+  position: relative;
+}
+.post-metadata time {
+  margin-right: 5px;
+}
+.post-metadata time::after {
+  content: '·';
+  padding-left: 4px;
+}

@@ -16,15 +16,16 @@ const {title, description, date, publishDate, readTime, link, tags} = Astro.prop
   rel='prefetch'
   class="card relative rounded-md p-4 w-[330px] sm:w-[500px] transition ease-out duration-300 hover:scale-105 border border-slate-200 dark:border-slate-700 hover:bg-slate-100  dark:hover:bg-slate-800"
 >
+<div class="post-metadata flex items-center mb-2">
+  <time datetime={publishDate} class="text-sm text-gray-600 dark:text-gray-400">
+    {date}
+  </time>
+  <span class="text-sm text-gray-600 dark:text-gray-400">{readTime} min read</span>
+</div>
   <h2 class="link text-xl md:text-2xl font-semibold">{title}</h2>
   {description && (<h3 class="text-sm md:text-base text-gray-600 dark:text-gray-400">{description}</h3>)}
 
-  <div class="flex items-center justify-between mt-5">
-    <time datetime={publishDate} class="text-sm text-gray-600 dark:text-gray-400">
-      📅 {date}
-    </time>
-    <p class="text-sm text-gray-600 dark:text-gray-400">⌚ {readTime} min read</p>
-  </div>
+
 </a>
 
 <style>
@@ -36,6 +37,6 @@ const {title, description, date, publishDate, readTime, link, tags} = Astro.prop
   }
   .card:last-child::after {
     content: none;
-
   }
+
 </style>

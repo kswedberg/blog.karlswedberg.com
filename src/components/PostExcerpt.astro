@@ -9,11 +9,8 @@ const excerpt = post.Content;
 <article class="rounded-md w-[330px] sm:w-[500px] bg-slate-100  dark:bg-slate-800">
   <a href={post.permalink} class="block p-4">
     <header>
-      <div class="flex justify-between flex-col sm:flex-row mt-0 mb-2 sm:items-center">
-        <p>
-          <time datetime={post.publishDate}>{post.date}</time>
-          {post.readingTime && <span> · {post.readingTime} min read</span>}
-        </p>
+      <div class="post-metadata mt-0 mb-2">
+        <time datetime={post.publishDate}>{post.date}</time><span>{post.readingTime} min read</span>
       </div>
       <h2
         class="text-3xl font-semibold leading-tighter tracking-tighter"
