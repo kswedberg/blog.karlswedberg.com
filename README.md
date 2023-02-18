@@ -1,9 +1,10 @@
-# blog.karlswedberg.com
+# Good Blog, Karl
 
+https://blog.karlswedberg.com
 
-Old website, refactored to be built with [astro](https://astro.build/).
+This is the code for an old website, rewritten in February 2023 with [astro](https://astro.build/).
 
-Major inspiration and code lifting from:
+It would have taken a lot longer without design inspiration and code lifting from the following repos:
 
-* [cadecuddy / milkroll](https://github.com/cadecuddy/milkroll)
-* [onwidget / astrowind](https://github.com/onwidget/astrowind/)
+* [cadecuddy/milkroll](https://github.com/cadecuddy/milkroll)
+* [onwidget/astrowind](https://github.com/onwidget/astrowind/)
