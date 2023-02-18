@@ -56,7 +56,7 @@ const {prev = {}, next = {}} = post;
         )
       }
     </div>
-    <div class="mt-8 flex items-center gap-2">
+    <div class="tags-wrapper relative mt-8 pt-8 flex items-center gap-2">
       <span class="text-gray-600 dark:text-gray-400">Filed under</span> <PostTags tags={post.tags} class="mr-5" />
     </div>
     <div class="mt-8 flex items-center gap-4 justify-between">
@@ -65,3 +65,14 @@ const {prev = {}, next = {}} = post;
     </div>
   </article>
 </section>
+<style>
+  .tags-wrapper::before {
+    @apply text-slate-300 dark:text-slate-700;
+    content: '❀ ✿ ❀';
+    position: absolute;
+    top: -0.5rem;
+    line-height: 1;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+</style>

@@ -27,9 +27,14 @@ const dURL = `${Astro.site}${post.slug}/`;
       <PageMenu />
       <main class="grow pt-8 sm:pt-16 lg:pt-20">
         <SinglePost post={post} />
-        <section id="comments" class="comments" data-id={dIdentifier} data-url={dURL}>
-          <div id="disqus_thread"></div>
-          <script>
+        <section id="comments" class="comments mt-8" data-id={dIdentifier} data-url={dURL}>
+          <div id="disqus_thread">
+            <div class="loader hidden"><span>❀ </span><span>✿ </span><span>❀</span></div>
+          </div>
+          <div>
+            <button type="button" id="comment-btn" class="hidden text-white dark:text-sky-800 bg-sky-800 bg:text-sky-700 dark:bg-slate-200  dark:hover:bg-slate-300 py-1 px-3 rounded">Load comments</button>
+          </div>
+          <script is:inline>
           const el = document.getElementById('comments');
           if (el) {
             window.disqus_shortname = 'goodblogkarl';
@@ -37,11 +42,12 @@ const dURL = `${Astro.site}${post.slug}/`;
             window.disqus_url = el.dataset.url
           }
           </script>
+
           <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         </section>
       </main>
       <PageFooter />
     </div>
-    <!-- <script type="text/partytown" src="https://goodblogkarl.disqus.com/embed.js"></script> -->
+    <script src="../assets/js/load-comments.js"></script>
   </body>
 </html>
