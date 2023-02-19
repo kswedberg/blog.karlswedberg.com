@@ -57,12 +57,12 @@ const metaDescription = (desc || config.description).trim();
 <meta property="og:site_name" content={config.siteTitle} />
 <meta property="og:url" content={Astro.site} />
 <meta property="og:title" content={docTitle} />
-<meta property="og:description" content={config.description} />
+<meta property="og:description" content={metaDescription} />
 <meta property="og:image" content={image} />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.site} />
 <meta property="twitter:title" content={docTitle} />
-<meta property="twitter:description" content={config.description} />
+<meta property="twitter:description" content={metaDescription} />
 <meta property="twitter:image" content={image} />
