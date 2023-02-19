@@ -28,10 +28,10 @@ const {title, description, date, publishDate, readTime, link, tags} = Astro.prop
 
 <style>
   .card::after {
-    @apply -bottom-6 w-12 h-4 left-1/2 -translate-x-1/2 text-slate-300 dark:text-slate-700;
+    @apply -bottom-6 h-4 left-1/2 -translate-x-1/2 text-slate-300 dark:text-slate-700;
     content: '❀ ✿ ❀';
     position: absolute;
-    display: block;
+
   }
   .card:last-child::after {
     content: none;
