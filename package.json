@@ -9,7 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "blog": "node ./scripts/blog.mjs",
-    "deploy": "source .env && source ./scripts/deploy.sh"
+    "deploy": "astro build && source .env && source ./scripts/deploy.sh"
   },
   "dependencies": {
     "@astrojs/rss": "^2.1.0",
