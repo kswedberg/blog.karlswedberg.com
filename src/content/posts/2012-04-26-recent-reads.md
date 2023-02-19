@@ -1,6 +1,7 @@
 ---
 date: April 26 2012 19:05:39
 title: Recent reads
+description: A list of things I've read recently related to web development
 tags: [css, js]
 ---
 

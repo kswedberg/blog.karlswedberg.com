@@ -2,6 +2,7 @@
 date: November 03 2013 09:47:24
 title: HTML5's Web * Features
 url: html5-web-asterisk-features
+description: A list of Web * APIs because sometimes I can't remember which is which
 tags: [js, html]
 ---
 

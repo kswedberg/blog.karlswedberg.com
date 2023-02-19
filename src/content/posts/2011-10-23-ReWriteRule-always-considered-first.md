@@ -1,6 +1,7 @@
 ---
 date: October 23 2011 10:58:55
 title: ReWriteRule always considered first
+description: A reminder about priority order for Apache's mode_rewrite
 tags: [apache]
 ---
 So much of Apache's <i>mod_rewrite</i> is a mystery to me that I wonder if I'll ever be able to write anything but the most basic ruleset without multiple trials and errors. Today, though, I stumbled upon a nice bit of information in <i>Apache Cookbook</i> by Ken Coar and Rich Bowen that I'm sure will come in handy next time I start hacking away in the <i>.htaccess</i> file.

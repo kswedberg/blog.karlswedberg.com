@@ -1,6 +1,7 @@
 ---
 date: October 13 2012 16:23:20
 title: Cleaning up dead git branches
+description: A super neat git trick for finding out which branches we can delete when we want to do a little housekeeping
 tags: [git]
 ---
 

@@ -1,6 +1,7 @@
 ---
 date: July 25 2013 09:25:25
 title: yeoman, ulimit, and unmet dependency
+description: Quick fix for a warning when running the Yeoman CLI
 tags: [js]
 ---
 

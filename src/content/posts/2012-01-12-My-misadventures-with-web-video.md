@@ -1,6 +1,7 @@
 ---
 date: January 12 2012 20:55:14
 title: My (mis)adventures with web video
+description: Problems loading video on web sites and ways to fix them
 tags: [html, video]
 ---
 
