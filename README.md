@@ -2,7 +2,7 @@
 
 https://blog.karlswedberg.com
 
-This is the code for an old website, rewritten in February 2023 with [astro](https://astro.build/).
+This is the code for an old website, rewritten in February 2023 with [Astro](https://astro.build/).
 
 It would have taken a lot longer without design inspiration and code lifting from the following repos:
 
