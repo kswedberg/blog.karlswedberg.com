@@ -7,14 +7,14 @@ import { Image } from '@astrojs/image/components';
 
 <PageLayout
   title='About this site'
-  description='Stuff about this site'
+  description='Stuff about this blog'
 >
   <h1 class="max-w-3xl text-4xl md:text-5xl font-bold leading-tighter tracking-wide">
     About the blog
   </h1>
-  <Image src="/img/good-dog-carl.jpg" width={300} height={300} alt="Good Dog, Carl book cover" class="h-auto w-[100px] sm:w-[300px] float-left mr-2" />
+  <Image src="/img/good-dog-carl.jpg" width={260} height={300} alt="Good Dog, Carl book cover" class="h-auto w-[100px] sm:w-[260px] float-left mr-4 sm:mr-6" />
   <p>Hello, my name is Karl. I like to write code. Sometimes I record things that I’ve discovered.</p>
   <p>My memory is bad. This blog helps me when my memory fails.</p>
   <p>The inspiration for the name of this blog comes from the book, <i>Good Dog, Carl</i>.</p>
-
+  <p>You can find the code for this site on Github at <a href="https://github.com/kswedberg/blog.karlswedberg.com">kswedberg/blog.karlswedberg.com</a></p>
 </PageLayout>

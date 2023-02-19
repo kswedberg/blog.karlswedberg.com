@@ -19,7 +19,7 @@ const dURL = `${Astro.site}${post.slug}/`;
   <head>
     <Head
       title={post.title}
-      description={post.description}
+      description={post.description || post.excerpt}
     />
   </head>
   <body>
@@ -31,7 +31,7 @@ const dURL = `${Astro.site}${post.slug}/`;
           <div id="disqus_thread">
             <div class="loader hidden"><span>❀ </span><span>✿ </span><span>❀</span></div>
           </div>
-          <div>
+          <div class="text-center">
             <button type="button" id="comment-btn" class="hidden text-white dark:text-sky-800 bg-sky-800 bg:text-sky-700 dark:bg-slate-200  dark:hover:bg-slate-300 py-1 px-3 rounded">Load comments</button>
           </div>
           <script is:inline>

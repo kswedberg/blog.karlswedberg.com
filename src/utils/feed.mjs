@@ -16,7 +16,6 @@ export const getFeed = async(ctx) => {
   const site = ctx.site.href;
   const blogEntries = await getCollection('posts');
 
-
   const posts = blogEntries
   .reverse()
   .map((post, i) => {

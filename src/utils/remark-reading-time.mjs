@@ -14,6 +14,5 @@ export const remarkReadingTime = function() {
     file.data.astro.frontmatter.excerpt = `${excerpt}${words.length > numWords ? '…' : ''}`;
     // console.log(textOnPage);
     file.data.astro.frontmatter.readingTime = readingTime;
-
   };
 };
