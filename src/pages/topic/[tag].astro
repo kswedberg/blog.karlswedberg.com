@@ -58,12 +58,12 @@ const otherTags = (tags || []).filter((item: String) => item !== tag);
     }
   </div>
   <div class="mt-12 text-center">
-    <h2 class="mb-8">
-      <a href="/posts/" class="link border-2 p-2 rounded-md hover:border-neutral-200 dark:hover:border-slate-800">
+    <h2 class="text-lg mb-8">
+      <a href="/posts/" class="link  font-semibold border-2 p-2 rounded-md hover:border-neutral-200 dark:hover:border-slate-800">
         &larr; All posts
       </a>
     </h2>
-    <h2 class="font-bold mb-2">Other topics</h2>
+    <h2 class="font-bold text-lg mb-2">Other topics</h2>
     <Tags tags={otherTags} class="text-sm mb-4 px-4 w-[330px] sm:w-[500px] mx-auto" extraItemClass="mb-2" />
   </div>
 </ListLayout>

@@ -6,13 +6,13 @@ const { post } = Astro.props;
 
 ---
 <article class="rounded-md w-[330px] sm:w-[500px] bg-slate-100  dark:bg-slate-800">
-  <a href={post.permalink} class="block p-4">
+  <a href={post.permalink} class="block p-4 group">
     <header>
       <div class="post-metadata mt-0 mb-2">
         <time datetime={post.publishDate}>{post.date}</time><span>{post.readingTime} min read</span>
       </div>
       <h2
-        class="text-3xl font-semibold leading-tighter tracking-tighter"
+        class="link group-hover:text-sky-700 group-hover:dark:text-slate-300 text-3xl font-semibold leading-tighter tracking-tighter"
       >
         {post.title}
       </h2>
