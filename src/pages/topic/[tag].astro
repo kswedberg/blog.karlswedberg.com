@@ -1,7 +1,9 @@
 ---
 import BlogCard from '@/components/BlogCard.astro';
+import Tags from '@/components/Tags.astro';
 import ListLayout from '@/layouts/ListLayout.astro';
 import {fetchPosts, getTags} from '@/utils/posts.mjs';
+
 
 
 export const getStaticPaths = async function() {
@@ -13,26 +15,24 @@ export const getStaticPaths = async function() {
 
     return {
       params: {tag},
-      props: {posts},
+      props: {posts, tags},
     };
   });
 }
 
+
 const {tag} = Astro.params;
-const {posts} = Astro.props;
+const {posts, tags} = Astro.props;
+const otherTags = (tags || []).filter((item: String) => item !== tag);
 ---
 
 <ListLayout title={`${tag}`} description={`${tag} archive`}>
   <div class="text-center">
     <h1 class="text-2xl font-thin mb-4">
+      topic:
       <span class="font-bold">{tag}</span>
-      archive
     </h1>
-    <h2 class="mb-8">
-      <a href="/posts/" class="link">
-        &larr; All posts
-      </a>
-    </h2>
+
   </div>
   <div class="flex flex-col justify-center items-center gap-12">
     {
@@ -56,5 +56,14 @@ const {posts} = Astro.props;
         )
       )
     }
+  </div>
+  <div class="mt-12 text-center">
+    <h2 class="mb-8">
+      <a href="/posts/" class="link border-2 p-2 rounded-md hover:border-neutral-200 dark:hover:border-slate-800">
+        &larr; All posts
+      </a>
+    </h2>
+    <h2 class="font-bold mb-2">Other topics</h2>
+    <Tags tags={otherTags} class="text-sm mb-4 px-4 w-[330px] sm:w-[500px] mx-auto" extraItemClass="mb-2" />
   </div>
 </ListLayout>
