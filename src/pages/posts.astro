@@ -13,11 +13,12 @@ const posts = await fetchPosts();
   <div class='flex flex-col justify-center items-center gap-12'>
     <h1 class="px-4 sm:px-6 max-w-3xl text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading">All Posts</h1>
     {
-      posts.map((post) => (
+      posts.map((post, index) => (
         <BlogCard
           title={post.title}
           description={post.description}
           date={post.date}
+          index={index}
           publishDate={post.publishDate}
           readTime={post.readingTime}
           link={post.permalink}
