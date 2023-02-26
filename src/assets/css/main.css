@@ -6,5 +6,6 @@
 @import './components/link.css';
 @import './components/loader.css';
 @import './components/post.css';
+@import './examples.css';
 
 @import 'tailwindcss/utilities';
