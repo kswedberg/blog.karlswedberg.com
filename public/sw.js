@@ -1,8 +1,8 @@
-self.addEventListener('activate', function(event) {
+self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then(function(cacheNames) {
+    caches.keys().then((cacheNames) => {
       return Promise.all(
-        cacheNames.map(function(cacheName) {
+        cacheNames.map((cacheName) => {
           return caches.delete(cacheName);
         })
       );
