@@ -3,8 +3,9 @@ import {defineConfig} from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import image from '@astrojs/image';
 import sitemap from '@astrojs/sitemap';
+import mdx from '@astrojs/mdx';
 
-import {remarkReadingTime} from './src/utils/remark-reading-time.mjs';
+import {remarkExtras} from './src/utils/remark-plugin.mjs';
 import {getDirname} from './src/utils/esm.mjs';
 import compress from 'astro-compress';
 
@@ -21,6 +22,7 @@ export default defineConfig({
     assets: '_assets',
   },
   integrations: [
+    mdx(),
     tailwind({
       config: {applyBaseStyles: false},
     }),
@@ -36,7 +38,7 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    remarkPlugins: [remarkReadingTime],
+    remarkPlugins: [remarkExtras],
   },
   vite: {
     resolve: {

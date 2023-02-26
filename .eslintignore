@@ -1,2 +1,9 @@
-public/*
-!.*.js
+dist/
+gitignore/
+.output/
+.astro/
+
+# dependencies
+node_modules/!.*.js
+!.*.cjs
+!.*.mjs

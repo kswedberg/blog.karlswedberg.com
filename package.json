@@ -9,7 +9,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "blog": "node ./scripts/blog.mjs",
-    "deploy": "astro build && source .env && source ./scripts/deploy.sh"
+    "deploy": "astro build && source .env && source ./scripts/deploy.sh",
+    "lint": "eslint --ext .mjs,.cjs,.js --ignore-path .eslintignore ./"
   },
   "dependencies": {
     "@astrojs/rss": "^2.1.0",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@astrojs/image": "^0.14.1",
+    "@astrojs/mdx": "^0.17.2",
     "@tailwindcss/typography": "^0.5.9",
     "@typescript-eslint/parser": "^5.51.0",
     "eslint": "^8.33.0",
@@ -34,6 +36,7 @@
     "inquirer": "^9.1.4",
     "inquirer-datepicker-prompt": "^0.4.3",
     "markdown-it": "^13.0.1",
+    "postcss-import": "^15.1.0",
     "sanitize-html": "^2.9.0",
     "sharp": "^0.31.3"
   }

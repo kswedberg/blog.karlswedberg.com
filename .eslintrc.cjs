@@ -23,6 +23,7 @@ module.exports = {
         extraFileExtensions: ['.astro'],
       },
       rules: {
+        'jsx-quotes': ['warn', 'prefer-double'],
         // "astro/no-set-html-directive": "error"
       },
     },
