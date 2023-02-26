@@ -54,6 +54,16 @@ inquirer.prompt([
     },
   },
   {
+    type: 'list',
+    name: 'extension',
+    message: 'What type of file should this be?',
+    choices: [
+      {name: 'markdown', value: '.md'},
+      {name: 'mdx', value: '.mdx'},
+    ],
+    default: '.md',
+  },
+  {
     type: 'confirm',
     name: 'draft',
     message: 'Mark this as a draft (at least for now)?',
@@ -76,12 +86,13 @@ inquirer.prompt([
 .then(({date, title, tags, draft, ...answers}) => {
   console.log(answers);
   const collection = answers.newCollection || answers.collection;
-  const dir = path.join(cwd, 'src', 'content', collection);
-  const fileName = buildFileName(title, date);
+  const slug = buildFileName(title, date);
+  const ext = answers.extension;
+  const relativePath = path.join('src', 'content', collection, `${slug}${ext}`);
+  const absolutePath = path.join(cwd, relativePath);
   const frontMatter = buildFrontMatter({date, title, tags, draft});
-  const filePath = path.join(dir, `${fileName}.md`);
 
-  console.log('Creating a file at', filePath);
+  console.log('Creating a file at', relativePath);
 
-  return outputFile(path.join(dir, fileName), frontMatter);
+  return outputFile(absolutePath, frontMatter);
 });
