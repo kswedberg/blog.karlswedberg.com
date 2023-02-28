@@ -57,10 +57,13 @@ One possibility that I've seen suggested is to wrap each table cell in a link wi
 
 Better than nothing, I suppose, but still not ideal.
 
-The best solution I know of here is to only include one link and use the `::after` pseudo-element to stretch that link across the row. If we had a table in which the first cell of each row included a link we wanted to stretch across, the CSS might look something like this:
+The best solution I know of here is to only include one link and use the `::after` pseudo-element to stretch that link across the row. If we had a table in which the first cell of each row included a link we wanted to stretch across, the CSS might look something like this \[_Edit: I had to add a `transform` rule to the row to get it to work in Safari_]:
 
 ```css
-tr.link-row {position: relative;}
+tr.link-row {
+  position: relative;
+  transform: translateX(0);
+}
 tr.link-row td:first-child > a::after {
   content: '';
   position: absolute;

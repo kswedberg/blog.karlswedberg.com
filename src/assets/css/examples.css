@@ -16,6 +16,8 @@
     }
     tr.link-row {
       position: relative;
+      transform: translateX(0);
+
       td {
         @apply p-2;
       }
