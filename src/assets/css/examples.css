@@ -1,6 +1,7 @@
 @layer components {
   .ex-table {
     caption-side: bottom;
+    overflow: hidden;
     td {
       @apply border;
     }
