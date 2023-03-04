@@ -31,25 +31,28 @@ const dURL = `${Astro.site}${post.slug}/`;
           <div id="disqus_thread">
             <div class="loader hidden"><span>❀ </span><span>✿ </span><span>❀</span></div>
           </div>
-          <div class="text-center">
-            <button type="button" id="comment-btn" class="hidden text-white dark:text-sky-800 bg-sky-800 bg:text-sky-700 dark:bg-slate-200  dark:hover:bg-slate-300 py-1 px-3 rounded">Load comments</button>
+          <div class="js-comments hidden text-center">
+            <button type="button" id="comment-btn" class="text-white dark:text-sky-800 bg-sky-800 bg:text-sky-700 dark:bg-slate-200  dark:hover:bg-slate-300 py-1 px-3 rounded">Load comments</button>
+
+            <div class="mx-auto mt-4 prose dark:prose-invert">Have a question or a tip and don't want to load comments? Send me an email (my first name @ karlswedberg.com) or use <a href="https://karlswedberg.com/contact">my contact form</a>.</div>
           </div>
-          <script is:inline>
-          const el = document.getElementById('comments');
-
-          if (el) {
-            window.disqus_shortname = 'goodblogkarl';
-            window.disqus_identifier = el.dataset.id;
-            window.disqus_url = el.dataset.url;
-          }
-
-          </script>
-
           <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         </section>
+
       </main>
     </div>
     <PageFooter />
+    <script is:inline>
+      /* eslint-disable */
+      (function() {
+        const el = document.getElementById('comments');
+        if (el) {
+          window.disqus_shortname = 'goodblogkarl';
+          window.disqus_identifier = el.dataset.id;
+          window.disqus_url = el.dataset.url;
+        }
+      })();
+    </script>
     <script src="../assets/js/load-comments.js"></script>
   </body>
 </html>
