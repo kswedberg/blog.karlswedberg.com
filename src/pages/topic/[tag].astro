@@ -5,7 +5,6 @@ import ListLayout from '@/layouts/ListLayout.astro';
 import {fetchPosts, getTags} from '@/utils/posts.mjs';
 
 
-
 export const getStaticPaths = async function() {
   const allPosts = await fetchPosts();
   const tags = await getTags();
@@ -18,7 +17,7 @@ export const getStaticPaths = async function() {
       props: {posts, tags},
     };
   });
-}
+};
 
 
 const {tag} = Astro.params;
@@ -28,7 +27,7 @@ const otherTags = (tags || []).filter((item: String) => item !== tag);
 
 <ListLayout title={`${tag}`} description={`${tag} archive`}>
   <div class="text-center">
-    <h1 class="text-2xl font-thin mb-4">
+    <h1 class="text-2xl font-light mb-4">
       topic:
       <span class="font-bold">{tag}</span>
     </h1>

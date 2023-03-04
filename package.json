@@ -10,7 +10,7 @@
     "preview": "astro preview",
     "blog": "node ./scripts/blog.mjs",
     "deploy": "astro build && source .env && source ./scripts/deploy.sh",
-    "lint": "eslint --ext .mjs,.cjs,.js --ignore-path .eslintignore ./"
+    "lint": "eslint --ext .mjs,.cjs,.js,.astro --ignore-path .eslintignore ./"
   },
   "dependencies": {
     "@astrojs/rss": "^2.1.0",

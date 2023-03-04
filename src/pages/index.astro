@@ -2,7 +2,7 @@
 import ListLayout from '@/layouts/ListLayout.astro';
 import BlogCard from '@/components/BlogCard.astro';
 // take the 5 most recent posts
-import {fetchPosts} from "@/utils/posts.mjs";
+import {fetchPosts} from '@/utils/posts.mjs';
 import PostExcerpt from '@/components/PostExcerpt.astro';
 
 const posts = await fetchPosts();
@@ -12,11 +12,11 @@ const mostRecent = last5.shift();
 ---
 
 <ListLayout
-  title=''
+  title=""
   home={true}
-  description='Random quasi-technical stuff I want to remember.'
+  description="Random quasi-technical stuff I want to remember."
 >
-  <div class='flex flex-col justify-center items-center gap-12'>
+  <div class="flex flex-col justify-center items-center gap-12">
     <div>
       <div class="mb-2">Most recently…</div>
       <PostExcerpt post={mostRecent} />

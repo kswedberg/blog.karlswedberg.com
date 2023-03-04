@@ -36,11 +36,13 @@ const dURL = `${Astro.site}${post.slug}/`;
           </div>
           <script is:inline>
           const el = document.getElementById('comments');
+
           if (el) {
             window.disqus_shortname = 'goodblogkarl';
             window.disqus_identifier = el.dataset.id;
-            window.disqus_url = el.dataset.url
+            window.disqus_url = el.dataset.url;
           }
+
           </script>
 
           <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

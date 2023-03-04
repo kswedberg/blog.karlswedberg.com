@@ -2,7 +2,9 @@
 import {getTags} from '@/utils/posts.mjs';
 
 const tags = await getTags();
+const year = new Date().getFullYear();
 ---
+
 <footer class="text-center mt-14 bg-slate-200 dark:bg-slate-700 text-gray-600 dark:text-gray-400 border-t border-t-slate-300">
   <div class="p-4 md:mx-auto md:max-w-3xl">
     <div class="text-left mb-8">
@@ -77,7 +79,7 @@ const tags = await getTags();
     </div>
 
     <div class="text-sm">
-      © {new Date().getFullYear()}
+      © {year}
       <a
         href="https://karlswedberg.com"
         class="link"

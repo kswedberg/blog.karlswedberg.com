@@ -3,6 +3,10 @@ gitignore/
 .output/
 .astro/
 
+# For some reason PageFooter causes "RangeError: Maximum call stack size exceeded"
+# on line 1 with Rule: "indent"
+PageFooter.astro
+
 # dependencies
 node_modules/!.*.js
 !.*.cjs

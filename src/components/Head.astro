@@ -24,6 +24,7 @@ let desc = '';
 
 for (let i = 0; i < descParts.length; i++) {
   const added = `${desc} ${descParts[i]}`;
+
   if (added.length > 152) {
     desc += '...';
     break;
