@@ -1,0 +1,1107 @@
+[
+  {
+    "title": "24 ways",
+    "html": {
+      "matches": true,
+      "original": "https://24ways.org/",
+      "final": "https://24ways.org/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "http://feeds.feedburner.com/24ways",
+      "final": "http://feeds.feedburner.com/24ways"
+    }
+  },
+  {
+    "title": "2ality - technology, life",
+    "html": {
+      "matches": true,
+      "original": "https://2ality.com/",
+      "final": "https://2ality.com/"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://feeds.feedburner.com/2ality",
+      "final": "https://2ality.com/feeds/posts.atom"
+    }
+  },
+  {
+    "title": "The A11Y Project",
+    "html": {
+      "matches": false,
+      "original": "https://a11yproject.com",
+      "final": "https://www.a11yproject.com/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://www.a11yproject.com/feed/feed.xml",
+      "final": "https://www.a11yproject.com/feed/feed.xml"
+    }
+  },
+  {
+    "title": "Adactio",
+    "html": {
+      "matches": true,
+      "original": "https://adactio.com/journal/",
+      "final": "https://adactio.com/journal/"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://adactio.com/journal/rss",
+      "final": "https://adactio.com/journal/rss"
+    }
+  },
+  {
+    "title": "Adactio: Links",
+    "html": {
+      "matches": true,
+      "original": "https://adactio.com/links/",
+      "final": "https://adactio.com/links/"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://adactio.com/links/rss",
+      "final": "https://adactio.com/links/rss"
+    }
+  },
+  {
+    "title": "Adrian Roselli",
+    "html": {
+      "matches": true,
+      "original": "https://adrianroselli.com",
+      "final": "https://adrianroselli.com"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://adrianroselli.com/feed",
+      "final": "https://adrianroselli.com/feed"
+    }
+  },
+  {
+    "title": "Axess Lab",
+    "html": {
+      "matches": true,
+      "original": "https://axesslab.com",
+      "final": "https://axesslab.com"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://axesslab.com/feed/",
+      "final": "https://axesslab.com/feed/"
+    }
+  },
+  {
+    "title": "Ben Frain",
+    "html": {
+      "matches": true,
+      "original": "https://benfrain.com",
+      "final": "https://benfrain.com"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://benfrain.com/feed/",
+      "final": "https://benfrain.com/feed/"
+    }
+  },
+  {
+    "title": "Blog – John Resig",
+    "html": {
+      "matches": true,
+      "original": "https://johnresig.com",
+      "final": "https://johnresig.com"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://johnresig.com/category/blog/feed/",
+      "final": "https://johnresig.com/category/blog/feed/"
+    }
+  },
+  {
+    "title": "Bocoup Web Log",
+    "html": {
+      "matches": true,
+      "original": "https://bocoup.com",
+      "final": "https://bocoup.com"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://weblog.bocoup.com/feed",
+      "final": "https://bocoup.com/feed"
+    }
+  },
+  {
+    "title": "Brad Frost - Links",
+    "html": {
+      "matches": true,
+      "original": "https://bradfrost.com",
+      "final": "https://bradfrost.com/blog/category/link/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "http://feeds.feedburner.com/brad-frosts-blog",
+      "final": "https://bradfrost.com/blog/category/link/feed/"
+    }
+  },
+  {
+    "title": "Brad Frost - Posts",
+    "html": {
+      "matches": true,
+      "original": "https://bradfrost.com/blog/",
+      "final": "https://bradfrost.com/blog/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "http://feeds.feedburner.com/brad-frosts-blog",
+      "final": "https://bradfrost.com/blog/category/post/feed/"
+    }
+  },
+  {
+    "title": "Bram.us",
+    "html": {
+      "matches": true,
+      "original": "https://www.bram.us",
+      "final": "https://www.bram.us"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://www.bram.us/feed/",
+      "final": "https://www.bram.us/feed/"
+    }
+  },
+  {
+    "title": "BrettTerpstra.com",
+    "html": {
+      "matches": true,
+      "original": "https://brettterpstra.com",
+      "final": "https://brettterpstra.com"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://brettterpstra.com/atom.xml",
+      "final": "http://brett.trpstra.net/brettterpstra"
+    }
+  },
+  {
+    "title": "Bruce Lawson's personal site",
+    "html": {
+      "matches": true,
+      "original": "https://brucelawson.co.uk",
+      "final": "https://brucelawson.co.uk"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://www.brucelawson.co.uk/feed/",
+      "final": "https://brucelawson.co.uk/feed/"
+    }
+  },
+  {
+    "title": "bryanlrobinson.com",
+    "html": {
+      "matches": true,
+      "original": "https://bryanlrobinson.com",
+      "final": "https://bryanlrobinson.com"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://bryanlrobinson.com/feed.xml",
+      "final": "https://bryanlrobinson.com/feed.xml"
+    }
+  },
+  {
+    "title": "Chris Coyier",
+    "html": {
+      "matches": true,
+      "original": "https://chriscoyier.net/",
+      "final": "https://chriscoyier.net/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://chriscoyier.net/feed/",
+      "final": "https://chriscoyier.net/feed/"
+    }
+  },
+  {
+    "title": "Clagnut",
+    "html": {
+      "matches": false,
+      "original": "http://clagnut.com/",
+      "final": "https://clagnut.com/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://clagnut.com/feeds/fullposts.xml",
+      "final": "https://clagnut.com/feeds/fullposts.xml"
+    }
+  },
+  {
+    "title": "Coder's Block",
+    "html": {
+      "matches": true,
+      "original": "https://codersblock.com",
+      "final": "https://codersblock.com"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://codersblock.com/blog/feed/",
+      "final": "https://codersblock.com/rss.xml"
+    }
+  },
+  {
+    "title": "Coding Horror",
+    "html": {
+      "matches": true,
+      "original": "https://blog.codinghorror.com/",
+      "final": "https://blog.codinghorror.com/"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://feeds.feedburner.com/codinghorror/",
+      "final": "https://blog.codinghorror.com/rss/"
+    }
+  },
+  {
+    "title": "Codrops",
+    "html": {
+      "matches": false,
+      "original": "https://tympanus.net/codrops",
+      "final": "https://tympanus.net/codrops/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "http://feeds.feedburner.com/codrops",
+      "final": "https://tympanus.net/codrops/feed/"
+    }
+  },
+  {
+    "title": "CSS In Real Life",
+    "html": {
+      "matches": true,
+      "original": "https://css-irl.info/",
+      "final": "https://css-irl.info/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://css-irl.info/rss.xml",
+      "final": "https://css-irl.info/rss.xml"
+    }
+  },
+  {
+    "title": "CSS-Tricks",
+    "html": {
+      "matches": true,
+      "original": "https://css-tricks.com",
+      "final": "https://css-tricks.com"
+    },
+    "xml": {
+      "matches": true,
+      "original": "http://feeds.feedburner.com/CssTricks",
+      "final": "http://feeds.feedburner.com/CssTricks"
+    }
+  },
+  {
+    "title": "daverupert.com",
+    "html": {
+      "matches": true,
+      "original": "https://daverupert.com",
+      "final": "https://daverupert.com"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://daverupert.com/atom.xml",
+      "final": "https://daverupert.com/atom.xml"
+    }
+  },
+  {
+    "title": "dbushell.com",
+    "html": {
+      "matches": true,
+      "original": "https://dbushell.com",
+      "final": "https://dbushell.com"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://dbushell.com/rss.xml",
+      "final": "https://dbushell.com/rss.xml"
+    }
+  },
+  {
+    "title": "Digging Into WordPress",
+    "html": {
+      "matches": true,
+      "original": "https://digwp.com",
+      "final": "https://digwp.com"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://digwp.com/feed/",
+      "final": "https://digwp.com/feed/"
+    }
+  },
+  {
+    "title": "djf.log()",
+    "html": {
+      "matches": true,
+      "original": "https://davidflanagan.com/",
+      "final": "https://davidflanagan.com/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://davidflanagan.com/feed.xml",
+      "final": "https://davidflanagan.com/feed.xml"
+    }
+  },
+  {
+    "title": "Eli Grey",
+    "html": {
+      "matches": false,
+      "original": "https://eligrey.com/blog",
+      "final": "https://eligrey.com/blog/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "http://feeds.feedburner.com/eligrey",
+      "final": "http://feeds.feedburner.com/eligrey"
+    }
+  },
+  {
+    "title": "The Every Layout Blog",
+    "html": {
+      "matches": true,
+      "original": "https://every-layout.dev",
+      "final": "https://every-layout.dev"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://every-layout.dev/feed.xml",
+      "final": "https://every-layout.dev/feed.xml"
+    }
+  },
+  {
+    "title": "Geoff Graham",
+    "html": {
+      "matches": true,
+      "original": "https://geoffgraham.me",
+      "final": "https://geoffgraham.me"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://geoffgraham.me/feed/",
+      "final": "https://geoffgraham.me/feed/"
+    }
+  },
+  {
+    "title": "Go Make Things",
+    "html": {
+      "matches": true,
+      "original": "https://gomakethings.com",
+      "final": "https://gomakethings.com"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://gomakethings.com/feed/index.xml",
+      "final": "https://gomakethings.com/feed/index.xml"
+    }
+  },
+  {
+    "title": "Good Blog, Karl",
+    "html": {
+      "matches": true,
+      "original": "https://blog.karlswedberg.com/",
+      "final": "https://blog.karlswedberg.com/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://blog.karlswedberg.com/rss.xml",
+      "final": "https://blog.karlswedberg.com/rss.xml"
+    }
+  },
+  {
+    "title": "HeydonWorks",
+    "html": {
+      "matches": true,
+      "original": "https://heydonworks.com",
+      "final": "https://heydonworks.com"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://www.heydonworks.com/feed",
+      "final": "https://heydonworks.com/feed.xml"
+    }
+  },
+  {
+    "title": "hicksdesign - journal",
+    "html": {
+      "matches": true,
+      "original": "https://hicks.design/journal",
+      "final": "https://hicks.design/journal"
+    },
+    "xml": {
+      "matches": true,
+      "original": "http://feeds.feedburner.com/hicksdesign",
+      "final": "https://hicks.design/feeds/journal/"
+    }
+  },
+  {
+    "title": "Hidde's blog",
+    "html": {
+      "matches": true,
+      "original": "https://hidde.blog",
+      "final": "https://hidde.blog"
+    },
+    "xml": {
+      "matches": false,
+      "original": "https://hiddedevries.nl/rss/full/",
+      "final": "https://hidde.blog/feed"
+    }
+  },
+  {
+    "title": "HTML Accessibility",
+    "html": {
+      "matches": false,
+      "original": "https://html5accessibility.com/stuff",
+      "final": "https://html5accessibility.com/stuff/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://html5accessibility.com/stuff/feed/",
+      "final": "https://html5accessibility.com/stuff/feed/"
+    }
+  },
+  {
+    "title": "Inconsistently Insightful",
+    "html": {
+      "matches": true,
+      "original": "http://blog.methvin.com/",
+      "final": "http://blog.methvin.com/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "http://blog.methvin.com/feeds/posts/default",
+      "final": "http://blog.methvin.com/feeds/posts/default"
+    }
+  },
+  {
+    "title": "Information is Beautiful",
+    "html": {
+      "matches": true,
+      "original": "https://informationisbeautiful.net",
+      "final": "https://informationisbeautiful.net"
+    },
+    "xml": {
+      "matches": true,
+      "original": "http://feeds.feedburner.com/InformationIsBeautiful",
+      "final": "http://feeds.feedburner.com/InformationIsBeautiful"
+    }
+  },
+  {
+    "title": "Jim Nielsen’s Blog",
+    "html": {
+      "matches": true,
+      "original": "https://blog.jim-nielsen.com",
+      "final": "https://blog.jim-nielsen.com"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://blog.jim-nielsen.com/feed.xml",
+      "final": "https://blog.jim-nielsen.com/feed.xml"
+    }
+  },
+  {
+    "title": "Jim Nielsen’s Notes",
+    "html": {
+      "matches": true,
+      "original": "https://notes.jim-nielsen.com",
+      "final": "https://notes.jim-nielsen.com"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://notes.jim-nielsen.com/feed.xml",
+      "final": "https://notes.jim-nielsen.com/feed.xml"
+    }
+  },
+  {
+    "title": "Keith J. Grant",
+    "html": {
+      "matches": true,
+      "original": "https://keithjgrant.com",
+      "final": "https://keithjgrant.com"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://keithjgrant.com/posts/index.xml",
+      "final": "https://keithjgrant.com/posts/index.xml"
+    }
+  },
+  {
+    "title": "Kitty Giraudel",
+    "html": {
+      "matches": true,
+      "original": "https://kittygiraudel.com",
+      "final": "https://kittygiraudel.com"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://hugogiraudel.com/rss",
+      "final": "https://kittygiraudel.com/rss/index.xml"
+    }
+  },
+  {
+    "title": "Lea Verou",
+    "html": {
+      "matches": true,
+      "original": "https://lea.verou.me",
+      "final": "https://lea.verou.me"
+    },
+    "xml": {
+      "matches": true,
+      "original": "http://leaverou.me/feed/",
+      "final": "http://leaverou.me/feed/"
+    }
+  },
+  {
+    "title": "Let's Encrypt",
+    "html": {
+      "matches": true,
+      "original": "https://letsencrypt.org/",
+      "final": "https://letsencrypt.org/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://letsencrypt.org/feed.xml",
+      "final": "https://letsencrypt.org/feed.xml"
+    }
+  },
+  {
+    "title": "Lisi Linhart's Blog",
+    "html": {
+      "matches": true,
+      "original": "https://lisilinhart.info/",
+      "final": "https://lisilinhart.info/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://lisilinhart.info/feed.xml",
+      "final": "https://lisilinhart.info/feed.xml"
+    }
+  },
+  {
+    "title": "Manuel Matuzović - Today I Learned",
+    "html": {
+      "matches": true,
+      "original": "https://www.matuzo.at",
+      "final": "https://www.matuzo.at"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://www.matuzo.at/feed_til.xml?rev=1672334848998",
+      "final": "https://www.matuzo.at/feed_til.xml?rev=1672334848998"
+    }
+  },
+  {
+    "title": "Manuel Matuzović - Web development blog",
+    "html": {
+      "matches": true,
+      "original": "https://www.matuzo.at",
+      "final": "https://www.matuzo.at"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://www.matuzo.at/feed.xml?rev=1672334848998",
+      "final": "https://www.matuzo.at/feed.xml?rev=1672334848998"
+    }
+  },
+  {
+    "title": "Marco's accessibility blog",
+    "html": {
+      "matches": true,
+      "original": "https://www.marcozehe.de/",
+      "final": "https://www.marcozehe.de/"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://www.marcozehe.de/feed/",
+      "final": "https://www.marcozehe.de/rss.xml"
+    }
+  },
+  {
+    "title": "marcus.io",
+    "html": {
+      "matches": true,
+      "original": "https://marcus.io/blog",
+      "final": "https://marcus.io/blog"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://marcus.io/feed",
+      "final": "https://marcus.io/feed"
+    }
+  },
+  {
+    "title": "Mathias Bynens",
+    "html": {
+      "matches": true,
+      "original": "https://mathiasbynens.be/notes",
+      "final": "https://mathiasbynens.be/notes"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://mathiasbynens.be/notes.atom",
+      "final": "https://mathiasbynens.be/notes.atom"
+    }
+  },
+  {
+    "title": "Michael Thiessen's Blog",
+    "html": {
+      "matches": true,
+      "original": "https://michaelnthiessen.com",
+      "final": "https://michaelnthiessen.com"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://michaelnthiessen.com/rss.xml",
+      "final": "https://michaelnthiessen.com/rss.xml"
+    }
+  },
+  {
+    "title": "Mike Davidson",
+    "html": {
+      "matches": false,
+      "original": "https://mikeindustries.com/blog",
+      "final": "https://mikeindustries.com/blog/"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://www.mikeindustries.com/blog/feed",
+      "final": "http://mikeindustries.com/blog/feed"
+    }
+  },
+  {
+    "title": "Mike Street's Blog",
+    "html": {
+      "matches": true,
+      "original": "https://www.mikestreety.co.uk",
+      "final": "https://www.mikestreety.co.uk"
+    },
+    "xml": {
+      "matches": false,
+      "original": "https://www.mikestreety.co.uk/rss",
+      "final": "https://www.mikestreety.co.uk/rss.xml"
+    }
+  },
+  {
+    "title": "Mike Taylr Dot Com Web Log",
+    "html": {
+      "matches": false,
+      "original": "https://miketaylr.com/posts",
+      "final": "https://miketaylr.com/posts/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://miketaylr.com/posts/rss.xml",
+      "final": "https://miketaylr.com/posts/rss.xml"
+    }
+  },
+  {
+    "title": "Modern Web Development with Chrome",
+    "html": {
+      "matches": true,
+      "original": "https://paul.kinlan.me/",
+      "final": "https://paul.kinlan.me/"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://paul.kinlan.me/atom.xml",
+      "final": "https://paul.kinlan.me/index.xml"
+    }
+  },
+  {
+    "title": "Human Who Codes",
+    "html": {
+      "matches": false,
+      "original": "https://humanwhocodes.com/",
+      "final": "https://humanwhocodes.com/blog/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "http://feeds2.feedburner.com/nczonline",
+      "final": "https://humanwhocodes.com/feeds/blog.xml"
+    }
+  },
+  {
+    "title": "Painfully Obvious » JavaScript",
+    "html": {
+      "matches": true,
+      "original": "https://andrewdupont.net",
+      "final": "https://andrewdupont.net"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://andrewdupont.net/categories/web/development/javascript/feed",
+      "final": "https://andrewdupont.net/categories/web/development/javascript/feed/"
+    }
+  },
+  {
+    "title": "Paul Irish",
+    "html": {
+      "matches": false,
+      "original": "https://paulirish.com/",
+      "final": "https://www.paulirish.com/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "http://feeds2.feedburner.com/paul-irish",
+      "final": "http://feeds2.feedburner.com/paul-irish"
+    }
+  },
+  {
+    "title": "Perishable Press",
+    "html": {
+      "matches": true,
+      "original": "https://perishablepress.com",
+      "final": "https://perishablepress.com"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://perishablepress.com/feed",
+      "final": "https://perishablepress.com/feed/"
+    }
+  },
+  {
+    "title": "Photo Matt",
+    "html": {
+      "matches": true,
+      "original": "https://ma.tt",
+      "final": "https://ma.tt"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://ma.tt/feed/",
+      "final": "https://ma.tt/feed/"
+    }
+  },
+  {
+    "title": "phpied.com",
+    "html": {
+      "matches": true,
+      "original": "https://www.phpied.com",
+      "final": "https://www.phpied.com"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://www.phpied.com/feed/",
+      "final": "https://www.phpied.com/feed/"
+    }
+  },
+  {
+    "title": "QuirksBlog",
+    "html": {
+      "matches": true,
+      "original": "https://quirksmode.org/blog/",
+      "final": "https://quirksmode.org/blog/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://quirksmode.org/blog/index.xml",
+      "final": "https://quirksmode.org/blog/index.xml"
+    }
+  },
+  {
+    "title": "Read the Tea Leaves",
+    "html": {
+      "matches": true,
+      "original": "https://nolanlawson.com",
+      "final": "https://nolanlawson.com"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://nolanlawson.com/feed/",
+      "final": "https://nolanlawson.com/feed/"
+    }
+  },
+  {
+    "title": "remy sharp's b:log",
+    "html": {
+      "matches": true,
+      "original": "https://remysharp.com",
+      "final": "https://remysharp.com"
+    },
+    "xml": {
+      "matches": true,
+      "original": "http://feeds.feedburner.com/remysharp",
+      "final": "https://remysharp.com/feed.xml"
+    }
+  },
+  {
+    "title": "Renaissance Geek",
+    "html": {
+      "matches": true,
+      "original": "https://paulbakaus.com/",
+      "final": "https://paulbakaus.com/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://paulbakaus.com/rss/",
+      "final": "https://paulbakaus.com/rss/"
+    }
+  },
+  {
+    "title": "Rey Bango",
+    "html": {
+      "matches": true,
+      "original": "https://blog.reybango.com",
+      "final": "https://blog.reybango.com"
+    },
+    "xml": {
+      "matches": true,
+      "original": "http://feeds.feedburner.com/reybango/zSyW",
+      "final": "https://blog.reybango.com/feed/"
+    }
+  },
+  {
+    "title": "The Shape of Everything",
+    "html": {
+      "matches": true,
+      "original": "https://shapeof.com/",
+      "final": "https://shapeof.com/"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://gusmueller.com/blog/atom.xml",
+      "final": "http://shapeof.com/rss.xml"
+    }
+  },
+  {
+    "title": "Simon Willison's Weblog",
+    "html": {
+      "matches": false,
+      "original": "http://simonwillison.net/",
+      "final": "https://simonwillison.net/"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://feeds.simonwillison.net/swn-everything",
+      "final": "https://simonwillison.net/atom/everything/"
+    }
+  },
+  {
+    "title": "snook.ca - a collection of tips, tricks and bookmarks in web development",
+    "html": {
+      "matches": true,
+      "original": "https://snook.ca/",
+      "final": "https://snook.ca/"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://snook.ca/jonathan/index.rdf",
+      "final": "https://snook.ca/posts/index.rss"
+    }
+  },
+  {
+    "title": "Stefan Judis Web Development",
+    "html": {
+      "matches": true,
+      "original": "https://www.stefanjudis.com/",
+      "final": "https://www.stefanjudis.com/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://www.stefanjudis.com/rss.xml",
+      "final": "https://www.stefanjudis.com/rss.xml"
+    }
+  },
+  {
+    "title": "Stopdesign",
+    "html": {
+      "matches": true,
+      "original": "https://stopdesign.com/",
+      "final": "https://stopdesign.com/"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://stopdesign.com/feed",
+      "final": "https://stopdesign.com/feed"
+    }
+  },
+  {
+    "title": "Stubbornella",
+    "html": {
+      "matches": false,
+      "original": "http://www.stubbornella.org/content",
+      "final": "http://www.stubbornella.org/content/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "http://www.stubbornella.org/content/feed/",
+      "final": "http://www.stubbornella.org/content/feed/"
+    }
+  },
+  {
+    "title": "Tab Atkins",
+    "html": {
+      "matches": false,
+      "original": "http://www.xanthir.com/blog/",
+      "final": "https://www.xanthir.com/blog/"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://www.xanthir.com/blog/atom/",
+      "final": "https://www.xanthir.com/blog/atom/"
+    }
+  },
+  {
+    "title": "Tania Rascia | RSS Feed",
+    "html": {
+      "matches": true,
+      "original": "https://www.taniarascia.com",
+      "final": "https://www.taniarascia.com"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://www.taniarascia.com/rss.xml",
+      "final": "https://www.taniarascia.com/rss.xml"
+    }
+  },
+  {
+    "title": "TheCodeBarbarian.com",
+    "html": {
+      "matches": true,
+      "original": "http://thecodebarbarian.com",
+      "final": "http://thecodebarbarian.com"
+    },
+    "xml": {
+      "matches": true,
+      "original": "http://thecodebarbarian.com/feed.xml",
+      "final": "http://thecodebarbarian.com/feed.xml"
+    }
+  },
+  {
+    "title": "Thoughts From Eric",
+    "html": {
+      "matches": false,
+      "original": "https://meyerweb.com/eric/thoughts",
+      "final": "https://meyerweb.com/eric/thoughts/"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://meyerweb.com/eric/thoughts/rss2/summary",
+      "final": "http://meyerweb.com/eric/thoughts/feed/?scope=summary"
+    }
+  },
+  {
+    "title": "Timo Tijhof",
+    "html": {
+      "matches": true,
+      "original": "https://timotijhof.net",
+      "final": "https://timotijhof.net"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://timotijhof.net/feed/",
+      "final": "https://timotijhof.net/feed/"
+    }
+  },
+  {
+    "title": "Tink - Léonie Watson - On technology, food & life in the digital age",
+    "html": {
+      "matches": true,
+      "original": "https://tink.uk/",
+      "final": "https://tink.uk/"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://tink.co.uk/feed/",
+      "final": "https://tink.uk/feed.xml"
+    }
+  },
+  {
+    "title": "Trys Mudford's Blog",
+    "html": {
+      "matches": true,
+      "original": "https://www.trysmudford.com/blog/",
+      "final": "https://www.trysmudford.com/blog/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://www.trysmudford.com/blog/index.xml",
+      "final": "https://www.trysmudford.com/blog/index.xml"
+    }
+  },
+  {
+    "title": "Vue Mastery",
+    "html": {
+      "matches": true,
+      "original": "https://medium.com/vue-mastery",
+      "final": "https://medium.com/vue-mastery"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://medium.com/feed/vue-mastery",
+      "final": "https://medium.com/feed/vue-mastery"
+    }
+  },
+  {
+    "title": "zachleat.com",
+    "html": {
+      "matches": true,
+      "original": "https://www.zachleat.com/web/",
+      "final": "https://www.zachleat.com/web/"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://www.zachleat.com/web/feed/",
+      "final": "https://www.zachleat.com/web/feed/"
+    }
+  },
+  {
+    "title": "WordPress Development Blog",
+    "html": {
+      "matches": false,
+      "original": "https://wordpress.org/news",
+      "final": "https://wordpress.org/news/"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://wordpress.org/news/feed/",
+      "final": "https://wordpress.org/news/feed/"
+    }
+  },
+  {
+    "title": "XML-RSS Feed for Anselm Hannemann’s Writings",
+    "html": {
+      "matches": true,
+      "original": "https://helloanselm.com/writings",
+      "final": "https://helloanselm.com/writings"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://helloanselm.com/feed/rss",
+      "final": "https://helloanselm.com/feed/rss"
+    }
+  },
+  {
+    "title": "Zeldman Daily Report",
+    "html": {
+      "matches": true,
+      "original": "https://www.zeldman.com/",
+      "final": "https://www.zeldman.com/"
+    },
+    "xml": {
+      "matches": false,
+      "original": "http://www.zeldman.com/feed/",
+      "final": "https://www.zeldman.com/feed/"
+    }
+  },
+  {
+    "title": "Zell Liew",
+    "html": {
+      "matches": true,
+      "original": "https://zellwk.com/",
+      "final": "https://zellwk.com/"
+    },
+    "xml": {
+      "matches": true,
+      "original": "https://zellwk.com/feed.xml",
+      "final": "https://zellwk.com/feed.xml"
+    }
+  }
+]
