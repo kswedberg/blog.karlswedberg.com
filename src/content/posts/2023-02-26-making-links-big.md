@@ -8,8 +8,8 @@ tags: [html, css]
 Back in the days before HTML5, our pretty little doctype — `<!DOCTYPE html>` — looked more like `<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">`. If you were especially masochistic, you used `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">` with the `application/xhtml+xml` mime type.
 
 <div class="grid grid-cols-2 gap-2">
-<Image class="inline-block" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Valid_HTML_4.0.1.svg" />
-<Image class="inline-block" src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Valid_XHTML_1.0.svg" />
+<Image class="inline-block" alt="Valid HTML 4.0.1 badge" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Valid_HTML_4.0.1.svg" />
+<Image class="inline-block" alt="Valid XHTML 1.0 badge" src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Valid_XHTML_1.0.svg" />
 </div>
 Standards compliance was all the rage, and webmasters loved to show that their sites passed the <a href="https://validator.w3.org/">W3C markup validator</a>. But such compliance meant that you couldn't have some nice things, like block-level elements inside a link (aka "anchor" element). For example, this was not valid:
 
