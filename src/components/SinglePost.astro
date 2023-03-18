@@ -1,10 +1,11 @@
 ---
 import {Picture} from '@astrojs/image/components';
 import PostTags from '@/components/Tags.astro';
+import Icon from '@/components/Icon.astro';
 
 const {post} = Astro.props;
 
-const {prev = {}, next = {}} = post;
+const {prev = {}, next = {}, aged} = post;
 ---
 
 <section>
@@ -23,6 +24,14 @@ const {prev = {}, next = {}} = post;
         {post.title}
       </h1>
 
+      {aged && (
+        <div class="flex gap-3 items-baseline my-6 px-6 py-4 lg:py-5 bg-yellow-50 dark:text-gray-700 rounded-md border border-yellow-500 dark:border-slate-700">
+          <div class="h-4 w-4 text-yellow-500">
+            <Icon icon="warn" />
+          </div>
+          <div><strong>Warning</strong>: This post was originally published <strong>{aged}</strong>. Content could be stale, irrelevant, or just plain wrong.</div>
+        </div>
+      )}
       {
         post.image && (
           <Picture
