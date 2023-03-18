@@ -20,26 +20,14 @@ const {
 } = Astro.props;
 
 const docTitle = title ? `${title} - ${config.siteTitle}` : config.siteTitle;
-const descParts = description.split(' ');
-let desc = '';
-
-for (let i = 0; i < descParts.length; i++) {
-  const added = `${desc} ${descParts[i]}`;
-
-  if (added.length > 152) {
-    desc += '...';
-    break;
-  }
-
-  desc = added;
-}
-
-const metaDescription = (desc || config.description).trim();
+const metaTitle = title || config.siteTitle;
+const metaDescription = config.getDescription(description);
 ---
 <meta charset="utf-8" />
 <title>{docTitle}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="description" content={metaDescription} />
+<meta name="author" content={config.author} />
 
 <link rel="canonical" href={canonicalURL} />
 <link rel="manifest" href="/site.webmanifest" />
@@ -58,14 +46,14 @@ const metaDescription = (desc || config.description).trim();
 <!-- Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content={config.siteTitle} />
-<meta property="og:url" content={Astro.site} />
-<meta property="og:title" content={docTitle} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={metaTitle} />
 <meta property="og:description" content={metaDescription} />
 <meta property="og:image" content={image} />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.site} />
-<meta property="twitter:title" content={docTitle} />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={metaTitle} />
 <meta property="twitter:description" content={metaDescription} />
 <meta property="twitter:image" content={image} />

@@ -1,24 +1,10 @@
 import {getCollection} from 'astro:content';
+import {formatDate, getAged} from './date.mjs';
 
 const cleanSlug = (initial) => {
   const slug = initial.replace(/^\//, '').replace(/^\d{4}-\d{2}-\d{2}-/, '').toLowerCase();
 
   return `${slug}`;
-};
-
-const dateFormatter = new Intl.DateTimeFormat('en-US', {
-  year: 'numeric',
-  month: 'short',
-  day: 'numeric',
-  timeZone: 'America/Detroit',
-  // timeZoneName: 'short',
-});
-
-const formatDate = (date) => {
-  const isDate = date instanceof Date;
-  const d = isDate ? date : new Date(date);
-
-  return dateFormatter.format(d);
 };
 
 const getNormalizedPost = async(post) => {
@@ -41,6 +27,7 @@ const getNormalizedPost = async(post) => {
     timestamp: date.getTime(),
     date: formatDate(date),
     publishDate: date.toString(),
+    aged: getAged(date),
     tags,
     permalink: `/${slug}/`,
     excerpt,
