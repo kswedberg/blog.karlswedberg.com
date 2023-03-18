@@ -3,8 +3,8 @@ import MarkdownIt from 'markdown-it';
 import {getCollection} from 'astro:content';
 import {config} from '@/utils/config.mjs';
 import {Feed} from 'feed';
-import sm from '@/assets/img/good-dog-65x65.png';
-import lg from '@/assets/img/good-dog-512x512.png';
+import sm from '@/assets/img/icon.svg';
+import lg from '@/assets/img/icon-512.png';
 
 // https://github.com/jpmonette/feed
 
