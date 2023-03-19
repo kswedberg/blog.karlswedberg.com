@@ -8,7 +8,6 @@ import '@/assets/css/main.css';
 
 const {post} = Astro.props;
 
-const dsn = 'goodblogkarl';
 // Need /index.html to match disqus_identifier from old Jekyll blog
 const dIdentifier = `${post.permalink}/index.html`;
 const dURL = `${Astro.site}${post.slug}/`;
@@ -20,6 +19,7 @@ const dURL = `${Astro.site}${post.slug}/`;
     <Head
       title={post.title}
       description={post.description || post.excerpt}
+      ogType="article"
     />
   </head>
   <body>

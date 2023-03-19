@@ -10,6 +10,7 @@ export interface Props {
   title: string;
   description: string;
   image?: string;
+  ogType?: string;
 }
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
@@ -17,6 +18,7 @@ const {
   title,
   description,
   image = new URL(mdImg.src, Astro.site),
+  ogType = 'website',
 } = Astro.props;
 
 const docTitle = title ? `${title} - ${config.siteTitle}` : config.siteTitle;
@@ -44,7 +46,7 @@ const metaDescription = config.getDescription(description);
 <link rel="alternate" type="application/atom+xml" href="https://blog.karlswedberg.com/atom.xml" title="Good Blog, Karl - ATOM feed" />
 
 <!-- Facebook -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={ogType} />
 <meta property="og:site_name" content={config.siteTitle} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={metaTitle} />
