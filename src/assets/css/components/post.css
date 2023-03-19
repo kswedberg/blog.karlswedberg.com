@@ -8,3 +8,11 @@
   content: '·';
   padding-left: 4px;
 }
+
+.post-excerpt {
+  transform: scale(1);
+  transition-duration: 0.3s;
+  &:has(.post-summary:hover) {
+    transform: scale(1.05);
+  }
+}
