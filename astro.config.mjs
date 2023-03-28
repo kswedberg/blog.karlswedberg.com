@@ -4,6 +4,7 @@ import tailwind from '@astrojs/tailwind';
 import image from '@astrojs/image';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
+import vue from '@astrojs/vue';
 
 import {remarkExtras} from './src/utils/remark-plugin.mjs';
 import {getDirname} from './src/utils/esm.mjs';
@@ -13,7 +14,6 @@ const rootDir = getDirname(import.meta);
 const srcDir = path.resolve(rootDir, './src');
 
 // https://astro.build/config
-
 export default defineConfig({
   site: 'https://blog.karlswedberg.com/',
   output: 'static',
@@ -24,7 +24,9 @@ export default defineConfig({
   integrations: [
     mdx(),
     tailwind({
-      config: {applyBaseStyles: false},
+      config: {
+        applyBaseStyles: false,
+      },
     }),
     sitemap(),
     image({
@@ -36,11 +38,15 @@ export default defineConfig({
         removeAttributeQuotes: false,
       },
     }),
+    vue(),
   ],
   markdown: {
     remarkPlugins: [remarkExtras],
   },
   vite: {
+    // plugins: [
+    //   viteVue()
+    // ],
     resolve: {
       alias: {
         '~': srcDir,
