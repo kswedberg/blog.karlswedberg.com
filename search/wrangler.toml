@@ -1,0 +1,6 @@
+compatibility_date = "2023-01-01"
+main = "src/index.js"
+name = "good-search"
+
+[site]
+bucket = "./assets"
