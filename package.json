@@ -6,10 +6,10 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && cp ./dist/search.json ./search/assets/static/",
     "preview": "astro preview",
     "blog": "node ./scripts/blog.mjs",
-    "deploy": "astro build && source .env && source ./scripts/deploy.sh",
+    "deploy": "npm run build && source .env && source ./scripts/deploy.sh",
     "lint": "eslint --ext .mjs,.cjs,.js,.astro --ignore-path .eslintignore ./"
   },
   "dependencies": {
