@@ -5,6 +5,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "~/*": ["./src/*"]
-    }
+    },
+    "types": ["@cloudflare/workers-types"],
+    "jsx": "preserve"
   }
 }
