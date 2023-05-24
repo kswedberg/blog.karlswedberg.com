@@ -1,6 +1,6 @@
 <template>
-  <div class="flex items-center justify-end">
-    <form v-if="showForm" id="searchWrapper" action="https://good-search.karl.workers.dev/" class="search-form relative z-10" @submit.prevent="onSubmit">
+  <div class="relative flex items-center justify-end" aria-live="polite">
+    <form v-if="showForm" id="searchWrapper" action="https://good-search.karl.workers.dev/" class="search-form absolute right-9 z-10" @submit.prevent="onSubmit">
       <label :class="[
         'search-label block absolute p-1 bg-white rounded-md leading-none mt-0.5 ml-px',
         searchName.length && 'has-text',
@@ -30,6 +30,7 @@
     </form>
     <div class="inline-flex items-center">
       <button @click="toggleForm" type="button" class="ml-1 p-1">
+        <span class="sr-only">{{ showForm ? 'Close form' : 'Show search form' }}</span>
         <svg v-if="!showForm" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <path d="M19.023 16.977c-.513-.488-1.004-.997-1.367-1.384-.372-.378-.596-.653-.596-.653l-2.8-1.337C15.34 12.37 16 10.763 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"/>
         </svg>
