@@ -1,0 +1,56 @@
+---
+import BlogCard from '@/components/BlogCard.astro';
+import Tags from '@/components/Tags.astro';
+import ListLayout from '@/layouts/ListLayout.astro';
+import {fetchPosts, getTags} from '@/utils/posts.mjs';
+
+
+const allPosts = await fetchPosts();
+const tags = await getTags();
+
+const grouped = tags.map((tag) => {
+  return {
+    tag,
+    posts: allPosts.filter((post) => post.tags.includes(tag)),
+  }
+});
+const title = 'Posts by topic';
+---
+
+<ListLayout title={title} description='All posts by topic'>
+  <div class="text-center">
+    <h1 class="text-2xl mb-4 font-bold">
+      {title}
+    </h1>
+
+  </div>
+  <div class="flex flex-col justify-center gap-12">
+    {
+      grouped.map((group) => {
+        return (
+          <div>
+            <h2 class="font-semibold">{group.tag}</h2>
+            <ul class="list-disc pl-5">
+            {group.posts.map((post) => {
+              return (
+                <li><a class="link" href={post.permalink}>{post.title}</a></li>
+
+              )
+            })}
+          </ul>
+          </div>
+
+        )
+      })
+    }
+  </div>
+
+  <!-- <div class="mt-12 text-center">
+    <h2 class="text-lg mb-8">
+      <a href="/posts/" class="link  font-semibold border-2 p-2 rounded-md hover:border-neutral-200 dark:hover:border-slate-800">
+        &larr; All posts
+      </a>
+    </h2>
+
+  </div> -->
+</ListLayout>
