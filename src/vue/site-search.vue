@@ -66,9 +66,10 @@
 </template>
 
 <script setup>
-import {ref, nextTick} from 'vue';
+import {ref, nextTick, onMounted, onBeforeUnmount} from 'vue';
 import {debounce} from '@/assets/js/debounce.mjs';
 import SearchResult from './search-result.vue';
+
 const selectedIndex = ref(0);
 const searchName = ref('');
 const searchField = ref(null);
@@ -145,11 +146,13 @@ const fetchResults = async() => {
   }
   if (searchName.value.length < 2) {
     results.value = [{item: {title: 'Type 2 or more characters to search…'}}];
+
     return;
   }
 
   if (responses[searchName.value]) {
     results.value = responses[searchName.value];
+
     return console.log('returning cached copy');
   }
 
@@ -169,11 +172,31 @@ const fetchResults = async() => {
 };
 
 const onInput = debounce(fetchResults, 200);
+
+const onMetaK = (event) => {
+  if (!event.metaKey && !event.ctrlKey) {
+    return;
+  }
+
+  if (event.key === 'k' && !showForm.value) {
+    toggleForm();
+  }
+};
+
+onMounted(() => {
+  document.body.addEventListener('keydown', onMetaK, false);
+});
+
+onBeforeUnmount(() => {
+  document.body.removeEventListener('keydown', onMetaK, false);
+});
 </script>
 
 <style lang="postcss">
 .search-label {
-  transition: transform 0.2s;
+  @apply text-gray-500;
+  line-height: 1.4;
+  transition: transform 0.2s, color 0.2s;
 }
 
 .search-label:has(~ input:focus),
@@ -181,6 +204,6 @@ const onInput = debounce(fetchResults, 200);
 .search-label.has-text {
   transform: scale(.8) translateY(-80%);
   transform-origin: left;
-
+  color: #000;
 }
 </style>
