@@ -91,7 +91,11 @@ const clearResults = (event) => {
     // console.log(event.target);
     // Clearing results by pressing Escape key, so make sure input still has focus
     time = 0;
-    searchField.value.focus();
+    if (document.activeElement === searchField.value) {
+      searchName.value = '';
+    } else {
+      searchField.value.focus();
+    }
   } else {
     blurred.value = true;
   }
