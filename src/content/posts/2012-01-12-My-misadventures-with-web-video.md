@@ -134,8 +134,8 @@ There are many opportunities to break video on the web. Have you come across any
 [4]: https://www.varnish-cache.org/
 [5]: http://mediaelementjs.com/
 [6]: http://www.google.com/search?ie=UTF-8&q=mp4+moov+atom
-[8]: /img/handbrake.png
+[8]: ../../assets/img/handbrake.png
 [9]: http://handbrake.fr/
 [10]: http://www.fusionary.com/
-[11]: /img/no-accelerated-graphics.png
+[11]: ../../assets/img/no-accelerated-graphics.png
 [12]: http://camendesign.com/code/video_for_everybody
