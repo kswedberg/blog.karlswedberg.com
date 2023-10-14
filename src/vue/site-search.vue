@@ -199,11 +199,15 @@ onBeforeUnmount(() => {
   transition: transform 0.2s, color 0.2s;
 }
 
-.search-label:has(~ input:focus),
+/* .search-label:has(~ input:focus), */
 .search-form:focus-within label,
 .search-label.has-text {
   transform: scale(.8) translateY(-80%);
   transform-origin: left;
   color: #000;
+  line-height: 1;
+  padding-block: 0;
+  padding-left: .15rem;
+  margin-left: .1rem;
 }
 </style>
