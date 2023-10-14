@@ -1,8 +1,8 @@
 
 module.exports = {
   extends: [
-    'kswedberg',
     'plugin:astro/recommended',
+    'kswedberg',
   ],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -11,10 +11,14 @@ module.exports = {
   env: {
     node: true,
     browser: true,
-    es2020: true,
+    es2024: true,
   },
 
   overrides: [
+    {
+      files: ['*.vue'],
+      extends: ['kswedberg/vue3'],
+    },
     {
       files: ['*.astro'],
       parser: 'astro-eslint-parser',
