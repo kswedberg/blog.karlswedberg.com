@@ -12,12 +12,12 @@ const grouped = tags.map((tag) => {
   return {
     tag,
     posts: allPosts.filter((post) => post.tags.includes(tag)),
-  }
+  };
 });
 const title = 'Posts by topic';
 ---
 
-<ListLayout title={title} description='All posts by topic'>
+<ListLayout title={title} description="All posts by topic">
   <div class="text-center">
     <h1 class="text-2xl mb-4 font-bold">
       {title}
@@ -31,16 +31,14 @@ const title = 'Posts by topic';
           <div>
             <h2 class="font-semibold">{group.tag}</h2>
             <ul class="list-disc pl-5">
-            {group.posts.map((post) => {
-              return (
-                <li><a class="link" href={post.permalink}>{post.title}</a></li>
-
-              )
-            })}
-          </ul>
+              {group.posts.map((post) => {
+                return (
+                  <li><a class="link" href={post.permalink}>{post.title}</a></li>
+                );
+              })}
+            </ul>
           </div>
-
-        )
+        );
       })
     }
   </div>

@@ -1,7 +1,8 @@
 <template>
-
   <li>
-    <a @focus="emit('activate')" v-if="props.item.url"
+    <a
+      v-if="props.item.url"
+      @focus="emit('activate')"
       :class="[
         'link block p-2 mb-1 last:mb-0 rounded',
         'border border-transparent hover:border-gray-400 dark:hover:border-slate-500',
@@ -12,7 +13,7 @@
       <span v-html="html" />
     </a>
     <span v-else>
-      {{  props.item.title }}
+      {{ props.item.title }}
     </span>
   </li>
 </template>
@@ -20,7 +21,7 @@
 <script setup>
 import {defineProps, defineEmits} from 'vue';
 
-const emit = defineEmits(['activate'])
+const emit = defineEmits(['activate']);
 const props = defineProps({
   item: {
     type: Object,
@@ -30,11 +31,12 @@ const props = defineProps({
   },
   positions: {
     type: [Object, Set],
+    default: null,
   },
   selected: {
     type: Boolean,
     default: false,
-  }
+  },
 });
 
 const chars = props.item.title.split('');

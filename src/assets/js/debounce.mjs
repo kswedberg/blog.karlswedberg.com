@@ -3,12 +3,12 @@ export const debounce = function debounce(fn, timerDelay, ctx) {
   let timeout;
 
   return function(...args) {
-    ctx = ctx || this;
+    const context = ctx || this;
 
     window.clearTimeout(timeout);
     timeout = window.setTimeout(() => {
-      fn.apply(ctx, args);
-      timeout = ctx = args = null;
+      fn.apply(context, args);
+      timeout = null;
     }, delay);
   };
 };

@@ -1,10 +1,21 @@
 <template>
   <div class="relative flex items-center justify-end" aria-live="polite">
-    <form v-if="showForm" id="searchWrapper" action="https://good-search.karl.workers.dev/" class="search-form absolute right-9 z-10" @submit.prevent="onSubmit">
-      <label :class="[
-        'search-label block absolute p-1 bg-white rounded-md leading-none mt-0.5 ml-px',
-        searchName.length && 'has-text',
-      ]" for="search-name">Search</label>
+    <form
+      v-if="showForm"
+      @submit.prevent="onSubmit"
+      id="searchWrapper"
+      action="https://good-search.karl.workers.dev/"
+      class="search-form absolute right-9 z-10"
+    >
+      <label
+        :class="[
+          'search-label block absolute p-1 bg-white rounded-md mt-0.5 ml-px',
+          searchName.length && 'has-text',
+        ]"
+        for="search-name"
+      >
+        Search
+      </label>
       <input
         v-model="searchName"
         @input="onInput"
@@ -31,13 +42,24 @@
     <div class="inline-flex items-center">
       <button @click="toggleForm" type="button" class="ml-1 p-1">
         <span class="sr-only">{{ showForm ? 'Close form' : 'Show search form' }}</span>
-        <svg v-if="!showForm" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-          <path d="M19.023 16.977c-.513-.488-1.004-.997-1.367-1.384-.372-.378-.596-.653-.596-.653l-2.8-1.337C15.34 12.37 16 10.763 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"/>
+        <svg
+          v-if="!showForm"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path d="M19.023 16.977c-.513-.488-1.004-.997-1.367-1.384-.372-.378-.596-.653-.596-.653l-2.8-1.337C15.34 12.37 16 10.763 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z" />
         </svg>
-        <svg v-else xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        <svg
+          v-else
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
         </svg>
-
       </button>
     </div>
   </div>
@@ -77,7 +99,7 @@ const focusField = () => {
   searchField.focus();
 };
 const toggleForm = async() => {
-  showForm.value = !showForm.value
+  showForm.value = !showForm.value;
 
   await nextTick();
 
@@ -101,21 +123,21 @@ const moveDown = () => {
 const moveSelection = (event) => {
   if (event.key === 'ArrowUp') {
     event.preventDefault();
-    moveUp()
+    moveUp();
   } else if (event.key === 'ArrowDown') {
     moveDown();
   }
-}
+};
 const setIndex = (i) => {
   selectedIndex.value = i;
-}
+};
 const fetchResults = async() => {
   selectedIndex.value = 0;
 
   const options = {
     method: 'GET',
     mode: 'cors',
-    headers: {'Content-Type': 'application/json'}
+    headers: {'Content-Type': 'application/json'},
   };
 
   if (blurred.value) {
@@ -138,11 +160,12 @@ const fetchResults = async() => {
   }
 
   const {data, metadata} = await response.json();
+
   if (!blurred.value) {
+    // eslint-disable-next-line require-atomic-updates
     responses[searchName.value] = data;
     results.value = data;
   }
-
 };
 
 const onInput = debounce(fetchResults, 200);

@@ -20,7 +20,7 @@ const getEntries = (name) => {
     return {
       item,
       positions: [...positions],
-    }
+    };
   });
 };
 
@@ -28,11 +28,12 @@ app.get('/', (ctx) => {
   const name = ctx.req.query('name');
   const data = getEntries(name) || [];
   const url = data[0] && data[0].item && data[0].item.url;
+
   if (url) {
     return ctx.redirect(url);
   }
 
-  ctx.text(`hey there! Couldn't find ${name}`)
+  ctx.text(`hey there! Couldn't find ${name}`);
 });
 
 
