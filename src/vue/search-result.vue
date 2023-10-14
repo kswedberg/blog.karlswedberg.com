@@ -19,8 +19,6 @@
 </template>
 
 <script setup>
-import {defineProps, defineEmits} from 'vue';
-
 const emit = defineEmits(['activate']);
 const props = defineProps({
   item: {
