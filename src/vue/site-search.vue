@@ -3,6 +3,8 @@
     <form
       v-if="showForm"
       @submit.prevent="onSubmit"
+      @focusout="clearResults"
+      @keyup.escape="clearResults"
       id="searchWrapper"
       action="https://good-search.karl.workers.dev/"
       class="search-form absolute right-9 z-10"
@@ -20,8 +22,7 @@
         v-model="searchName"
         @input="onInput"
         @keydown="moveSelection"
-        @focus="blurred = false"
-        @blur="clearResults"
+        @focus="onFocus"
         type="search"
         name="name"
         ref="searchField"
@@ -78,27 +79,37 @@ const blurred = ref(false);
 const showForm = ref(false);
 const responses = {};
 const baseUrl = 'https://good-search.karl.workers.dev/search';
+let clearDelay;
 
 const clearResults = (event) => {
-  results.value = [];
-  selectedIndex.value = -1;
-  blurred.value = true;
+  if (event.relatedTarget && event.relatedTarget.closest('#searchWrapper')) {
+    return;
+  }
+  let time = 150;
+
+  if (event.type === 'keyup') {
+    // console.log(event.target);
+    // Clearing results by pressing Escape key, so make sure input still has focus
+    time = 0;
+    searchField.value.focus();
+  } else {
+    blurred.value = true;
+  }
+
+  clearDelay = setTimeout(() => {
+    results.value = [];
+    selectedIndex.value = -1;
+  }, time);
 };
+
 const onSubmit = (event) => {
   const url = results.value?.[selectedIndex.value]?.item?.url;
+
   if (url) {
     location.href = url;
   }
 };
 
-const focusField = () => {
-  const searchField = document.getElementById('search-name');
-
-  if (!searchField) {
-    return console.log('could not find search field');
-  }
-  searchField.focus();
-};
 const toggleForm = async() => {
   showForm.value = !showForm.value;
 
@@ -172,6 +183,11 @@ const fetchResults = async() => {
 };
 
 const onInput = debounce(fetchResults, 200);
+
+const onFocus = () => {
+  clearTimeout(clearDelay);
+  blurred.value = false;
+};
 
 const onMetaK = (event) => {
   if (!event.metaKey && !event.ctrlKey) {
