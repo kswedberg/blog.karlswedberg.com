@@ -10,7 +10,7 @@ import lg from '@/assets/img/icon-512.png';
 
 const parser = new MarkdownIt({html: true});
 
-export const get = async(ctx) => {
+export const GET = async(ctx) => {
   const site = ctx.site.href;
   const blogEntries = await getCollection('posts');
 

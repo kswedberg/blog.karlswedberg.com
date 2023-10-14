@@ -3,7 +3,7 @@ import md from '@/assets/img/icon-192.png';
 import lg from '@/assets/img/icon-512.png';
 import maskable from '@/assets/img/good-dog-maskable.png';
 
-export const get = (ctx) => {
+export const GET = (ctx) => {
   const manifest = {
     name: config.siteTitle,
     short_name: 'karl\'s blog',
@@ -35,5 +35,5 @@ export const get = (ctx) => {
     ],
   };
 
-  return {body: JSON.stringify(manifest)};
+  return new Response(JSON.stringify(manifest));
 };
