@@ -178,7 +178,9 @@ const onMetaK = (event) => {
     return;
   }
 
-  if (event.key === 'k' && !showForm.value) {
+  if (event.key === 'k') {
+    event.stopPropagation();
+    event.preventDefault();
     toggleForm();
   }
 };
