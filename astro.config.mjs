@@ -23,9 +23,7 @@ export default defineConfig({
   integrations: [
     mdx(),
     tailwind({
-      config: {
-        applyBaseStyles: false,
-      },
+      applyBaseStyles: false,
     }),
     sitemap(),
 
