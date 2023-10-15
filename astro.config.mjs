@@ -28,8 +28,8 @@ export default defineConfig({
     sitemap(),
 
     compress({
-      img: false,
-      html: {
+      Image: false,
+      HTML: {
         removeAttributeQuotes: false,
       },
     }),
