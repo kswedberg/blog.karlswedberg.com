@@ -60,6 +60,7 @@ let posts = [];
 /** */
 export const fetchPosts = async() => {
   if (!posts.length) {
+    // eslint-disable-next-line require-atomic-updates
     posts = await load();
   }
 
