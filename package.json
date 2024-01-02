@@ -12,6 +12,9 @@
     "deploy": "npm run build && source .env && source ./scripts/deploy.sh",
     "lint": "eslint --ext .mjs,.cjs,.js,.astro --ignore-path .eslintignore ./"
   },
+  "resolutions": {
+    "sharp": "0.32.6"
+  },
   "dependencies": {
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.2",
