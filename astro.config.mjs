@@ -7,7 +7,7 @@ import vue from '@astrojs/vue';
 
 import {remarkExtras} from './src/utils/remark-plugin.mjs';
 import {getDirname} from './src/utils/esm.mjs';
-import compress from 'astro-compress';
+// import compress from 'astro-compress';
 
 const rootDir = getDirname(import.meta);
 const srcDir = path.resolve(rootDir, './src');
@@ -27,12 +27,12 @@ export default defineConfig({
     }),
     sitemap(),
 
-    compress({
-      Image: false,
-      HTML: {
-        removeAttributeQuotes: false,
-      },
-    }),
+    // compress({
+    //   Image: false,
+    //   HTML: {
+    //     removeAttributeQuotes: false,
+    //   },
+    // }),
     vue(),
   ],
   markdown: {
