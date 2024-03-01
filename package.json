@@ -45,7 +45,7 @@
     "markdown-it": "^14.0.0",
     "opml": "^0.5.2",
     "postcss-import": "^15.1.0",
-    "sanitize-html": "^2.11.0",
+    "sanitize-html": "^2.12.1",
     "typescript": "^5.2.2"
   }
 }
