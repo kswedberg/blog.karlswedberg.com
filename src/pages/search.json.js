@@ -35,7 +35,5 @@ export const GET = async(ctx) => {
     };
   });
 
-  return {
-    body: JSON.stringify(posts),
-  };
+  return new Response(JSON.stringify(posts));
 };

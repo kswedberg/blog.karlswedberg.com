@@ -112,7 +112,7 @@ $('video').mediaelementplayer({
 
 **Solution 3, Handbrake:** One of those video encoders that put the moov atom in the wrong place for me was [Handbrake][9]. Now I know that it *can* put it at the start of the file if you check the *Web optimized* checkbox. However, the meaning of "Web optimized" wasn't clear to me, and *none of the Handbrake presets have it checked by default.* Seems obvious looking at it now, but when grasping at straws and having to consider Flash, Internet Explorer, JavaScript, HTML, VMWare, hardware acceleration, and other codec conundrums (FFMpeg, H.264, Frame rate, bitrate, etc.), it's easy to dismiss a checkbox like this as "something that will probably degrade video quality."
 
-![Handbrake settings][8]
+![Handbrake settings](../../assets/img/handbrake.png)
 
 I saved a custom preset in Handbrake that I now use for converting to mp4, starting with the iPhone 4 preset and unchecking "Large File Size" and checking "Web optimized."
 
@@ -134,7 +134,6 @@ There are many opportunities to break video on the web. Have you come across any
 [4]: https://www.varnish-cache.org/
 [5]: http://mediaelementjs.com/
 [6]: http://www.google.com/search?ie=UTF-8&q=mp4+moov+atom
-[8]: ../../assets/img/handbrake.png
 [9]: http://handbrake.fr/
 [10]: http://www.fusionary.com/
 [11]: ../../assets/img/no-accelerated-graphics.png
