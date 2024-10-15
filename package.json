@@ -20,7 +20,7 @@
     "@astrojs/sitemap": "^3.0.2",
     "@astrojs/tailwind": "^5.0.2",
     "@astrojs/vue": "^3.0.2",
-    "astro": "^3.4.0",
+    "astro": "^4.16.1",
     "astro-compress": "^2.2.5",
     "mdast-util-to-string": "^4.0.0",
     "reading-time": "^1.5.0",
