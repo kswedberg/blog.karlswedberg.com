@@ -38,7 +38,6 @@ const getNormalizedPost = async(post) => {
 };
 const load = async function() {
   const posts = await getCollection('posts');
-  // eslint-disable-next-line no-return-await
   const normalizedPosts = posts.map(async(post) => await getNormalizedPost(post));
 
   const sorted = (await Promise.all(normalizedPosts))
