@@ -1,7 +1,7 @@
 ---
 date: Sun Feb 26 2023 14:40:04 GMT-0500 (Eastern Standard Time)
 title: Making links big
-excerpt: Back in the days before HTML5, wrapping a link around block-level elements wasn't semantically appropriate. Even now, some situations—like linking a table row—call for a more creative solution...
+description: Back in the days before HTML5, wrapping a link around block-level elements wasn't semantically appropriate. Even now, some situations—like linking a table row—call for a more creative solution
 tags: [html, css]
 ---
 
@@ -14,7 +14,10 @@ Back in the days before HTML5, our pretty little doctype — `<!DOCTYPE html>` �
 Standards compliance was all the rage, and webmasters loved to show that their sites passed the <a href="https://validator.w3.org/">W3C markup validator</a>. But such compliance meant that you couldn't have some nice things, like block-level elements inside a link (aka "anchor" element). For example, this was not valid:
 
 ```html
-<a href="https://example.com"><h3>heading</h3><div>excerpt</div></a>
+<a href="https://example.com">
+  <h3>heading</h3>
+  <div>excerpt</div>
+</a>
 ```
 
 With HTML 4.01, you could probably get away with it, though you might be shamed into removing your badge. With XHTML and the "proper" application/xhtml+xml mime type, however, a browser might stop rendering the page altogether.
@@ -22,8 +25,12 @@ With HTML 4.01, you could probably get away with it, though you might be shamed 
 At one point (many years ago) I resorted to writing a Big Link jQuery plugin to handle this scenario. If you assigned a class of `big-link` to a containing element, the plugin would find the first href attribute among its inner elements. Clicking anywhere in the container would trigger `location.href = [innerElement's href]`. All that was left was a splash of CSS to fake the link
 
 ```css
-.big-link {cursor: pointer;}
-.big-link:hover a {text-decoration: underline;}
+.big-link {
+  cursor: pointer;
+}
+.big-link:hover a {
+  text-decoration: underline;
+}
 ```
 
 Something about that felt dirty, though. I mean, sure, it was "progressive enhancement" in a way, but the idea of using JavaScript to do what an anchor element gives us for free was like paying extra for a knock-off brand. In my experience, JavaScript solutions get more complicated the more I think about them, and this one is no exception. To be consistent with browsers, I'd also have to account for <kbd>⇧</kbd>+click, <kbd>^</kbd>+click, and <kbd>⌘</kbd>+click behaviors—which I'm sure I didn't even consider back then.
@@ -65,7 +72,7 @@ tr.link-row {
   transform: translateX(0);
 }
 tr.link-row td:first-child > a::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
@@ -101,3 +108,4 @@ td:first-child > a::after {
   /* other stuff */
   width: calc(100% - 3.75rem);
 }
+```
