@@ -1,4 +1,3 @@
-import sanitizeHtml from 'sanitize-html';
 import MarkdownIt from 'markdown-it';
 import {getCollection} from 'astro:content';
 import {config} from '@/utils/config.mjs';
@@ -21,16 +20,15 @@ export const getFeed = async(ctx) => {
   .map((post, i) => {
     const rendered = parser.render(post.body);
     const content = rendered.replace(srcSlash, srcReplace);
-    const excerpt = content.split(/\s+/).slice(0, 40).join(' ');
 
-    const description = excerpt.length < content.length ? `${excerpt}...` : excerpt;
+    const description = config.getDescription(content, post.data.description, 40);
     const link = new URL(`/${config.getSlug(post.slug)}/`, site);
 
     return {
       title: post.data.title,
       id: link.href,
       link: link.href,
-      description: sanitizeHtml(description),
+      description,
       content,
       date: new Date(post.data.date),
     };

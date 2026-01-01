@@ -18,7 +18,7 @@ const dURL = `${Astro.site}${post.slug}/`;
   <head>
     <Head
       title={post.title}
-      description={post.description || post.excerpt}
+      description={post.description}
       ogType="article"
     />
   </head>
@@ -27,6 +27,7 @@ const dURL = `${Astro.site}${post.slug}/`;
       <PageMenu />
       <main class="grow pt-8 sm:pt-16 lg:pt-20">
         <SinglePost post={post} />
+
         <section id="comments" class="comments mt-8" data-id={dIdentifier} data-url={dURL}>
           <div id="disqus_thread">
             <div class="loader hidden"><span>❀ </span><span>✿ </span><span>❀</span></div>

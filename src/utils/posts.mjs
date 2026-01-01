@@ -1,5 +1,6 @@
 import {getCollection} from 'astro:content';
 import {formatDate, getAged} from './date.mjs';
+import {config} from './config.mjs';
 
 const cleanSlug = (initial) => {
   const slug = initial.replace(/^\//, '').replace(/^\d{4}-\d{2}-\d{2}-/, '').toLowerCase();
@@ -7,13 +8,19 @@ const cleanSlug = (initial) => {
   return `${slug}`;
 };
 
+/**
+ * Normalize a post object from the content/posts directory.
+ * @param {Object} post - The post object.
+ * @returns {Promise<Object>} A normalized post object.
+ */
 const getNormalizedPost = async(post) => {
   const {id, slug: rawSlug = '', data} = post;
   const {Content, remarkPluginFrontmatter = {}} = await post.render();
-  const {excerpt, readingTime} = remarkPluginFrontmatter;
+  const {readingTime} = remarkPluginFrontmatter;
 
   const {
     tags,
+    description,
     date: rawDate,
     ...rest
   } = data;
@@ -23,6 +30,7 @@ const getNormalizedPost = async(post) => {
   return {
     id,
     slug,
+    description: config.getDescription(post.rendered.html, description),
     rawDate,
     timestamp: date.getTime(),
     date: formatDate(date),
@@ -30,15 +38,15 @@ const getNormalizedPost = async(post) => {
     aged: getAged(date),
     tags,
     permalink: `/${slug}/`,
-    excerpt,
     readingTime,
     ...rest,
     Content: Content,
   };
 };
+
 const load = async function() {
   const posts = await getCollection('posts');
-  const normalizedPosts = posts.map(async(post) => await getNormalizedPost(post));
+  const normalizedPosts = posts.map((post) => getNormalizedPost(post));
 
   const sorted = (await Promise.all(normalizedPosts))
   .sort((a, b) => b.timestamp.valueOf() - a.timestamp.valueOf())
@@ -56,7 +64,10 @@ const load = async function() {
 
 let posts = [];
 
-/** */
+/**
+ * Fetch all posts in the content/posts directory and return them as an array of objects.
+ * @returns {Promise<Array>} An array of post objects.
+ */
 export const fetchPosts = async() => {
   if (!posts.length) {
     // eslint-disable-next-line require-atomic-updates
@@ -66,6 +77,11 @@ export const fetchPosts = async() => {
   return posts;
 };
 
+/**
+ * Fetch all posts in the content/posts directory and return them as an array of objects.
+ * @param {string} tag - The tag to filter posts by.
+ * @returns {Promise<Array>} An array of post objects.
+ */
 export const fetchPostsByTag = async(tag) => {
   const posts = await fetchPosts();
 
@@ -75,6 +91,11 @@ export const fetchPostsByTag = async(tag) => {
   });
 };
 
+
+/**
+ * Fetch all tags from posts in the content/posts directory and return them as an array of unique strings.
+ * @returns {Promise<Array>} An array of unique tag strings.
+ */
 export const getTags = async() => {
   const posts = await fetchPosts();
 

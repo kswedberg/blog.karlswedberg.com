@@ -23,7 +23,7 @@ const {
 
 const docTitle = title ? `${title} - ${config.siteTitle}` : config.siteTitle;
 const metaTitle = title || config.siteTitle;
-const metaDescription = config.getDescription(description);
+const metaDescription = config.getMetaDescription(description);
 ---
 <meta charset="utf-8" />
 <title>{docTitle}</title>

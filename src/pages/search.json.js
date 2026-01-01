@@ -2,9 +2,7 @@ import sanitizeHtml from 'sanitize-html';
 import MarkdownIt from 'markdown-it';
 import {getCollection} from 'astro:content';
 import {config} from '@/utils/config.mjs';
-import {Feed} from 'feed';
-import sm from '@/assets/img/icon.svg';
-import lg from '@/assets/img/icon-512.png';
+
 
 // https://github.com/jpmonette/feed
 
@@ -17,19 +15,17 @@ export const GET = async(ctx) => {
   const posts = blogEntries
   .map((post, i) => {
     const rendered = parser.render(post.body);
-    const content = sanitizeHtml(rendered, {
-      allowedTags: [],
-      allowedAttributes: {},
-    });
-    const excerpt = content.split(/\s+/).slice(0, 40).join(' ');
+    let excerpt = config.getSearchContent(rendered, post.data.description, post.data.title);
 
-    const description = excerpt.length < content.length ? `${excerpt}...` : excerpt;
+    if (post.data.tags.length) {
+      // excerpt = `${excerpt} | ${post.data.tags.join(', ')}`;
+    }
     const link = new URL(`/${config.getSlug(post.slug)}/`, site);
 
     return {
       title: post.data.title,
       url: link.href,
-      excerpt: sanitizeHtml(description),
+      excerpt,
       date: new Date(post.data.date),
     };
   })

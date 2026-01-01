@@ -1,3 +1,25 @@
+import sanitizeHtml from 'sanitize-html';
+
+
+const getContentStart = (content, words = 50, ellipses = true) => {
+  const sanitized = sanitizeHtml(content, {
+    allowedTags: [],
+    allowedAttributes: {},
+  });
+  const parts = sanitized.split(/\s+/);
+  const frag = parts.slice(0, words).join(' ');
+
+  if (parts.length <= words) {
+    return sanitized;
+  }
+
+  return `${frag}${ellipses ? '...' : ''}`;
+};
+
+const getDescription = (content, description, words = 50, ellipses) => {
+  return description || getContentStart(content, words, ellipses);
+};
+
 export const config = {
   siteTitle: 'Good Blog, Karl',
   author: 'Karl Swedberg',
@@ -7,7 +29,21 @@ export const config = {
 
     return `${slug}`;
   },
-  getDescription(description) {
+
+  getDescription,
+  getContentStart,
+  getSearchContent: (rawContent, rawDescription, title) => {
+    const description = getDescription(rawContent, rawDescription, 50, false);
+    const content = getContentStart(rawContent, 150, false);
+
+
+    if (!content.startsWith(description)) {
+      return `${content} | ${description}`;
+    }
+
+    return content;
+  },
+  getMetaDescription(description) {
     const descParts = description.split(' ');
     let desc = '';
 
