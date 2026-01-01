@@ -9,7 +9,7 @@
     "build": "astro build && cp ./dist/search.json ./search/assets/static/",
     "preview": "astro preview",
     "blog": "node ./scripts/blog.mjs",
-    "deploy": "npm run build && source .env && source ./scripts/deploy.sh",
+    "release": "npm run build && source .env && source ./scripts/deploy.sh",
     "lint": "eslint --ext .mjs,.cjs,.js,.astro --ignore-path .eslintignore ./"
   },
   "dependencies": {

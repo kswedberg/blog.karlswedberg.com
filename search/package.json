@@ -1,14 +1,14 @@
 {
   "scripts": {
     "dev": "wrangler dev src/index.js",
-    "deploy": "wrangler deploy src/index.js"
+    "release": "wrangler deploy src/index.js"
   },
   "dependencies": {
     "fzf": "^0.5.2",
-    "hono": "^4.11.1"
+    "hono": "^4.11.3"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20251223.0",
+    "@cloudflare/workers-types": "^4.20260101.0",
     "wrangler": "^4.56.0"
   },
   "license": "MIT"
