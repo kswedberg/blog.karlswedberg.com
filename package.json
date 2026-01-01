@@ -27,7 +27,7 @@
   "devDependencies": {
     "@astrojs/mdx": "4.3.13",
     "@tailwindcss/typography": "^0.5.10",
-    "@typescript-eslint/parser": "^8.9.0",
+    "@typescript-eslint/parser": "^8.51.0",
     "@vitejs/plugin-vue": "^6.0.3",
     "autoprefixer": "^10.4.19",
     "axios": "^1.6.0",
