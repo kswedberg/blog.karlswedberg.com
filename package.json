@@ -41,7 +41,6 @@
     "inquirer": "^13.1.0",
     "inquirer-datepicker-prompt": "^0.4.3",
     "markdown-it": "^14.0.0",
-    "opml": "^0.5.2",
     "postcss-import": "^16.1.0",
     "sanitize-html": "^2.13.0",
     "sharp": "^0.34.5",
