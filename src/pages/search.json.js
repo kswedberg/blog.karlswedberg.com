@@ -15,7 +15,6 @@ export const GET = async(ctx) => {
   const blogEntries = await getCollection('posts');
 
   const posts = blogEntries
-  .reverse()
   .map((post, i) => {
     const rendered = parser.render(post.body);
     const content = sanitizeHtml(rendered, {
@@ -33,6 +32,9 @@ export const GET = async(ctx) => {
       excerpt: sanitizeHtml(description),
       date: new Date(post.data.date),
     };
+  })
+  .sort((a, b) => {
+    return b.date.getTime() - a.date.getTime();
   });
 
   return new Response(JSON.stringify(posts));
