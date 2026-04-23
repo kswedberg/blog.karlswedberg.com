@@ -22,7 +22,7 @@ export const getFeed = async(ctx) => {
     const content = rendered.replace(srcSlash, srcReplace);
 
     const description = config.getDescription(content, post.data.description, 40);
-    const link = new URL(`/${config.getSlug(post.slug)}/`, site);
+    const link = new URL(`/${config.getSlug(post.id)}/`, site);
 
     return {
       title: post.data.title,

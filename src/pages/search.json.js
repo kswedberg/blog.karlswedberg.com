@@ -20,7 +20,7 @@ export const GET = async(ctx) => {
     if (post.data.tags.length) {
       // excerpt = `${excerpt} | ${post.data.tags.join(', ')}`;
     }
-    const link = new URL(`/${config.getSlug(post.slug)}/`, site);
+    const link = new URL(`/${config.getSlug(post.id)}/`, site);
 
     return {
       title: post.data.title,

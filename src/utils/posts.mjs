@@ -1,6 +1,9 @@
-import {getCollection} from 'astro:content';
+import {getCollection, render} from 'astro:content';
+import MarkdownIt from 'markdown-it';
 import {formatDate, getAged} from './date.mjs';
 import {config} from './config.mjs';
+
+const parser = new MarkdownIt({html: true});
 
 const cleanSlug = (initial) => {
   const slug = initial.replace(/^\//, '').replace(/^\d{4}-\d{2}-\d{2}-/, '').toLowerCase();
@@ -14,8 +17,8 @@ const cleanSlug = (initial) => {
  * @returns {Promise<Object>} A normalized post object.
  */
 const getNormalizedPost = async(post) => {
-  const {id, slug: rawSlug = '', data} = post;
-  const {Content, remarkPluginFrontmatter = {}} = await post.render();
+  const {id, body, data} = post;
+  const {Content, remarkPluginFrontmatter = {}} = await render(post);
   const {readingTime} = remarkPluginFrontmatter;
 
   const {
@@ -24,13 +27,13 @@ const getNormalizedPost = async(post) => {
     date: rawDate,
     ...rest
   } = data;
-  const slug = cleanSlug(rawSlug);
+  const slug = cleanSlug(id);
   const date = new Date(rawDate);
 
   return {
     id,
     slug,
-    description: config.getDescription(post.rendered.html, description),
+    description: config.getDescription(parser.render(body || ''), description),
     rawDate,
     timestamp: date.getTime(),
     date: formatDate(date),
