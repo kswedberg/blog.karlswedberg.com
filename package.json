@@ -42,7 +42,7 @@
     "inquirer-datepicker-prompt": "^0.4.3",
     "markdown-it": "^14.1.1",
     "postcss-import": "^16.1.0",
-    "sanitize-html": "^2.17.3",
+    "sanitize-html": "^2.17.4",
     "sharp": "^0.34.5",
     "typescript": "^6.0.3"
   }
