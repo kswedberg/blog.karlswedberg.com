@@ -13,7 +13,7 @@
     "lint": "eslint --ext .mjs,.cjs,.js,.astro ./"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.18",
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@astrojs/tailwind": "^6.0.2",
     "@astrojs/vue": "^6.0.1",
