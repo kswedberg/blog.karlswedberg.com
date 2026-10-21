@@ -39,7 +39,7 @@
     "html-entities": "^2.4.0",
     "inquirer": "^14.2.0",
     "inquirer-datepicker-prompt": "^0.4.3",
-    "markdown-it": "^15.0.2",
+    "markdown-it": "^15.0.3",
     "postcss-import": "^17.0.0",
     "sanitize-html": "^2.17.7",
     "sharp": "^0.35.4",
